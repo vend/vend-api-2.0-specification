@@ -1,0 +1,3856 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2.0",
+    "title": "API 2.0",
+    "description": "Early release of version 2.0 of the Vend API.",
+    "license": {
+      "name": "MIT",
+      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    }
+  },
+  "x-explorer-enabled": false,
+  "host": "domain_prefix.vendhq.com",
+  "basePath": "/api/2.0",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/product_images/{product_image_id}": {
+      "get": {
+        "description": "Returns the metadata for a single product image with a given ID.\nThis method is useful for checking the status of an image after it was uploaded.",
+        "summary": "Get a single product_image data",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Get a single product_image data",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "Allows for changing the image position in the list",
+        "summary": "Set image position",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Set image position",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImagePosition"
+            }
+          },
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "Deletes the product_image with the requested ID.",
+        "summary": "Delete a product_image",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Delete a product_image",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/products/{product_id}/actions/image_upload": {
+      "post": {
+        "description": "Upload a binary file with an image to be used for a product. This request should be encoded as `multipart/form-data`.",
+        "summary": "Upload an image",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Upload an image",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UploadAnImageRequest"
+            }
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "UUID",
+            "description": "The ID of the product which the imaged should be associated with."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/customers/{customer_id}": {
+      "get": {
+        "description": "Returns a single customer with a requested ID.",
+        "summary": "Get a single customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Get a single customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "Updates the customer with the requested ID.",
+        "summary": "Update a customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Update a customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "Deletes the customer with the requested ID.",
+        "summary": "Delete a customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Delete a customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/suppliers": {
+      "get": {
+        "description": "Returns a paginated list of suppliers.",
+        "summary": "List suppliers",
+        "tags": [
+          "Suppliers"
+        ],
+        "operationId": "List suppliers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SupplierCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/sales": {
+      "get": {
+        "description": "Returns a paginated list of Sales.",
+        "summary": "List Sales",
+        "tags": [
+          "Sales"
+        ],
+        "operationId": "List Sales",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaleCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/tags": {
+      "get": {
+        "description": "Returns a collection of tags.",
+        "summary": "List tags",
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "List tags",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TagCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/registers/{register_id}": {
+      "get": {
+        "description": "Returns a single register with the requested ID.",
+        "summary": "Get a single register",
+        "tags": [
+          "Registers"
+        ],
+        "operationId": "Get a single register",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "register_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid register ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/registers": {
+      "get": {
+        "description": "Returns a paginated list of registers.",
+        "summary": "List registers",
+        "tags": [
+          "Registers"
+        ],
+        "operationId": "List registers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/product_types": {
+      "get": {
+        "description": "Returns a paginated list of product types.",
+        "summary": "List product types",
+        "tags": [
+          "Product Types"
+        ],
+        "operationId": "List product types",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductTypeCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/products/{product_id}/inventory": {
+      "get": {
+        "description": "Returns inventory data for a single product in all the outlets.",
+        "summary": "Get inventory data for a single product",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Get inventory data for a single product",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/products/{product_id}": {
+      "get": {
+        "description": "Returns a single product object with a given ID.",
+        "summary": "Get a single product",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Get a single product",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Returns a paginated list of products.",
+        "summary": "List products",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "List products",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/price_book_products": {
+      "get": {
+        "description": "Returns a paginated list of price book products.",
+        "summary": "List price book products",
+        "tags": [
+          "Price Book Products"
+        ],
+        "operationId": "List price book products",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookProductCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/price_books/{price_book_id}": {
+      "get": {
+        "description": "Returns a single price book with a requested ID",
+        "summary": "Get a single price book",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "Get a single price book",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "price_book_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid price book ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/price_books": {
+      "get": {
+        "description": "Returns a paginated list of price books",
+        "summary": "List price books",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "List price books",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "Creates a new price book.",
+        "summary": "Create a price book",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "Create a price book",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/outlets/{outlet_id}": {
+      "get": {
+        "description": "Returns a single outlet with the requested ID.",
+        "summary": "Get a single outlet",
+        "tags": [
+          "Outlets"
+        ],
+        "operationId": "Get a single outlet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "outlet_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid Outlet ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutletCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/outlets": {
+      "get": {
+        "description": "Returns a collection of outlets.",
+        "summary": "List outlets",
+        "tags": [
+          "Outlets"
+        ],
+        "operationId": "List outlets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutletCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/inventory": {
+      "get": {
+        "description": "Returns a paginated list of Inventory records.",
+        "summary": "List inventory records",
+        "tags": [
+          "Inventory"
+        ],
+        "operationId": "List inventory records",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/consignments/{consignment_id}": {
+      "get": {
+        "description": "Returns a single consignment with the requested ID.",
+        "summary": "Get a single consignment",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Get a single consignment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid consignment ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "description": "Updates the inventory count with requested ID.",
+        "summary": "Update an inventory count",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Update an inventory count",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid consignment ID."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "delete": {
+        "description": "Deletes the consignment with the given ID.",
+        "summary": "Delete a consignment",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Delete a consignment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/consignments": {
+      "get": {
+        "description": "Returns a paginated list of consignments.",
+        "summary": "List consignments",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "List consignments",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "Creates a new consignment of type `STOCKTAKE`. Currently, this endpoint only supports creation of inventory counts (stock takes).",
+        "summary": "Create an inventory count",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Create an inventory count",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCount"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/customer_groups": {
+      "get": {
+        "description": "Returns a paginated list of customer groups.",
+        "summary": "List customer groups",
+        "tags": [
+          "Customer Groups"
+        ],
+        "operationId": "List customer groups",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerGroupCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/customers": {
+      "get": {
+        "description": "Returns a paginated list of customers.",
+        "summary": "List customers",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "List customers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "Creates a new customer.",
+        "summary": "Create a new customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Create a new customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/brands": {
+      "get": {
+        "description": "Returns a paginated list of brands.",
+        "summary": "List brands",
+        "tags": [
+          "Brands"
+        ],
+        "operationId": "List brands",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BrandCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/consignments/{consignment_id}/products": {
+      "get": {
+        "description": "Returns a collection of consignment products associated with the specified consignment.",
+        "summary": "List all products for a specific consignment",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "List all products for a specific consignment",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "The ID of the consignment for which products should be listed."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentProductCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "description": "Increases or decreases the count for a specific product within the inventory count.",
+        "summary": "Adjust the inventory item count",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Adjust the inventory item count",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid consignment ID."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCountItemRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCountItemResponse"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/api/2.0/api/2.0/consignments/{consignment_id}/products/{product_id}": {
+      "delete": {
+        "description": "Removes the count for a specific product from the inventory count.",
+        "summary": "Delete an item from an inventory count",
+        "tags": [
+          "Consignments"
+        ],
+        "operationId": "Delete an item from an inventory count",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "consignment_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Valid consignment (inventory count) ID."
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The ID of a product included in the inventory count"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/taxes": {
+      "get": {
+        "description": "Returns a paginated list of taxes.",
+        "summary": "List taxes",
+        "tags": [
+          "Taxes"
+        ],
+        "operationId": "List taxes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TaxCollection"
+            }
+          }
+        },
+        "x-unitTests": [],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Supplier": {
+      "title": "Supplier",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Supplier name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "UploadAnImageRequest": {
+      "title": "Upload an image request",
+      "type": "object",
+      "properties": {
+        "image": {
+          "description": "File to upload. Can be in jpg or png format.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "image"
+      ]
+    },
+    "SupplierCollection": {
+      "title": "Supplier Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Suppliers wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Supplier"
+          }
+        }
+      }
+    },
+    "SupplierResponse": {
+      "title": "Supplier Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Supplier"
+        }
+      }
+    },
+    "SupplierBase": {
+      "title": "Supplier Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Supplier name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "SaleCollection": {
+      "title": "Sale Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Sales wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sale"
+          }
+        }
+      }
+    },
+    "SaleResponse": {
+      "title": "Sale Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Sale"
+        }
+      }
+    },
+    "Payment": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Payment type name.",
+          "type": "string"
+        },
+        "register_id": {
+          "description": "A valid register ID.",
+          "type": "string"
+        },
+        "retailer_payment_type_id": {
+          "description": "A valid retailer payment type ID.",
+          "type": "string"
+        },
+        "payment_type_id": {
+          "description": "A payment type associated with the retailer payment type. **deprecated** ???",
+          "type": "string"
+        },
+        "payment_date": {
+          "description": "Payment date in UTC.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "Payment amount.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "TagCollection": {
+      "title": "Tag Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Tag objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        }
+      }
+    },
+    "TagResponse": {
+      "title": "Tag Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Tag"
+        }
+      }
+    },
+    "TagBase": {
+      "title": "Tag Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Tag name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "RegisterCollection": {
+      "title": "Register Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array Register objects wrapped in a top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Register"
+          }
+        }
+      }
+    },
+    "RegisterResponse": {
+      "title": "Register Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Register"
+        }
+      }
+    },
+    "ProductTypeCollection": {
+      "title": "Product Type Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Product Type objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductType"
+          }
+        }
+      }
+    },
+    "ProductTypeResponse": {
+      "title": "Product Type Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/ProductType"
+        }
+      }
+    },
+    "ProductTypeBase": {
+      "title": "Product Type Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Product Type name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "ImagePosition": {
+      "title": "Image Position",
+      "type": "object",
+      "properties": {
+        "position": {
+          "description": "New position for the image.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "position"
+      ]
+    },
+    "ImageResponse": {
+      "title": "Image Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Image"
+        }
+      }
+    },
+    "ProductCollection": {
+      "title": "Product Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Product objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        }
+      }
+    },
+    "ProductResponse": {
+      "title": "Product Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Product"
+        }
+      }
+    },
+    "PriceBookProductCollection": {
+      "title": "Price Book Product Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of price book objects wrapped in a top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PriceBookProduct"
+          }
+        }
+      }
+    },
+    "PriceBookCollection": {
+      "title": "Price Book Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of price book objects wrapped in a top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PriceBook"
+          }
+        }
+      }
+    },
+    "PriceBookResponse": {
+      "title": "Price Book Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/PriceBook"
+        }
+      }
+    },
+    "OutletCollection": {
+      "title": "Outlet Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Outlet objects  wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Outlet"
+          }
+        }
+      }
+    },
+    "OutletResponse": {
+      "title": "Outlet Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Outlet"
+        }
+      }
+    },
+    "InventoryCollection": {
+      "title": "Inventory Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Inventory records wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Inventory"
+          }
+        }
+      }
+    },
+    "InventoryResponse": {
+      "title": "Inventory Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Inventory"
+        }
+      }
+    },
+    "ConsignmentCollection": {
+      "title": "Consignment Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of consignment objects wrapped in a top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Consignment"
+          }
+        }
+      }
+    },
+    "ConsignmentResponse": {
+      "title": "Consignment Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Consignment"
+        }
+      }
+    },
+    "CustomerGroupCollection": {
+      "title": "Customer Group Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of customer group objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerGroup"
+          }
+        }
+      }
+    },
+    "CustomerGroupResponse": {
+      "title": "Customer Group Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/CustomerGroup"
+        }
+      }
+    },
+    "CustomerCollection": {
+      "title": "Customer Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Customer objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Customer"
+          }
+        }
+      }
+    },
+    "SaleTax": {
+      "title": "Sale Tax",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Tax name.",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Tax rate.",
+          "type": "number",
+          "format": "double"
+        },
+        "amount": {
+          "description": "Tax amount.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "LineItemTaxComponent": {
+      "title": "Line Item Tax Component",
+      "type": "object",
+      "properties": {
+        "rate_id": {
+          "description": "Tax rate ID.",
+          "type": "string"
+        },
+        "total_tax": {
+          "description": "Tax total.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "rate_id",
+        "total_tax"
+      ]
+    },
+    "Tag": {
+      "title": "Tag",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Tag name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "ProductType": {
+      "title": "Product Type",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Product Type name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Image": {
+      "title": "Image",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        },
+        "product_id": {
+          "description": "The ID of the product this image is associated with.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "position": {
+          "description": "Position of the image in collection of images associated with a product.",
+          "type": "number",
+          "format": "double"
+        },
+        "status": {
+          "description": "Status if the image upload processing. Can be `processing`, `uploaded`, `error`.",
+          "type": "string"
+        }
+      }
+    },
+    "VariantOption": {
+      "title": "Variant Option",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Variant Option name.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of a Variant Option.",
+          "type": "string"
+        }
+      }
+    },
+    "ImageSample": {
+      "title": "Image Sample",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "url": {
+          "description": "",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CategorySample1": {
+      "title": "Category Sample 1",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CustomerResponse": {
+      "title": "Customer Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Customer"
+        }
+      }
+    },
+    "BrandCollection": {
+      "title": "Brand Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Brand objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Brand"
+          }
+        }
+      }
+    },
+    "BrandResponse": {
+      "title": "Brand Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "",
+          "$ref": "#/definitions/Brand"
+        }
+      }
+    },
+    "BrandBase": {
+      "title": "Brand Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Brand name.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Product": {
+      "title": "Product",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Product name.",
+          "type": "string"
+        },
+        "handle": {
+          "description": "Product handle. **Note:** Variants share the same handle.",
+          "type": "string"
+        },
+        "sku": {
+          "description": "Product sku. **Note:** Should be unique, but it's not verified while posting.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "source_id": {
+          "description": "External reference ID.",
+          "type": "string"
+        },
+        "source_variant_id": {
+          "description": "Secondary external reference ID.",
+          "type": "string"
+        },
+        "variant_parent_id": {
+          "description": "This value is set if a Product is a variant of another Product.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Indicates the origin of the product. Can be USER, SYSTEM, SHOPIFY.",
+          "type": "string"
+        },
+        "active": {
+          "description": "Indicated whether the Product is active.",
+          "type": "boolean"
+        },
+        "has_inventory": {
+          "description": "Indicates whether inventory is being tracked for the Product.",
+          "type": "boolean"
+        },
+        "is_composite": {
+          "description": "Indicates whether the Product is a composite one.",
+          "type": "boolean"
+        },
+        "has_variants": {
+          "description": "Indicated whether product has variants.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A detailed description of the Product. **Note** Can contain HTML.",
+          "type": "string"
+        },
+        "supplier_code": {
+          "description": "Supplier code.",
+          "type": "string"
+        },
+        "supply_price": {
+          "description": "Default supply price,",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "",
+          "$ref": "#/definitions/ProductTypeSample"
+        },
+        "supplier": {
+          "description": "",
+          "$ref": "#/definitions/SupplierSample"
+        },
+        "brand": {
+          "description": "",
+          "$ref": "#/definitions/BrandSample"
+        },
+        "variant_options": {
+          "description": "A list of variant option objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VariantOptionSample1"
+          }
+        },
+        "categories": {
+          "description": "A list of tag objects.+ `variant_name`: `Bravo / Black` (string) - If the product is a variant this name will be a concatenation of the base name and variant option values.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CategorySample1"
+          }
+        },
+        "image_url": {
+          "description": "",
+          "type": "string"
+        },
+        "image_thumbnail_url": {
+          "description": "",
+          "type": "string"
+        },
+        "images": {
+          "description": "A list of image objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImageSample"
+          }
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name",
+        "handle",
+        "sku"
+      ]
+    },
+    "Customer": {
+      "title": "Customer",
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "description": "Customer's first name.",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Customer 's last name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "customer_code": {
+          "description": "Customer code used for claiming loyalty.",
+          "type": "string"
+        },
+        "customer_group_id": {
+          "description": "Customer group ID.",
+          "type": "string"
+        },
+        "enable_loyalty": {
+          "description": "",
+          "type": "boolean"
+        },
+        "email": {
+          "description": "Customer's email address.",
+          "type": "string"
+        },
+        "note": {
+          "description": "Customer note.",
+          "type": "string"
+        },
+        "gender": {
+          "description": "Customer's gender. Can be `M`, `F` or null.",
+          "type": "string"
+        },
+        "date_of_birth": {
+          "description": "Birthday.",
+          "type": "string"
+        },
+        "company_name": {
+          "description": "Company name.",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone no.",
+          "type": "string"
+        },
+        "mobile": {
+          "description": "Mobile phone no.",
+          "type": "string"
+        },
+        "fax": {
+          "description": "Fax no.",
+          "type": "string"
+        },
+        "twitter": {
+          "description": "Twitter handle.",
+          "type": "string"
+        },
+        "website": {
+          "description": "Website URL.",
+          "type": "string"
+        },
+        "physical_address_1": {
+          "description": "Physical address, line 1.",
+          "type": "string"
+        },
+        "physical_address_2": {
+          "description": "Physical address, line 2.",
+          "type": "string"
+        },
+        "physical_suburb": {
+          "description": "Physical address, suburb.",
+          "type": "string"
+        },
+        "physical_city": {
+          "description": "Physical address, city.",
+          "type": "string"
+        },
+        "physical_postcode": {
+          "description": "Physical address, post code.",
+          "type": "string"
+        },
+        "physical_state": {
+          "description": "Physical address, state.",
+          "type": "string"
+        },
+        "physical_country_id": {
+          "description": "Physical address, country code.",
+          "type": "string"
+        },
+        "postal_address_1": {
+          "description": "Postal address, line 1.",
+          "type": "string"
+        },
+        "postal_address_2": {
+          "description": "Postal address, line 2.",
+          "type": "string"
+        },
+        "postal_suburb": {
+          "description": "Postal address, suburb.",
+          "type": "string"
+        },
+        "postal_city": {
+          "description": "Postal address, city.",
+          "type": "string"
+        },
+        "postal_postcode": {
+          "description": "Postal address, post code.",
+          "type": "string"
+        },
+        "postal_state": {
+          "description": "Postal address, state.",
+          "type": "string"
+        },
+        "postal_country_id": {
+          "description": "Postal address, country code.",
+          "type": "string"
+        },
+        "custom_field_1": {
+          "description": "Custom field 1. Can be used to store random data.",
+          "type": "string"
+        },
+        "custom_field_2": {
+          "description": "Custom field 2.",
+          "type": "string"
+        },
+        "custom_field_3": {
+          "description": "Custom field 3.",
+          "type": "string"
+        },
+        "custom_field_4": {
+          "description": "Custom field 4.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Customers full name. **deprecated**",
+          "type": "string"
+        },
+        "year_to_date": {
+          "description": "Customer's spending this year.",
+          "type": "number",
+          "format": "double"
+        },
+        "balance": {
+          "description": "Customer's unpaid balance.",
+          "type": "number",
+          "format": "double"
+        },
+        "loyalty_balance": {
+          "description": "Customer's loyalty balance.",
+          "type": "number",
+          "format": "double"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name"
+      ]
+    },
+    "LineItemBase": {
+      "title": "Line Item Base",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "Valid product ID.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of product units included in the sale.",
+          "type": "number",
+          "format": "double"
+        },
+        "price": {
+          "description": "Unit price for the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "tax_components": {
+          "description": "Collection of tax components associated with the line item.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItemTaxComponent"
+          }
+        },
+        "discount": {
+          "description": "Discount. ??? Unit? Should that be even posted?",
+          "type": "number",
+          "format": "double"
+        },
+        "loyalty_value": {
+          "description": "The value that should be added to associated customer's loyalty balance.",
+          "type": "number",
+          "format": "double"
+        },
+        "price_set": {
+          "description": "Indicates whether the price was set manually. Using `true` means that the value will never be refreshed from the price book when reloaded (sale retrieved from parked sales).",
+          "type": "boolean"
+        },
+        "sequence": {
+          "description": "Order of the line item in the sale.",
+          "type": "number",
+          "format": "double"
+        },
+        "note": {
+          "description": "Line item note.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Line item status. ???",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_id",
+        "quantity",
+        "price",
+        "tax_components"
+      ]
+    },
+    "ProductBase": {
+      "title": "Product Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Product name.",
+          "type": "string"
+        },
+        "handle": {
+          "description": "Product handle. **Note:** Variants share the same handle.",
+          "type": "string"
+        },
+        "sku": {
+          "description": "Product sku. **Note:** Should be unique, but it's not verified while posting.",
+          "type": "string"
+        },
+        "source_id": {
+          "description": "External reference ID.",
+          "type": "string"
+        },
+        "source_variant_id": {
+          "description": "Secondary external reference ID.",
+          "type": "string"
+        },
+        "variant_parent_id": {
+          "description": "This value is set if a Product is a variant of another Product.",
+          "type": "string"
+        },
+        "source": {
+          "description": "Indicates the origin of the product. Can be USER, SYSTEM, SHOPIFY.",
+          "type": "string"
+        },
+        "active": {
+          "description": "Indicated whether the Product is active.",
+          "type": "boolean"
+        },
+        "has_inventory": {
+          "description": "Indicates whether inventory is being tracked for the Product.",
+          "type": "boolean"
+        },
+        "is_composite": {
+          "description": "Indicates whether the Product is a composite one.",
+          "type": "boolean"
+        },
+        "has_variants": {
+          "description": "Indicated whether product has variants.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A detailed description of the Product. **Note** Can contain HTML.",
+          "type": "string"
+        },
+        "supplier_code": {
+          "description": "Supplier code.",
+          "type": "string"
+        },
+        "supply_price": {
+          "description": "Default supply price,",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "",
+          "$ref": "#/definitions/ProductTypeSample"
+        },
+        "supplier": {
+          "description": "",
+          "$ref": "#/definitions/SupplierSample"
+        },
+        "brand": {
+          "description": "",
+          "$ref": "#/definitions/BrandSample"
+        },
+        "variant_options": {
+          "description": "A list of variant option objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VariantOptionSample1"
+          }
+        },
+        "categories": {
+          "description": "A list of tag objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CategorySample1"
+          }
+        }
+      },
+      "required": [
+        "name",
+        "handle",
+        "sku"
+      ]
+    },
+    "Sale": {
+      "title": "Sale",
+      "type": "object",
+      "properties": {
+        "outlet_id": {
+          "description": "Valid outlet ID for the retailer.",
+          "type": "string"
+        },
+        "return_for": {
+          "description": "Reference ID to a different sale if this sale was created as a return.",
+          "type": "string"
+        },
+        "total_price": {
+          "description": "Sale total.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_tax": {
+          "description": "Tax total.",
+          "type": "number",
+          "format": "double"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        },
+        "taxes": {
+          "description": "Collection of taxes.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SaleTax"
+          }
+        },
+        "register_id": {
+          "description": "Valid register ID for the retailer.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Valid user ID for the retailer.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Sale status. One of: CLOSED, SAVED, ONACCOUNT, ONACCOUNT_CLOSED, LAYBY, LAYBY_CLOSED. VOIDED ???",
+          "type": "string"
+        },
+        "line_items": {
+          "description": "A collection of line items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
+        },
+        "payments": {
+          "description": "Collection of payments.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Payment"
+          }
+        },
+        "customer_id": {
+          "description": "Valid customer ID for the retailer.",
+          "type": "string"
+        },
+        "invoice_number": {
+          "description": "Invoice number which if provided, should use the prefix and suffix defined for the register.",
+          "type": "string"
+        },
+        "invoice_sequence": {
+          "description": "Optionally provided value.",
+          "type": "number",
+          "format": "double"
+        },
+        "note": {
+          "description": "Sale Note.",
+          "type": "string"
+        },
+        "short_code": {
+          "description": "6 character code used in the loyalty system. ???",
+          "type": "string"
+        },
+        "sale_date": {
+          "description": "Sale timestamp in UTC.",
+          "type": "string"
+        }
+      }
+    },
+    "PaymentBase": {
+      "title": "Payment Base",
+      "type": "object",
+      "properties": {
+        "register_id": {
+          "description": "A valid register ID.",
+          "type": "string"
+        },
+        "retailer_payment_type_id": {
+          "description": "A valid retailer payment type ID.",
+          "type": "string"
+        },
+        "payment_type_id": {
+          "description": "A payment type associated with the retailer payment type. **deprecated** ???",
+          "type": "string"
+        },
+        "payment_date": {
+          "description": "Payment date in UTC.",
+          "type": "string"
+        },
+        "amount": {
+          "description": "Payment amount.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "LineItem": {
+      "title": "Line Item",
+      "type": "object",
+      "properties": {
+        "tax_id": {
+          "description": "???",
+          "type": "string"
+        },
+        "discount_total": {
+          "description": "Total discount for the line item.",
+          "type": "number",
+          "format": "double"
+        },
+        "is_return": {
+          "description": "Indicates whether this line item is a return from another sale (referenced by `return_for` on the main sale object).",
+          "type": "boolean"
+        },
+        "cost": {
+          "description": "Unit cost for the line item.",
+          "type": "number",
+          "format": "double"
+        },
+        "cost_total": {
+          "description": "Total cost for the line item.",
+          "type": "number",
+          "format": "double"
+        },
+        "price_total": {
+          "description": "Total price for the line item.",
+          "type": "number",
+          "format": "double"
+        },
+        "tax": {
+          "description": "Unit tax for the line item. **deprecated** ???",
+          "type": "number",
+          "format": "double"
+        },
+        "tax_total": {
+          "description": "Total tax value.",
+          "type": "number",
+          "format": "double"
+        },
+        "product_id": {
+          "description": "Valid product ID.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of product units included in the sale.",
+          "type": "number",
+          "format": "double"
+        },
+        "price": {
+          "description": "Unit price for the product.",
+          "type": "number",
+          "format": "double"
+        },
+        "tax_components": {
+          "description": "Collection of tax components associated with the line item.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItemTaxComponent"
+          }
+        },
+        "discount": {
+          "description": "Discount. ??? Unit? Should that be even posted?",
+          "type": "number",
+          "format": "double"
+        },
+        "loyalty_value": {
+          "description": "The value that should be added to associated customer's loyalty balance.",
+          "type": "number",
+          "format": "double"
+        },
+        "price_set": {
+          "description": "Indicates whether the price was set manually. Using `true` means that the value will never be refreshed from the price book when reloaded (sale retrieved from parked sales).",
+          "type": "boolean"
+        },
+        "sequence": {
+          "description": "Order of the line item in the sale.",
+          "type": "number",
+          "format": "double"
+        },
+        "note": {
+          "description": "Line item note.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Line item status. ???",
+          "type": "string"
+        }
+      }
+    },
+    "PriceBookProductBase": {
+      "title": "Price Book Product Base",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "The ID of the associated product.",
+          "type": "string"
+        },
+        "price_book_id": {
+          "description": "The ID of the price book this product belongs to.",
+          "type": "string"
+        },
+        "price": {
+          "description": "Retail price.",
+          "type": "number",
+          "format": "double"
+        },
+        "loyalty_value": {
+          "description": "Price book defined loyalty value.",
+          "type": "number",
+          "format": "double"
+        },
+        "min_units": {
+          "description": "The minimum number of items for which this price will be used.",
+          "type": "number",
+          "format": "double"
+        },
+        "max_units": {
+          "description": "The maximum number of items for which this price will be used.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "product_id",
+        "price_book_id"
+      ]
+    },
+    "SaleBase": {
+      "title": "Sale Base",
+      "type": "object",
+      "properties": {
+        "register_id": {
+          "description": "Valid register ID for the retailer.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "Valid user ID for the retailer.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Sale status. One of: CLOSED, SAVED, ONACCOUNT, ONACCOUNT_CLOSED, LAYBY, LAYBY_CLOSED. VOIDED ???",
+          "type": "string"
+        },
+        "line_items": {
+          "description": "A collection of line items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
+        },
+        "payments": {
+          "description": "Collection of payments.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Payment"
+          }
+        },
+        "customer_id": {
+          "description": "Valid customer ID for the retailer.",
+          "type": "string"
+        },
+        "invoice_number": {
+          "description": "Invoice number which if provided, should use the prefix and suffix defined for the register.",
+          "type": "string"
+        },
+        "invoice_sequence": {
+          "description": "Optionally provided value.",
+          "type": "number",
+          "format": "double"
+        },
+        "note": {
+          "description": "Sale Note.",
+          "type": "string"
+        },
+        "short_code": {
+          "description": "6 character code used in the loyalty system. ???",
+          "type": "string"
+        },
+        "sale_date": {
+          "description": "Sale timestamp in UTC.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "register_id",
+        "user_id",
+        "status",
+        "line_items",
+        "payments"
+      ]
+    },
+    "PriceBookBase": {
+      "title": "Price Book Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Price book name.",
+          "type": "string"
+        },
+        "customer_group_id": {
+          "description": "The ID of the customer group",
+          "type": "string"
+        },
+        "valid_from": {
+          "description": "The date when the price book becomes valid (active).",
+          "type": "string"
+        },
+        "valid_to": {
+          "description": "The date when the price book becomes invalid (inactive).",
+          "type": "string"
+        },
+        "restrict_to_platform_key": {
+          "description": "`\"0\"` - all platforms, `\"1\"` - in store, `\"2\"` - ecommerce.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "The ID of an outlet for which the price book should be used.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "customer_group_id"
+      ]
+    },
+    "RegisterBase": {
+      "title": "Register Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Register name.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "A valid ID of an Outlet that this register is associated with.",
+          "type": "string"
+        },
+        "ask_for_note_on_save": {
+          "description": "`0`for **Never**, `1` for **On Save/Layby/Account/Return**, `2` for **Always**.",
+          "type": "number",
+          "format": "double"
+        },
+        "print_note_on_receipt": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ask_for_user_on_sale": {
+          "description": "",
+          "type": "boolean"
+        },
+        "show_discounts_on_receipts": {
+          "description": "",
+          "type": "boolean"
+        },
+        "print_receipt": {
+          "description": "",
+          "type": "boolean"
+        },
+        "email_receipt": {
+          "description": "",
+          "type": "boolean"
+        },
+        "invoice_prefix": {
+          "description": "Invoice number prefix.",
+          "type": "string"
+        },
+        "invoice_suffix": {
+          "description": "Invoice number suffix.",
+          "type": "string"
+        },
+        "invoice_sequence": {
+          "description": "The numeric part of the last issued invoice.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "Consignment": {
+      "title": "Consignment",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "A valid ID of an outlet where stock will be received.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Tue 29 Nov 2016 (string) - Consignment name.",
+          "type": "string"
+        },
+        "consignment_date": {
+          "description": "11-28T19:02:15+00:00 (timestamp) - Consignment creation date.",
+          "type": "string"
+        },
+        "due_at": {
+          "description": "11-30T19:08:541+00:00 (timestamp) - Due date.",
+          "type": "string"
+        },
+        "received_at": {
+          "description": "11-30T19:08:541+00:00 (timestamp) - The date when consignment was received.",
+          "type": "string"
+        },
+        "type": {
+          "description": "One of `SUPPLIER`, `OUTLET`, `STOCKTAKE`, `RETURN`.",
+          "type": "string"
+        },
+        "status": {
+          "description": "One of `OPEN`, `RECEIVED`, `SENT`, `STOCKTAKE`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`, `CLOSED`, `CANCELLED`",
+          "type": "string"
+        },
+        "supplier_id": {
+          "description": "a valid supplier ID.",
+          "type": "string"
+        },
+        "source_outlet_id": {
+          "description": "A valid ID of an outlet where stock will come from. **Stock transfers only**.",
+          "type": "string"
+        },
+        "supplier_invoice": {
+          "description": "Supplier invoice number.",
+          "type": "string"
+        },
+        "reference": {
+          "description": "Order number.+ `total_count_gain` (number)",
+          "type": "string"
+        },
+        "total_cost_gain": {
+          "description": "The cost of items over the expected level.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_count_loss": {
+          "description": "The number of items below the expected level.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_cost_loss": {
+          "description": "The cost of items below the expected level.",
+          "type": "number",
+          "format": "double"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_count_gain": {
+          "description": "The number of items over the expected level.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CustomerBase": {
+      "title": "Customer Base",
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "description": "Customer's first name.",
+          "type": "string"
+        },
+        "last_name": {
+          "description": "Customer 's last name.",
+          "type": "string"
+        },
+        "customer_code": {
+          "description": "Customer code used for claiming loyalty.",
+          "type": "string"
+        },
+        "customer_group_id": {
+          "description": "Customer group ID.",
+          "type": "string"
+        },
+        "enable_loyalty": {
+          "description": "",
+          "type": "boolean"
+        },
+        "email": {
+          "description": "Customer's email address.",
+          "type": "string"
+        },
+        "note": {
+          "description": "Customer note.",
+          "type": "string"
+        },
+        "gender": {
+          "description": "Customer's gender. Can be `M`, `F` or null.",
+          "type": "string"
+        },
+        "date_of_birth": {
+          "description": "Birthday.",
+          "type": "string"
+        },
+        "company_name": {
+          "description": "Company name.",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Phone no.",
+          "type": "string"
+        },
+        "mobile": {
+          "description": "Mobile phone no.",
+          "type": "string"
+        },
+        "fax": {
+          "description": "Fax no.",
+          "type": "string"
+        },
+        "twitter": {
+          "description": "Twitter handle.",
+          "type": "string"
+        },
+        "website": {
+          "description": "Website URL.",
+          "type": "string"
+        },
+        "physical_address_1": {
+          "description": "Physical address, line 1.",
+          "type": "string"
+        },
+        "physical_address_2": {
+          "description": "Physical address, line 2.",
+          "type": "string"
+        },
+        "physical_suburb": {
+          "description": "Physical address, suburb.",
+          "type": "string"
+        },
+        "physical_city": {
+          "description": "Physical address, city.",
+          "type": "string"
+        },
+        "physical_postcode": {
+          "description": "Physical address, post code.",
+          "type": "string"
+        },
+        "physical_state": {
+          "description": "Physical address, state.",
+          "type": "string"
+        },
+        "physical_country_id": {
+          "description": "Physical address, country code.",
+          "type": "string"
+        },
+        "postal_address_1": {
+          "description": "Postal address, line 1.",
+          "type": "string"
+        },
+        "postal_address_2": {
+          "description": "Postal address, line 2.",
+          "type": "string"
+        },
+        "postal_suburb": {
+          "description": "Postal address, suburb.",
+          "type": "string"
+        },
+        "postal_city": {
+          "description": "Postal address, city.",
+          "type": "string"
+        },
+        "postal_postcode": {
+          "description": "Postal address, post code.",
+          "type": "string"
+        },
+        "postal_state": {
+          "description": "Postal address, state.",
+          "type": "string"
+        },
+        "postal_country_id": {
+          "description": "Postal address, country code.",
+          "type": "string"
+        },
+        "custom_field_1": {
+          "description": "Custom field 1. Can be used to store random data.",
+          "type": "string"
+        },
+        "custom_field_2": {
+          "description": "Custom field 2.",
+          "type": "string"
+        },
+        "custom_field_3": {
+          "description": "Custom field 3.",
+          "type": "string"
+        },
+        "custom_field_4": {
+          "description": "Custom field 4.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name"
+      ]
+    },
+    "VariantOptionSample1": {
+      "title": "Variant Option Sample 1",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "value": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "BrandSample": {
+      "title": "Brand Sample",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "OutletBase": {
+      "title": "Outlet Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The outlet name.",
+          "type": "string"
+        },
+        "time_zone": {
+          "description": "Outlet timezone. **read only**",
+          "type": "string"
+        },
+        "default_tax_id": {
+          "description": "Default tax id used for sales in this outlet. **deprecated**",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency name.",
+          "type": "string"
+        },
+        "currency_symbol": {
+          "description": "Currency symbol.",
+          "type": "string"
+        },
+        "display_prices": {
+          "description": "Indicates whether prices in this outlet should be displayed as tax-inclusive.",
+          "type": "string"
+        }
+      }
+    },
+    "PriceBookProduct": {
+      "title": "Price Book Product",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "The ID of the associated product.",
+          "type": "string"
+        },
+        "price_book_id": {
+          "description": "The ID of the price book this product belongs to.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "price": {
+          "description": "Retail price.",
+          "type": "number",
+          "format": "double"
+        },
+        "loyalty_value": {
+          "description": "Price book defined loyalty value.",
+          "type": "number",
+          "format": "double"
+        },
+        "min_units": {
+          "description": "The minimum number of items for which this price will be used.",
+          "type": "number",
+          "format": "double"
+        },
+        "max_units": {
+          "description": "The maximum number of items for which this price will be used.+ version: 1288421 (number) - Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_id",
+        "price_book_id"
+      ]
+    },
+    "PriceBook": {
+      "title": "Price Book",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Price book name.",
+          "type": "string"
+        },
+        "customer_group_id": {
+          "description": "The ID of the customer group",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "valid_from": {
+          "description": "The date when the price book becomes valid (active).",
+          "type": "string"
+        },
+        "valid_to": {
+          "description": "The date when the price book becomes invalid (inactive).",
+          "type": "string"
+        },
+        "restrict_to_platform_key": {
+          "description": "`\"0\"` - all platforms, `\"1\"` - in store, `\"2\"` - ecommerce.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "The ID of an outlet for which the price book should be used.+ type: GENERAL (string) - Internal value. Safe to ignore.",
+          "type": "string"
+        },
+        "restrict_to_platform_label": {
+          "description": "One of `In Store`, `Ecommerce`, `All Platforms`.",
+          "type": "string"
+        },
+        "customer_group": {
+          "description": "",
+          "$ref": "#/definitions/CustomerGroup"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "customer_group_id"
+      ]
+    },
+    "SupplierSample": {
+      "title": "Supplier Sample",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "Outlet": {
+      "title": "Outlet",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The outlet name.",
+          "type": "string"
+        },
+        "time_zone": {
+          "description": "Outlet timezone. **read only**",
+          "type": "string"
+        },
+        "default_tax_id": {
+          "description": "Default tax id used for sales in this outlet. **deprecated**",
+          "type": "string"
+        },
+        "currency": {
+          "description": "Currency name.",
+          "type": "string"
+        },
+        "currency_symbol": {
+          "description": "Currency symbol.",
+          "type": "string"
+        },
+        "display_prices": {
+          "description": "Indicates whether prices in this outlet should be displayed as tax-inclusive.",
+          "type": "string"
+        },
+        "physical_address_1": {
+          "description": "Physical address, line 1.",
+          "type": "string"
+        },
+        "physical_address_2": {
+          "description": "Physical address, line 2.",
+          "type": "string"
+        },
+        "physical_suburb": {
+          "description": "Physical address, suburb.",
+          "type": "string"
+        },
+        "physical_city": {
+          "description": "Physical address, city.",
+          "type": "string"
+        },
+        "physical_postcode": {
+          "description": "Physical address, post code.",
+          "type": "string"
+        },
+        "physical_state": {
+          "description": "Physical address, state.",
+          "type": "string"
+        },
+        "physical_country_id": {
+          "description": "Physical address, country code.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "ConsignmentBase": {
+      "title": "Consignment Base",
+      "type": "object",
+      "properties": {
+        "outlet_id": {
+          "description": "A valid ID of an outlet where stock will be received.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Tue 29 Nov 2016 (string) - Consignment name.",
+          "type": "string"
+        },
+        "consignment_date": {
+          "description": "11-28T19:02:15+00:00 (timestamp) - Consignment creation date.",
+          "type": "string"
+        },
+        "due_at": {
+          "description": "11-30T19:08:541+00:00 (timestamp) - Due date.",
+          "type": "string"
+        },
+        "received_at": {
+          "description": "11-30T19:08:541+00:00 (timestamp) - The date when consignment was received.",
+          "type": "string"
+        },
+        "type": {
+          "description": "One of `SUPPLIER`, `OUTLET`, `STOCKTAKE`, `RETURN`.",
+          "type": "string"
+        },
+        "status": {
+          "description": "One of `OPEN`, `RECEIVED`, `SENT`, `STOCKTAKE`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`, `CLOSED`, `CANCELLED`",
+          "type": "string"
+        },
+        "supplier_id": {
+          "description": "a valid supplier ID.",
+          "type": "string"
+        },
+        "source_outlet_id": {
+          "description": "A valid ID of an outlet where stock will come from. **Stock transfers only**.",
+          "type": "string"
+        },
+        "supplier_invoice": {
+          "description": "Supplier invoice number.",
+          "type": "string"
+        },
+        "reference": {
+          "description": "Order number.",
+          "type": "string"
+        }
+      }
+    },
+    "ProductTypeSample": {
+      "title": "Product Type Sample",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "Inventory": {
+      "title": "Inventory",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "product_id": {
+          "description": "The ID of the product associated with this inventory record.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "The ID of the outlet associated with this inventory record.",
+          "type": "string"
+        },
+        "inventory_level": {
+          "description": "Current inventory level.",
+          "type": "number",
+          "format": "double"
+        },
+        "reorder_point": {
+          "description": "Level at which a product should be automatically included in stock orders.",
+          "type": "number",
+          "format": "double"
+        },
+        "reorder_amount": {
+          "description": "Amount to be added to the automatic stock order.+ version: 1288421 (number) - Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "InventoryBase": {
+      "title": "Inventory Base",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "The ID of the product associated with this inventory record.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "The ID of the outlet associated with this inventory record.",
+          "type": "string"
+        },
+        "inventory_level": {
+          "description": "Current inventory level.",
+          "type": "number",
+          "format": "double"
+        },
+        "reorder_point": {
+          "description": "Level at which a product should be automatically included in stock orders.",
+          "type": "number",
+          "format": "double"
+        },
+        "reorder_amount": {
+          "description": "Amount to be added to the automatic stock order.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "CustomerGroup": {
+      "title": "Customer Group",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The customer group name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "The customer group identifier.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CustomerGroupBase": {
+      "title": "Customer Group Base",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The customer group name.",
+          "type": "string"
+        },
+        "group_id": {
+          "description": "The customer group identifier.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Brand": {
+      "title": "Brand",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The Brand name.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "Register": {
+      "title": "Register",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The Register name.",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "A valid ID of an Outlet that this register is associated with.",
+          "type": "string"
+        },
+        "ask_for_note_on_save": {
+          "description": "`0` for **Never**, `1` for **On Save/Layby/Account/Return**, `2` for **Always**.",
+          "type": "number",
+          "format": "double"
+        },
+        "print_note_on_receipt": {
+          "description": "",
+          "type": "boolean"
+        },
+        "ask_for_user_on_sale": {
+          "description": "",
+          "type": "boolean"
+        },
+        "show_discounts_on_receipts": {
+          "description": "",
+          "type": "boolean"
+        },
+        "print_receipt": {
+          "description": "Indicates whether a receipt should be printed after a sale.",
+          "type": "boolean"
+        },
+        "email_receipt": {
+          "description": "Indicates whether a receipt should be emailed after a sale.",
+          "type": "boolean"
+        },
+        "invoice_prefix": {
+          "description": "Invoice number prefix.",
+          "type": "string"
+        },
+        "invoice_suffix": {
+          "description": "Invoice number suffix.",
+          "type": "string"
+        },
+        "invoice_sequence": {
+          "description": "The numeric part of the last issued invoice.",
+          "type": "number",
+          "format": "double"
+        },
+        "button_layout_id": {
+          "description": "Register ID.",
+          "type": "string"
+        },
+        "is_open": {
+          "description": "Indicates if the Register is currently open.",
+          "type": "boolean"
+        },
+        "register_open_time": {
+          "description": "Date/time when the register was open. Always in UTC.",
+          "type": "string"
+        },
+        "register_close_time": {
+          "description": "Date/time when the register was closed. Null if currently open.",
+          "type": "string"
+        },
+        "register_open_sequence_id": {
+          "description": "**internal** The ID of the current register closure object.",
+          "type": "string"
+        },
+        "cash_managed_payment_type_id": {
+          "description": "**internal** The ID of the payment type used for cash management transactions in this regsiter.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "InventoryCount": {
+      "title": "Inventory Count",
+      "type": "object",
+      "properties": {
+        "outlet_id": {
+          "description": "The ID of the outlet in which the count is taking place.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "due_at": {
+          "description": "The date for which the count is scheduled.",
+          "type": "string"
+        },
+        "show_inactive": {
+          "description": "Indicates whether inactive products should be included in the count.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "The name of the inventory count",
+          "type": "string"
+        },
+        "status": {
+          "description": "The status of the inventory count. One of: `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`.",
+          "type": "string"
+        },
+        "filters": {
+          "description": "An array of filter objects. Max 25.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InventoryCountFilter"
+          }
+        },
+        "type": {
+          "description": "Consignment type, for inventory counts always `STOCKTAKE`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "outlet_id",
+        "name",
+        "status",
+        "type"
+      ]
+    },
+    "InventoryCountFilter": {
+      "title": "Inventory Count Filter",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Filter type. One of `product_type`, `brand`, `supplier`, `tag`, `product`.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The ID of the filter object.",
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "InventoryCountItemRequest": {
+      "title": "Inventory Count Item Request",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "The ID of the product for which the count should be adjusted.",
+          "type": "string"
+        },
+        "received": {
+          "description": "The adjustment value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "product_id",
+        "received"
+      ]
+    },
+    "InventoryCountItem": {
+      "title": "Inventory Count Item",
+      "type": "object",
+      "properties": {
+        "product_id": {
+          "description": "The ID of the product associated with this count item.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "product_sku": {
+          "type": "string"
+        },
+        "count": {
+          "description": "Expected item count.",
+          "type": "string"
+        },
+        "received": {
+          "description": "Observed item count.",
+          "type": "string"
+        },
+        "cost": {
+          "description": "The cost of the item.",
+          "type": "string"
+        },
+        "is_included": {
+          "description": "Indicated whether the item was included via a filter. Can be `null`. For full count (no filters) always `true`.",
+          "type": "boolean"
+        },
+        "status": {
+          "description": "The status of the item. One of: `PENDING`, `SUCCESS`.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "The creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "The deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "required": [
+        "product_id",
+        "count",
+        "received",
+        "cost",
+        "status",
+        "created_at",
+        "updated_at",
+        "deleted_at",
+        "version"
+      ]
+    },
+    "InventoryCountItemResponse": {
+      "title": "Inventory Count Item Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/InventoryCountItem"
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "ConsignmentProductCollection": {
+      "title": "Consignment Product  Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of consignment products.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InventoryCountItem"
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "allOf": [
+        {}
+      ]
+    },
+    "TaxCollection": {
+      "title": "Tax Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of tax objects.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tax"
+          }
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "allOf": [
+        {}
+      ]
+    },
+    "TaxRate": {
+      "title": "Tax rate",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "description": "The name of the tax rate.",
+          "type": "string"
+        },
+        "rate": {
+          "description": "Tax rate value. `0.1 = 10%`.",
+          "type": "number",
+          "format": "double"
+        },
+        "display_name": {
+          "description": "The name of the tax rate used for display.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "rate",
+        "display_name"
+      ]
+    },
+    "Tax": {
+      "title": "Tax",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "description": "The name of the tax.",
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deleted_at": {
+          "description": "The deletion timestamp.",
+          "type": "string"
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxRate"
+          }
+        },
+        "is_default": {
+          "description": "Indicates whether the tax is used as the default one.",
+          "type": "boolean"
+        },
+        "display_name": {
+          "description": "The name of the tax used for display.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "deleted_at",
+        "is_default",
+        "display_name"
+      ]
+    }
+  }
+}
