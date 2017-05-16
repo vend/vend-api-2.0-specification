@@ -1277,6 +1277,12 @@
     },
     "/suppliers/{supplier_id}": {
       "get": {
+        "summary": "Get a single supplier",
+        "description": "Returns a single supplier object with a given ID.",
+        "operationId": "getSupplierByID",
+        "tags": [
+          "Suppliers"
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1302,9 +1308,6 @@
             "type": "string",
             "required": true
           }
-        ],
-        "tags": [
-          "Suppliers"
         ]
       }
     }
