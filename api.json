@@ -1205,7 +1205,7 @@
         }
       }
     },
-    "/api/2.0/api/2.0/consignments/{consignment_id}/products/{product_id}": {
+    "/consignments/{consignment_id}/products/{product_id}": {
       "delete": {
         "description": "Removes the count for a specific product from the inventory count.",
         "summary": "Delete an item from an inventory count",
