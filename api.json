@@ -53,13 +53,6 @@
               "$ref": "#/definitions/ImageResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "put": {
@@ -97,13 +90,6 @@
               "$ref": "#/definitions/ImageResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -129,13 +115,6 @@
           "200": {
             "description": ""
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -176,13 +155,6 @@
               "$ref": "#/definitions/ImageResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -214,13 +186,6 @@
               "$ref": "#/definitions/CustomerResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "put": {
@@ -259,13 +224,6 @@
               "$ref": "#/definitions/CustomerResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -292,13 +250,6 @@
           "204": {
             "description": ""
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -321,13 +272,6 @@
               "$ref": "#/definitions/SupplierCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -350,13 +294,6 @@
               "$ref": "#/definitions/SaleCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -379,13 +316,6 @@
               "$ref": "#/definitions/TagCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -417,13 +347,6 @@
               "$ref": "#/definitions/RegisterCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -446,13 +369,6 @@
               "$ref": "#/definitions/RegisterCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -475,13 +391,6 @@
               "$ref": "#/definitions/ProductTypeCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -513,13 +422,6 @@
               "$ref": "#/definitions/InventoryCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -551,13 +453,6 @@
               "$ref": "#/definitions/ProductResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -580,13 +475,6 @@
               "$ref": "#/definitions/ProductCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -609,13 +497,6 @@
               "$ref": "#/definitions/PriceBookProductCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -647,13 +528,6 @@
               "$ref": "#/definitions/PriceBookResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -676,13 +550,6 @@
               "$ref": "#/definitions/PriceBookCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -713,13 +580,6 @@
               "$ref": "#/definitions/PriceBookResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -751,13 +611,6 @@
               "$ref": "#/definitions/OutletCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -780,13 +633,6 @@
               "$ref": "#/definitions/OutletCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -809,13 +655,6 @@
               "$ref": "#/definitions/InventoryCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -847,13 +686,6 @@
               "$ref": "#/definitions/ConsignmentResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "put": {
@@ -892,13 +724,6 @@
               "$ref": "#/definitions/ConsignmentResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "delete": {
@@ -925,13 +750,6 @@
           "200": {
             "description": ""
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -954,13 +772,6 @@
               "$ref": "#/definitions/ConsignmentCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -988,13 +799,6 @@
           "200": {
             "description": ""
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1017,13 +821,6 @@
               "$ref": "#/definitions/CustomerGroupCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1046,13 +843,6 @@
               "$ref": "#/definitions/CustomerCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -1083,13 +873,6 @@
               "$ref": "#/definitions/CustomerResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1112,13 +895,6 @@
               "$ref": "#/definitions/BrandCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1150,13 +926,6 @@
               "$ref": "#/definitions/ConsignmentProductCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       },
       "post": {
@@ -1195,13 +964,6 @@
               "$ref": "#/definitions/InventoryCountItemResponse"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1236,13 +998,6 @@
           "200": {
             "description": ""
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
@@ -1265,13 +1020,6 @@
               "$ref": "#/definitions/TaxCollection"
             }
           }
-        },
-        "x-unitTests": [],
-        "x-operation-settings": {
-          "CollectParameters": false,
-          "AllowDynamicQueryParameters": false,
-          "AllowDynamicFormParameters": false,
-          "IsMultiContentStreaming": false
         }
       }
     },
