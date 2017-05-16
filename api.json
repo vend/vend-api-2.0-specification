@@ -25,242 +25,14 @@
     "application/json"
   ],
   "paths": {
-    "/product_images/{product_image_id}": {
+    "/brands": {
       "get": {
-        "description": "Returns the metadata for a single product image with a given ID.\nThis method is useful for checking the status of an image after it was uploaded.",
-        "summary": "Get a single product_image data",
+        "description": "Returns a paginated list of brands.",
+        "summary": "List brands",
         "tags": [
-          "Product Images"
+          "Brands"
         ],
-        "operationId": "Get a single product_image data",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "product_image_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid product ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ImageResponse"
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Allows for changing the image position in the list",
-        "summary": "Set image position",
-        "tags": [
-          "Product Images"
-        ],
-        "operationId": "Set image position",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ImagePosition"
-            }
-          },
-          {
-            "name": "product_image_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ImageResponse"
-            }
-          }
-        }
-      },
-      "delete": {
-        "description": "Deletes the product_image with the requested ID.",
-        "summary": "Delete a product_image",
-        "tags": [
-          "Product Images"
-        ],
-        "operationId": "Delete a product_image",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "product_image_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": ""
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/products/{product_id}/actions/image_upload": {
-      "post": {
-        "description": "Upload a binary file with an image to be used for a product. This request should be encoded as `multipart/form-data`.",
-        "summary": "Upload an image",
-        "tags": [
-          "Products"
-        ],
-        "operationId": "Upload an image",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UploadAnImageRequest"
-            }
-          },
-          {
-            "name": "product_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "UUID",
-            "description": "The ID of the product which the imaged should be associated with."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ImageResponse"
-            }
-          }
-        }
-      }
-    },
-    "/customers/{customer_id}": {
-      "get": {
-        "description": "Returns a single customer with a requested ID.",
-        "summary": "Get a single customer",
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Get a single customer",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "customer_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid customer ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerResponse"
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Updates the customer with the requested ID.",
-        "summary": "Update a customer",
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Update a customer",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "customer_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid customer ID."
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerBase"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerResponse"
-            }
-          }
-        }
-      },
-      "delete": {
-        "description": "Deletes the customer with the requested ID.",
-        "summary": "Delete a customer",
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Delete a customer",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "customer_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid customer ID."
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/suppliers": {
-      "get": {
-        "description": "Returns a paginated list of suppliers.",
-        "summary": "List suppliers",
-        "tags": [
-          "Suppliers"
-        ],
-        "operationId": "List suppliers",
+        "operationId": "List brands",
         "produces": [
           "application/json"
         ],
@@ -269,20 +41,20 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SupplierCollection"
+              "$ref": "#/definitions/BrandCollection"
             }
           }
         }
       }
     },
-    "/sales": {
+    "/consignments": {
       "get": {
-        "description": "Returns a paginated list of Sales.",
-        "summary": "List Sales",
+        "description": "Returns a paginated list of consignments.",
+        "summary": "List consignments",
         "tags": [
-          "Sales"
+          "Consignments"
         ],
-        "operationId": "List Sales",
+        "operationId": "List consignments",
         "produces": [
           "application/json"
         ],
@@ -291,274 +63,18 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SaleCollection"
-            }
-          }
-        }
-      }
-    },
-    "/tags": {
-      "get": {
-        "description": "Returns a collection of tags.",
-        "summary": "List tags",
-        "tags": [
-          "Tags"
-        ],
-        "operationId": "List tags",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/TagCollection"
-            }
-          }
-        }
-      }
-    },
-    "/registers/{register_id}": {
-      "get": {
-        "description": "Returns a single register with the requested ID.",
-        "summary": "Get a single register",
-        "tags": [
-          "Registers"
-        ],
-        "operationId": "Get a single register",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "register_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid register ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/RegisterCollection"
-            }
-          }
-        }
-      }
-    },
-    "/registers": {
-      "get": {
-        "description": "Returns a paginated list of registers.",
-        "summary": "List registers",
-        "tags": [
-          "Registers"
-        ],
-        "operationId": "List registers",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/RegisterCollection"
-            }
-          }
-        }
-      }
-    },
-    "/product_types": {
-      "get": {
-        "description": "Returns a paginated list of product types.",
-        "summary": "List product types",
-        "tags": [
-          "Product Types"
-        ],
-        "operationId": "List product types",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ProductTypeCollection"
-            }
-          }
-        }
-      }
-    },
-    "/products/{product_id}/inventory": {
-      "get": {
-        "description": "Returns inventory data for a single product in all the outlets.",
-        "summary": "Get inventory data for a single product",
-        "tags": [
-          "Products"
-        ],
-        "operationId": "Get inventory data for a single product",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "product_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid product ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/InventoryCollection"
-            }
-          }
-        }
-      }
-    },
-    "/products/{product_id}": {
-      "get": {
-        "description": "Returns a single product object with a given ID.",
-        "summary": "Get a single product",
-        "tags": [
-          "Products"
-        ],
-        "operationId": "Get a single product",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "product_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid product ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ProductResponse"
-            }
-          }
-        }
-      }
-    },
-    "/products": {
-      "get": {
-        "description": "Returns a paginated list of products.",
-        "summary": "List products",
-        "tags": [
-          "Products"
-        ],
-        "operationId": "List products",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ProductCollection"
-            }
-          }
-        }
-      }
-    },
-    "/price_book_products": {
-      "get": {
-        "description": "Returns a paginated list of price book products.",
-        "summary": "List price book products",
-        "tags": [
-          "Price Book Products"
-        ],
-        "operationId": "List price book products",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookProductCollection"
-            }
-          }
-        }
-      }
-    },
-    "/price_books/{price_book_id}": {
-      "get": {
-        "description": "Returns a single price book with a requested ID",
-        "summary": "Get a single price book",
-        "tags": [
-          "Price Books"
-        ],
-        "operationId": "Get a single price book",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "price_book_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid price book ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookResponse"
-            }
-          }
-        }
-      }
-    },
-    "/price_books": {
-      "get": {
-        "description": "Returns a paginated list of price books",
-        "summary": "List price books",
-        "tags": [
-          "Price Books"
-        ],
-        "operationId": "List price books",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookCollection"
+              "$ref": "#/definitions/ConsignmentCollection"
             }
           }
         }
       },
       "post": {
-        "description": "Creates a new price book.",
-        "summary": "Create a price book",
+        "description": "Creates a new consignment of type `STOCKTAKE`. Currently, this endpoint only supports creation of inventory counts (stock takes).",
+        "summary": "Create an inventory count",
         "tags": [
-          "Price Books"
+          "Consignments"
         ],
-        "operationId": "Create a price book",
+        "operationId": "Create an inventory count",
         "produces": [
           "application/json"
         ],
@@ -569,91 +85,13 @@
             "required": true,
             "description": "",
             "schema": {
-              "$ref": "#/definitions/PriceBookBase"
+              "$ref": "#/definitions/InventoryCount"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookResponse"
-            }
-          }
-        }
-      }
-    },
-    "/outlets/{outlet_id}": {
-      "get": {
-        "description": "Returns a single outlet with the requested ID.",
-        "summary": "Get a single outlet",
-        "tags": [
-          "Outlets"
-        ],
-        "operationId": "Get a single outlet",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "outlet_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "format": "uuid",
-            "description": "Valid Outlet ID."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/OutletCollection"
-            }
-          }
-        }
-      }
-    },
-    "/outlets": {
-      "get": {
-        "description": "Returns a collection of outlets.",
-        "summary": "List outlets",
-        "tags": [
-          "Outlets"
-        ],
-        "operationId": "List outlets",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/OutletCollection"
-            }
-          }
-        }
-      }
-    },
-    "/inventory": {
-      "get": {
-        "description": "Returns a paginated list of Inventory records.",
-        "summary": "List inventory records",
-        "tags": [
-          "Inventory"
-        ],
-        "operationId": "List inventory records",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/InventoryCollection"
-            }
+            "description": ""
           }
         }
       }
@@ -749,151 +187,6 @@
         "responses": {
           "200": {
             "description": ""
-          }
-        }
-      }
-    },
-    "/consignments": {
-      "get": {
-        "description": "Returns a paginated list of consignments.",
-        "summary": "List consignments",
-        "tags": [
-          "Consignments"
-        ],
-        "operationId": "List consignments",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ConsignmentCollection"
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new consignment of type `STOCKTAKE`. Currently, this endpoint only supports creation of inventory counts (stock takes).",
-        "summary": "Create an inventory count",
-        "tags": [
-          "Consignments"
-        ],
-        "operationId": "Create an inventory count",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/InventoryCount"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/customer_groups": {
-      "get": {
-        "description": "Returns a paginated list of customer groups.",
-        "summary": "List customer groups",
-        "tags": [
-          "Customer Groups"
-        ],
-        "operationId": "List customer groups",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerGroupCollection"
-            }
-          }
-        }
-      }
-    },
-    "/customers": {
-      "get": {
-        "description": "Returns a paginated list of customers.",
-        "summary": "List customers",
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "List customers",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerCollection"
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new customer.",
-        "summary": "Create a new customer",
-        "tags": [
-          "Customers"
-        ],
-        "operationId": "Create a new customer",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerBase"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerResponse"
-            }
-          }
-        }
-      }
-    },
-    "/brands": {
-      "get": {
-        "description": "Returns a paginated list of brands.",
-        "summary": "List brands",
-        "tags": [
-          "Brands"
-        ],
-        "operationId": "List brands",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BrandCollection"
-            }
           }
         }
       }
@@ -1001,14 +294,14 @@
         }
       }
     },
-    "/taxes": {
+    "/customer_groups": {
       "get": {
-        "description": "Returns a paginated list of taxes.",
-        "summary": "List taxes",
+        "description": "Returns a paginated list of customer groups.",
+        "summary": "List customer groups",
         "tags": [
-          "Taxes"
+          "Customer Groups"
         ],
-        "operationId": "List taxes",
+        "operationId": "List customer groups",
         "produces": [
           "application/json"
         ],
@@ -1017,7 +310,670 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/TaxCollection"
+              "$ref": "#/definitions/CustomerGroupCollection"
+            }
+          }
+        }
+      }
+    },
+    "/customers": {
+      "get": {
+        "description": "Returns a paginated list of customers.",
+        "summary": "List customers",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "List customers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new customer.",
+        "summary": "Create a new customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Create a new customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        }
+      }
+    },
+    "/customers/{customer_id}": {
+      "get": {
+        "description": "Returns a single customer with a requested ID.",
+        "summary": "Get a single customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Get a single customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates the customer with the requested ID.",
+        "summary": "Update a customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Update a customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the customer with the requested ID.",
+        "summary": "Delete a customer",
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Delete a customer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid customer ID."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/inventory": {
+      "get": {
+        "description": "Returns a paginated list of Inventory records.",
+        "summary": "List inventory records",
+        "tags": [
+          "Inventory"
+        ],
+        "operationId": "List inventory records",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCollection"
+            }
+          }
+        }
+      }
+    },
+    "/outlets": {
+      "get": {
+        "description": "Returns a collection of outlets.",
+        "summary": "List outlets",
+        "tags": [
+          "Outlets"
+        ],
+        "operationId": "List outlets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutletCollection"
+            }
+          }
+        }
+      }
+    },
+    "/outlets/{outlet_id}": {
+      "get": {
+        "description": "Returns a single outlet with the requested ID.",
+        "summary": "Get a single outlet",
+        "tags": [
+          "Outlets"
+        ],
+        "operationId": "Get a single outlet",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "outlet_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid Outlet ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutletCollection"
+            }
+          }
+        }
+      }
+    },
+    "/price_book_products": {
+      "get": {
+        "description": "Returns a paginated list of price book products.",
+        "summary": "List price book products",
+        "tags": [
+          "Price Book Products"
+        ],
+        "operationId": "List price book products",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookProductCollection"
+            }
+          }
+        }
+      }
+    },
+    "/price_books": {
+      "get": {
+        "description": "Returns a paginated list of price books",
+        "summary": "List price books",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "List price books",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Creates a new price book.",
+        "summary": "Create a price book",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "Create a price book",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookResponse"
+            }
+          }
+        }
+      }
+    },
+    "/price_books/{price_book_id}": {
+      "get": {
+        "description": "Returns a single price book with a requested ID",
+        "summary": "Get a single price book",
+        "tags": [
+          "Price Books"
+        ],
+        "operationId": "Get a single price book",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "price_book_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid price book ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PriceBookResponse"
+            }
+          }
+        }
+      }
+    },
+    "/product_images/{product_image_id}": {
+      "get": {
+        "description": "Returns the metadata for a single product image with a given ID.\nThis method is useful for checking the status of an image after it was uploaded.",
+        "summary": "Get a single product_image data",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Get a single product_image data",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Allows for changing the image position in the list",
+        "summary": "Set image position",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Set image position",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImagePosition"
+            }
+          },
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Deletes the product_image with the requested ID.",
+        "summary": "Delete a product_image",
+        "tags": [
+          "Product Images"
+        ],
+        "operationId": "Delete a product_image",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/product_types": {
+      "get": {
+        "description": "Returns a paginated list of product types.",
+        "summary": "List product types",
+        "tags": [
+          "Product Types"
+        ],
+        "operationId": "List product types",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductTypeCollection"
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "description": "Returns a paginated list of products.",
+        "summary": "List products",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "List products",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductCollection"
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_id}": {
+      "get": {
+        "description": "Returns a single product object with a given ID.",
+        "summary": "Get a single product",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Get a single product",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductResponse"
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_id}/actions/image_upload": {
+      "post": {
+        "description": "Upload a binary file with an image to be used for a product. This request should be encoded as `multipart/form-data`.",
+        "summary": "Upload an image",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Upload an image",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UploadAnImageRequest"
+            }
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "UUID",
+            "description": "The ID of the product which the imaged should be associated with."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ImageResponse"
+            }
+          }
+        }
+      }
+    },
+    "/products/{product_id}/inventory": {
+      "get": {
+        "description": "Returns inventory data for a single product in all the outlets.",
+        "summary": "Get inventory data for a single product",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "Get inventory data for a single product",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/InventoryCollection"
+            }
+          }
+        }
+      }
+    },
+    "/registers": {
+      "get": {
+        "description": "Returns a paginated list of registers.",
+        "summary": "List registers",
+        "tags": [
+          "Registers"
+        ],
+        "operationId": "List registers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterCollection"
+            }
+          }
+        }
+      }
+    },
+    "/registers/{register_id}": {
+      "get": {
+        "description": "Returns a single register with the requested ID.",
+        "summary": "Get a single register",
+        "tags": [
+          "Registers"
+        ],
+        "operationId": "Get a single register",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "register_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid register ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RegisterCollection"
+            }
+          }
+        }
+      }
+    },
+    "/sales": {
+      "get": {
+        "description": "Returns a paginated list of Sales.",
+        "summary": "List Sales",
+        "tags": [
+          "Sales"
+        ],
+        "operationId": "List Sales",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaleCollection"
+            }
+          }
+        }
+      }
+    },
+    "/suppliers": {
+      "get": {
+        "description": "Returns a paginated list of suppliers.",
+        "summary": "List suppliers",
+        "tags": [
+          "Suppliers"
+        ],
+        "operationId": "List suppliers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SupplierCollection"
             }
           }
         }
@@ -1057,6 +1013,50 @@
             "required": true
           }
         ]
+      }
+    },
+    "/tags": {
+      "get": {
+        "description": "Returns a collection of tags.",
+        "summary": "List tags",
+        "tags": [
+          "Tags"
+        ],
+        "operationId": "List tags",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TagCollection"
+            }
+          }
+        }
+      }
+    },
+    "/taxes": {
+      "get": {
+        "description": "Returns a paginated list of taxes.",
+        "summary": "List taxes",
+        "tags": [
+          "Taxes"
+        ],
+        "operationId": "List taxes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TaxCollection"
+            }
+          }
+        }
       }
     }
   },
