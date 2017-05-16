@@ -1374,19 +1374,6 @@
         }
       }
     },
-    "SupplierBase": {
-      "title": "Supplier Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The Supplier name.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
     "SaleCollection": {
       "title": "Sale Collection",
       "type": "object",
