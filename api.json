@@ -1302,6 +1302,9 @@
             "type": "string",
             "required": true
           }
+        ],
+        "tags": [
+          "Suppliers"
         ]
       }
     }
