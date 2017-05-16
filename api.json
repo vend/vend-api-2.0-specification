@@ -1274,6 +1274,36 @@
           "IsMultiContentStreaming": false
         }
       }
+    },
+    "/suppliers/{supplier_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SupplierResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "06bf537b-c783-11e7-ff13-02d1589727d5",
+                  "name": "Best supplies",
+                  "deleted_at": null,
+                  "version": 2981942445
+                }
+              }
+            }
+    }
+  },
+        "parameters": [
+          {
+            "name": "supplier_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "definitions": {
