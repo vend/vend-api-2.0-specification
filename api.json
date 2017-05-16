@@ -7,6 +7,9 @@
     "license": {
       "name": "MIT",
       "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+    },
+    "x-stoplight": {
+      "id": "vend/specs/api-2-0"
     }
   },
   "x-explorer-enabled": false,
