@@ -47,6 +47,46 @@
         }
       }
     },
+    "/brands/{brand_id}": {
+      "get": {
+        "description": "Returns a single brand with a requested ID",
+        "summary": "Get a single brand",
+        "tags": [
+          "Brands"
+        ],
+        "operationId": "GetBrandByID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "brand_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Valid brand ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BrandResponse"
+            },
+            "examples": {
+              "new": {
+                "data": {
+                  "id": "bc305bf6-6183-11e4-f15a-162d34675ae7",
+                  "name": "Best Brand",
+                  "deleted_at": null,
+                  "version": 488483
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/consignments": {
       "get": {
         "description": "Returns a paginated list of consignments.",
@@ -311,6 +351,43 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerGroupCollection"
+            },
+            "examples": {
+              "new": {
+                "data": [
+                  {
+                    "id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "All Customers",
+                    "group_id": "1111111111",
+                    "version": 29483,
+                    "created_at": "2014-06-09T21:04:49+00:00",
+                    "updated_at": "2014-06-09T21:04:49+00:00",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-e112-46b9bd1f069e",
+                    "name": "VIP",
+                    "group_id": "VIP-Y968",
+                    "version": 157810,
+                    "created_at": "2015-08-19T21:32:06+00:00",
+                    "updated_at": "2015-08-19T21:32:06+00:00",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "06e35f89-3783-11e6-ec7e-0bf840380a64",
+                    "name": "Students",
+                    "group_id": "Students-2SFG",
+                    "version": 1205737356,
+                    "created_at": "2016-04-26T21:45:53+00:00",
+                    "updated_at": "2016-04-26T21:45:53+00:00",
+                    "deleted_at": null
+                  }
+                ],
+                "version": {
+                  "max": 1205737356,
+                  "min": 29483
+                }
+              }
             }
           }
         }
@@ -502,6 +579,90 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/OutletCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "name": "Second Outlet",
+                    "default_tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "currency": "NZD",
+                    "currency_symbol": "$",
+                    "display_prices": "inclusive",
+                    "time_zone": "Pacific/Auckland",
+                    "physical_address_1": "Nuffield Street",
+                    "physical_address_2": "",
+                    "physical_suburb": "Newmarket",
+                    "physical_city": "Auckland",
+                    "physical_postcode": "1023",
+                    "physical_state": "Auckland",
+                    "physical_country_id": "NZ",
+                    "deleted_at": null,
+                    "version": 816974914,
+                    "attributes": []
+                  },
+                  {
+                    "id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Main Outlet",
+                    "default_tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "currency": "NZD",
+                    "currency_symbol": "$",
+                    "display_prices": "inclusive",
+                    "time_zone": "Pacific/Auckland",
+                    "physical_address_1": "Baker Street",
+                    "physical_address_2": "",
+                    "physical_suburb": "",
+                    "physical_city": "London",
+                    "physical_postcode": "",
+                    "physical_state": "",
+                    "physical_country_id": "GB",
+                    "deleted_at": null,
+                    "version": 909257071,
+                    "attributes": []
+                  },
+                  {
+                    "id": "06bf537b-c783-11e6-f6b9-53a81bd6b215",
+                    "name": "Sydney",
+                    "default_tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "currency": "NZD",
+                    "currency_symbol": "$",
+                    "display_prices": "inclusive",
+                    "time_zone": "Australia/Sydney",
+                    "physical_address_1": "",
+                    "physical_address_2": "",
+                    "physical_suburb": "",
+                    "physical_city": "Sydney",
+                    "physical_postcode": "",
+                    "physical_state": "NSW",
+                    "physical_country_id": "AU",
+                    "deleted_at": null,
+                    "version": 1690497245,
+                    "attributes": [
+                      {
+                        "key": "order_reference",
+                        "value": "1"
+                      },
+                      {
+                        "key": "order_reference_prefix",
+                        "value": "SYD"
+                      },
+                      {
+                        "key": "return_reference",
+                        "value": "1"
+                      },
+                      {
+                        "key": "return_reference_prefix",
+                        "value": "SYD"
+                      }
+                    ]
+                  }
+                ],
+                "version": {
+                  "max": 1690497245,
+                  "min": 816974914
+                }
+              }
             }
           }
         }
@@ -532,7 +693,30 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/OutletCollection"
+              "$ref": "#/definitions/OutletResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "name": "Second Outlet",
+                  "default_tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "currency": "NZD",
+                  "currency_symbol": "$",
+                  "display_prices": "inclusive",
+                  "time_zone": "Pacific/Auckland",
+                  "physical_address_1": "Nuffield Street",
+                  "physical_address_2": "",
+                  "physical_suburb": "Newmarket",
+                  "physical_city": "Auckland",
+                  "physical_postcode": "1023",
+                  "physical_state": "Auckland",
+                  "physical_country_id": "NZ",
+                  "deleted_at": null,
+                  "version": 816974914,
+                  "attributes": []
+                }
+              }
             }
           }
         }
@@ -758,6 +942,47 @@
         }
       }
     },
+    "/product_types/{product_type_id}": {
+      "get": {
+        "description": "Returns a single product type with a given ID.",
+        "summary": "Get a single product type",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "GetProductTypeByID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_type_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product type ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductTypeResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b1e2babe-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "General",
+                  "deleted_at": null,
+                  "version": 449902
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/products": {
       "get": {
         "description": "Returns a paginated list of products.",
@@ -899,6 +1124,108 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/RegisterCollection"
+            },
+            "examples": {
+              "new": {
+                "data": [
+                  {
+                    "id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Main Register",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": true,
+                    "invoice_prefix": "MR-",
+                    "invoice_suffix": "-NZ",
+                    "invoice_sequence": 1708,
+                    "button_layout_id": "d656e8e1-7be7-11e4-9bb5-b8ca3a65011c",
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2017-05-05T05:58:53+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "06bf537b-c783-11e7-ff13-3157eb615f96",
+                    "cash_managed_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "version": 3391483933
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-2816e25ffc51",
+                    "name": "Second Register",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "S",
+                    "invoice_suffix": "",
+                    "invoice_sequence": 3,
+                    "button_layout_id": null,
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2015-03-16T22:21:50+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "a0369f1f-9083-11e4-f68e-cc2ad7a415de",
+                    "cash_managed_payment_type_id": null,
+                    "version": 709083
+                  },
+                  {
+                    "id": "06e35f89-3783-11e6-ec7e-10e1180eba6d",
+                    "name": "Third register",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "Th",
+                    "invoice_suffix": "X",
+                    "invoice_sequence": 3,
+                    "button_layout_id": null,
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2016-05-03T03:43:04+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "06e35f89-3783-11e6-ec7e-10e124cb1e78",
+                    "cash_managed_payment_type_id": null,
+                    "version": 1234541473
+                  },
+                  {
+                    "id": "06bf537b-c783-11e6-f6b9-53a827aeca85",
+                    "name": "Sydney",
+                    "outlet_id": "06bf537b-c783-11e6-f6b9-53a81bd6b215",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "",
+                    "invoice_suffix": "",
+                    "invoice_sequence": 1,
+                    "button_layout_id": null,
+                    "is_open": false,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": null,
+                    "register_close_time": null,
+                    "register_open_sequence_id": null,
+                    "cash_managed_payment_type_id": null,
+                    "version": 1690448499
+                  }
+                ],
+                "version": {
+                  "max": 3391483933,
+                  "min": 709083
+                }
+              }
             }
           }
         }
@@ -929,7 +1256,34 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/RegisterCollection"
+              "$ref": "#/definitions/RegisterResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-2816e25ffc51",
+                  "name": "Second Register",
+                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "ask_for_note_on_save": 1,
+                  "print_note_on_receipt": false,
+                  "ask_for_user_on_sale": false,
+                  "show_discounts_on_receipts": true,
+                  "print_receipt": true,
+                  "email_receipt": false,
+                  "invoice_prefix": "S",
+                  "invoice_suffix": "",
+                  "invoice_sequence": 3,
+                  "button_layout_id": null,
+                  "is_open": true,
+                  "is_quick_keys_enabled": true,
+                  "deleted_at": null,
+                  "register_open_time": "2015-03-16T22:21:50+00:00",
+                  "register_close_time": null,
+                  "register_open_sequence_id": "a0369f1f-9083-11e4-f68e-cc2ad7a415de",
+                  "cash_managed_payment_type_id": null,
+                  "version": 709083
+                }
+              }
             }
           }
         }
@@ -937,7 +1291,7 @@
     },
     "/sales": {
       "get": {
-        "description": "Returns a paginated list of Sales.",
+        "description": "Returns a paginated list of sales.",
         "summary": "List Sales",
         "tags": [
           "Sales"
@@ -952,6 +1306,435 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/SaleCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-39f7fce5e39b",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "user_id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "customer_id": "b1cabb53-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "invoice_number": "1036",
+                    "status": "CLOSED",
+                    "note": "",
+                    "short_code": "xamfvy",
+                    "return_for": null,
+                    "total_price": 200,
+                    "total_tax": 30,
+                    "total_loyalty": 23,
+                    "created_at": "2014-09-11T21:09:59+00:00",
+                    "updated_at": "2014-09-18T01:37:59+00:00",
+                    "sale_date": "2014-09-18T01:37:56+00:00",
+                    "deleted_at": null,
+                    "line_items": [
+                      {
+                        "id": "a604d16b-a999-8ae0-11e4-39f8234e68d5",
+                        "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 200,
+                        "price": 200,
+                        "cost_total": 100,
+                        "cost": 100,
+                        "tax_total": 30,
+                        "tax": 30,
+                        "quantity": 1,
+                        "loyalty_value": 23,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 1,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 30
+                          }
+                        ],
+                        "unit_cost": 100,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 23,
+                        "unit_price": 200,
+                        "unit_tax": 30,
+                        "total_cost": 100,
+                        "total_discount": 0,
+                        "total_loyalty_value": 23,
+                        "total_price": 200,
+                        "total_tax": 30,
+                        "is_return": false
+                      },
+                      {
+                        "id": "b8ca3a65-0183-11e4-fbb5-39f7fcf1f2a0",
+                        "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 0,
+                        "price": 0,
+                        "cost_total": 100,
+                        "cost": 100,
+                        "tax_total": 0,
+                        "tax": 0,
+                        "quantity": 1,
+                        "loyalty_value": 0,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 0,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0
+                          }
+                        ],
+                        "unit_cost": 100,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0,
+                        "unit_price": 0,
+                        "unit_tax": 0,
+                        "total_cost": 100,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0,
+                        "total_price": 0,
+                        "total_tax": 0,
+                        "is_return": false
+                      }
+                    ],
+                    "payments": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ed468ffbb24",
+                        "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "payment_type_id": "1",
+                        "name": "Cash",
+                        "amount": 230,
+                        "payment_date": "2014-09-18T01:37:54+00:00",
+                        "deleted_at": null,
+                        "external_attributes": [],
+                        "source_id": null
+                      }
+                    ],
+                    "version": 413,
+                    "receipt_number": "1036",
+                    "taxes": [
+                      {
+                        "amount": 30,
+                        "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "a604d16b-a999-beb5-11e4-3ed46b02a0bc",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "user_id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "customer_id": "b1cabb53-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "invoice_number": "MR-1050-NZ",
+                    "status": "CLOSED",
+                    "note": null,
+                    "short_code": "wy6cic",
+                    "return_for": null,
+                    "total_price": 12.91,
+                    "total_tax": 1.94,
+                    "total_loyalty": 1.485,
+                    "created_at": "2014-09-18T03:45:48+00:00",
+                    "updated_at": "2014-09-18T03:45:48+00:00",
+                    "sale_date": "2014-09-18T03:45:46+00:00",
+                    "deleted_at": null,
+                    "line_items": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee641f19d10",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 0,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.64565
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      },
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee64209d023",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 1,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.64565
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      },
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee64225d058",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 2,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.6487
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      }
+                    ],
+                    "payments": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee6447fb058",
+                        "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "payment_type_id": "1",
+                        "name": "Cash",
+                        "amount": 14.85,
+                        "payment_date": "2014-09-18T03:45:44+00:00",
+                        "deleted_at": null,
+                        "external_attributes": [],
+                        "source_id": null
+                      }
+                    ],
+                    "version": 29316,
+                    "receipt_number": "MR-1050-NZ",
+                    "taxes": [
+                      {
+                        "amount": 1.94,
+                        "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4"
+                      }
+                    ]
+                  }
+                ],
+                "version": {
+                  "min": 413,
+                  "max": 29316
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sales/{sale_id}": {
+      "get": {
+        "description": "Returns a single sale with a given ID.",
+        "summary": "Get a single sale",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "GetSaleByID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "sale_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid sale ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SaleResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-39f7fce5e39b",
+                  "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "user_id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "customer_id": "b1cabb53-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "invoice_number": "1036",
+                  "status": "CLOSED",
+                  "note": "",
+                  "short_code": "xamfvy",
+                  "return_for": null,
+                  "total_price": 200,
+                  "total_tax": 30,
+                  "total_loyalty": 23,
+                  "created_at": "2014-09-11T21:09:59+00:00",
+                  "updated_at": "2014-09-18T01:37:59+00:00",
+                  "sale_date": "2014-09-18T01:37:56+00:00",
+                  "deleted_at": null,
+                  "line_items": [
+                    {
+                      "id": "a604d16b-a999-8ae0-11e4-39f8234e68d5",
+                      "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                      "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "discount_total": 0,
+                      "discount": 0,
+                      "price_total": 200,
+                      "price": 200,
+                      "cost_total": 100,
+                      "cost": 100,
+                      "tax_total": 30,
+                      "tax": 30,
+                      "quantity": 1,
+                      "loyalty_value": 23,
+                      "note": null,
+                      "price_set": false,
+                      "status": "CONFIRMED",
+                      "sequence": 1,
+                      "tax_components": [
+                        {
+                          "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                          "total_tax": 30
+                        }
+                      ],
+                      "unit_cost": 100,
+                      "unit_discount": 0,
+                      "unit_loyalty_value": 23,
+                      "unit_price": 200,
+                      "unit_tax": 30,
+                      "total_cost": 100,
+                      "total_discount": 0,
+                      "total_loyalty_value": 23,
+                      "total_price": 200,
+                      "total_tax": 30,
+                      "is_return": false
+                    },
+                    {
+                      "id": "b8ca3a65-0183-11e4-fbb5-39f7fcf1f2a0",
+                      "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                      "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "discount_total": 0,
+                      "discount": 0,
+                      "price_total": 0,
+                      "price": 0,
+                      "cost_total": 100,
+                      "cost": 100,
+                      "tax_total": 0,
+                      "tax": 0,
+                      "quantity": 1,
+                      "loyalty_value": 0,
+                      "note": null,
+                      "price_set": false,
+                      "status": "CONFIRMED",
+                      "sequence": 0,
+                      "tax_components": [
+                        {
+                          "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                          "total_tax": 0
+                        }
+                      ],
+                      "unit_cost": 100,
+                      "unit_discount": 0,
+                      "unit_loyalty_value": 0,
+                      "unit_price": 0,
+                      "unit_tax": 0,
+                      "total_cost": 100,
+                      "total_discount": 0,
+                      "total_loyalty_value": 0,
+                      "total_price": 0,
+                      "total_tax": 0,
+                      "is_return": false
+                    }
+                  ],
+                  "payments": [
+                    {
+                      "id": "a604d16b-a999-beb5-11e4-3ed468ffbb24",
+                      "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "payment_type_id": "1",
+                      "name": "Cash",
+                      "amount": 230,
+                      "payment_date": "2014-09-18T01:37:54+00:00",
+                      "deleted_at": null,
+                      "external_attributes": [],
+                      "source_id": null
+                    }
+                  ],
+                  "version": 413,
+                  "receipt_number": "1036",
+                  "taxes": [
+                    {
+                      "amount": 30,
+                      "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4"
+                    }
+                  ]
+                }
+              }
             }
           }
         }
@@ -1032,9 +1815,69 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/TagCollection"
+            },
+            "examples": {
+              "new": {
+                "data": [
+                  {
+                    "id": "a0bb3580-027a-11e4-a0f5-b8ca3a64f8f4",
+                    "name": "test",
+                    "deleted_at": null,
+                    "version": 535893
+                  },
+                  {
+                    "id": "a72bb4ec-027a-11e4-a0f5-b8ca3a64f8f4",
+                    "name": "some_other_tag",
+                    "deleted_at": null,
+                    "version": 559284
+                  },
+                  {
+                    "id": "b1e2e709-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "General",
+                    "deleted_at": null,
+                    "version": 600569
+                  }
+                ]
+              }
             }
           }
         }
+      }
+    },
+    "/tags/{tag_id}": {
+      "get": {
+        "summary": "Get a single tag",
+        "description": "Returns a single tag with a given ID.",
+        "operationId": "getTagByID",
+        "tags": [
+          "Tags"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "a0bb3580-027a-11e4-a0f5-b8ca3a64f8f4",
+                  "name": "test",
+                  "deleted_at": null,
+                  "version": 535893
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tag_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ]
       }
     },
     "/taxes": {
@@ -2428,7 +3271,7 @@
           }
         },
         "categories": {
-          "description": "A list of tag objects.+ `variant_name`: `Bravo / Black` (string) - If the product is a variant this name will be a concatenation of the base name and variant option values.",
+          "description": "A list of tag objects.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Tag"
