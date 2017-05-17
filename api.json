@@ -1083,6 +1083,108 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/RegisterCollection"
+            },
+            "examples": {
+              "new": {
+                "data": [
+                  {
+                    "id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Main Register",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": true,
+                    "invoice_prefix": "MR-",
+                    "invoice_suffix": "-NZ",
+                    "invoice_sequence": 1708,
+                    "button_layout_id": "d656e8e1-7be7-11e4-9bb5-b8ca3a65011c",
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2017-05-05T05:58:53+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "06bf537b-c783-11e7-ff13-3157eb615f96",
+                    "cash_managed_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "version": 3391483933
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-2816e25ffc51",
+                    "name": "Second Register",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "S",
+                    "invoice_suffix": "",
+                    "invoice_sequence": 3,
+                    "button_layout_id": null,
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2015-03-16T22:21:50+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "a0369f1f-9083-11e4-f68e-cc2ad7a415de",
+                    "cash_managed_payment_type_id": null,
+                    "version": 709083
+                  },
+                  {
+                    "id": "06e35f89-3783-11e6-ec7e-10e1180eba6d",
+                    "name": "Third register",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "Th",
+                    "invoice_suffix": "X",
+                    "invoice_sequence": 3,
+                    "button_layout_id": null,
+                    "is_open": true,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": "2016-05-03T03:43:04+00:00",
+                    "register_close_time": null,
+                    "register_open_sequence_id": "06e35f89-3783-11e6-ec7e-10e124cb1e78",
+                    "cash_managed_payment_type_id": null,
+                    "version": 1234541473
+                  },
+                  {
+                    "id": "06bf537b-c783-11e6-f6b9-53a827aeca85",
+                    "name": "Sydney",
+                    "outlet_id": "06bf537b-c783-11e6-f6b9-53a81bd6b215",
+                    "ask_for_note_on_save": 1,
+                    "print_note_on_receipt": false,
+                    "ask_for_user_on_sale": false,
+                    "show_discounts_on_receipts": true,
+                    "print_receipt": true,
+                    "email_receipt": false,
+                    "invoice_prefix": "",
+                    "invoice_suffix": "",
+                    "invoice_sequence": 1,
+                    "button_layout_id": null,
+                    "is_open": false,
+                    "is_quick_keys_enabled": true,
+                    "deleted_at": null,
+                    "register_open_time": null,
+                    "register_close_time": null,
+                    "register_open_sequence_id": null,
+                    "cash_managed_payment_type_id": null,
+                    "version": 1690448499
+                  }
+                ],
+                "version": {
+                  "max": 3391483933,
+                  "min": 709083
+                }
+              }
             }
           }
         }
