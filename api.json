@@ -1215,7 +1215,34 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/RegisterCollection"
+              "$ref": "#/definitions/RegisterResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-2816e25ffc51",
+                  "name": "Second Register",
+                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "ask_for_note_on_save": 1,
+                  "print_note_on_receipt": false,
+                  "ask_for_user_on_sale": false,
+                  "show_discounts_on_receipts": true,
+                  "print_receipt": true,
+                  "email_receipt": false,
+                  "invoice_prefix": "S",
+                  "invoice_suffix": "",
+                  "invoice_sequence": 3,
+                  "button_layout_id": null,
+                  "is_open": true,
+                  "is_quick_keys_enabled": true,
+                  "deleted_at": null,
+                  "register_open_time": "2015-03-16T22:21:50+00:00",
+                  "register_close_time": null,
+                  "register_open_sequence_id": "a0369f1f-9083-11e4-f68e-cc2ad7a415de",
+                  "cash_managed_payment_type_id": null,
+                  "version": 709083
+                }
+              }
             }
           }
         }
