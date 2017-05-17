@@ -693,7 +693,30 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/OutletCollection"
+              "$ref": "#/definitions/OutletResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "name": "Second Outlet",
+                  "default_tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "currency": "NZD",
+                  "currency_symbol": "$",
+                  "display_prices": "inclusive",
+                  "time_zone": "Pacific/Auckland",
+                  "physical_address_1": "Nuffield Street",
+                  "physical_address_2": "",
+                  "physical_suburb": "Newmarket",
+                  "physical_city": "Auckland",
+                  "physical_postcode": "1023",
+                  "physical_state": "Auckland",
+                  "physical_country_id": "NZ",
+                  "deleted_at": null,
+                  "version": 816974914,
+                  "attributes": []
+                }
+              }
             }
           }
         }
