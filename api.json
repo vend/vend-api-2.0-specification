@@ -1623,6 +1623,30 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/TagCollection"
+            },
+            "examples": {
+              "new": {
+                "data": [
+                  {
+                    "id": "a0bb3580-027a-11e4-a0f5-b8ca3a64f8f4",
+                    "name": "test",
+                    "deleted_at": null,
+                    "version": 535893
+                  },
+                  {
+                    "id": "a72bb4ec-027a-11e4-a0f5-b8ca3a64f8f4",
+                    "name": "some_other_tag",
+                    "deleted_at": null,
+                    "version": 559284
+                  },
+                  {
+                    "id": "b1e2e709-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "General",
+                    "deleted_at": null,
+                    "version": 600569
+                  }
+                ]
+              }
             }
           }
         }
