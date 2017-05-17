@@ -1265,6 +1265,284 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/SaleCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-39f7fce5e39b",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "user_id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "customer_id": "b1cabb53-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "invoice_number": "1036",
+                    "status": "CLOSED",
+                    "note": "",
+                    "short_code": "xamfvy",
+                    "return_for": null,
+                    "total_price": 200,
+                    "total_tax": 30,
+                    "total_loyalty": 23,
+                    "created_at": "2014-09-11T21:09:59+00:00",
+                    "updated_at": "2014-09-18T01:37:59+00:00",
+                    "sale_date": "2014-09-18T01:37:56+00:00",
+                    "deleted_at": null,
+                    "line_items": [
+                      {
+                        "id": "a604d16b-a999-8ae0-11e4-39f8234e68d5",
+                        "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 200,
+                        "price": 200,
+                        "cost_total": 100,
+                        "cost": 100,
+                        "tax_total": 30,
+                        "tax": 30,
+                        "quantity": 1,
+                        "loyalty_value": 23,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 1,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 30
+                          }
+                        ],
+                        "unit_cost": 100,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 23,
+                        "unit_price": 200,
+                        "unit_tax": 30,
+                        "total_cost": 100,
+                        "total_discount": 0,
+                        "total_loyalty_value": 23,
+                        "total_price": 200,
+                        "total_tax": 30,
+                        "is_return": false
+                      },
+                      {
+                        "id": "b8ca3a65-0183-11e4-fbb5-39f7fcf1f2a0",
+                        "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 0,
+                        "price": 0,
+                        "cost_total": 100,
+                        "cost": 100,
+                        "tax_total": 0,
+                        "tax": 0,
+                        "quantity": 1,
+                        "loyalty_value": 0,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 0,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0
+                          }
+                        ],
+                        "unit_cost": 100,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0,
+                        "unit_price": 0,
+                        "unit_tax": 0,
+                        "total_cost": 100,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0,
+                        "total_price": 0,
+                        "total_tax": 0,
+                        "is_return": false
+                      }
+                    ],
+                    "payments": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ed468ffbb24",
+                        "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "payment_type_id": "1",
+                        "name": "Cash",
+                        "amount": 230,
+                        "payment_date": "2014-09-18T01:37:54+00:00",
+                        "deleted_at": null,
+                        "external_attributes": [],
+                        "source_id": null
+                      }
+                    ],
+                    "version": 413,
+                    "receipt_number": "1036",
+                    "taxes": [
+                      {
+                        "amount": 30,
+                        "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "a604d16b-a999-beb5-11e4-3ed46b02a0bc",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "user_id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "customer_id": "b1cabb53-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "invoice_number": "MR-1050-NZ",
+                    "status": "CLOSED",
+                    "note": null,
+                    "short_code": "wy6cic",
+                    "return_for": null,
+                    "total_price": 12.91,
+                    "total_tax": 1.94,
+                    "total_loyalty": 1.485,
+                    "created_at": "2014-09-18T03:45:48+00:00",
+                    "updated_at": "2014-09-18T03:45:48+00:00",
+                    "sale_date": "2014-09-18T03:45:46+00:00",
+                    "deleted_at": null,
+                    "line_items": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee641f19d10",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 0,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.64565
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      },
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee64209d023",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 1,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.64565
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      },
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee64225d058",
+                        "product_id": "b1d87b58-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "discount_total": 0,
+                        "discount": 0,
+                        "price_total": 4.30435,
+                        "price": 4.30435,
+                        "cost_total": 2,
+                        "cost": 2,
+                        "tax_total": 0.64565,
+                        "tax": 0.64565,
+                        "quantity": 1,
+                        "loyalty_value": 0.495,
+                        "note": null,
+                        "price_set": false,
+                        "status": "CONFIRMED",
+                        "sequence": 2,
+                        "tax_components": [
+                          {
+                            "rate_id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                            "total_tax": 0.6487
+                          }
+                        ],
+                        "unit_cost": 2,
+                        "unit_discount": 0,
+                        "unit_loyalty_value": 0.495,
+                        "unit_price": 4.30435,
+                        "unit_tax": 0.64565,
+                        "total_cost": 2,
+                        "total_discount": 0,
+                        "total_loyalty_value": 0.495,
+                        "total_price": 4.30435,
+                        "total_tax": 0.64565,
+                        "is_return": false
+                      }
+                    ],
+                    "payments": [
+                      {
+                        "id": "a604d16b-a999-beb5-11e4-3ee6447fb058",
+                        "register_id": "b1e198a9-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "payment_type_id": "1",
+                        "name": "Cash",
+                        "amount": 14.85,
+                        "payment_date": "2014-09-18T03:45:44+00:00",
+                        "deleted_at": null,
+                        "external_attributes": [],
+                        "source_id": null
+                      }
+                    ],
+                    "version": 29316,
+                    "receipt_number": "MR-1050-NZ",
+                    "taxes": [
+                      {
+                        "amount": 1.94,
+                        "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4"
+                      }
+                    ]
+                  }
+                ],
+                "version": {
+                  "min": 413,
+                  "max": 29316
+                }
+              }
             }
           }
         }
