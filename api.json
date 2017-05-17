@@ -1250,7 +1250,7 @@
     },
     "/sales": {
       "get": {
-        "description": "Returns a paginated list of Sales.",
+        "description": "Returns a paginated list of sales.",
         "summary": "List Sales",
         "tags": [
           "Sales"
