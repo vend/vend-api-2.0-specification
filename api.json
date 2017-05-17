@@ -1087,19 +1087,6 @@
         "name"
       ]
     },
-    "BrandBase": {
-      "title": "Brand Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The Brand name.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
     "BrandCollection": {
       "title": "Brand Collection",
       "type": "object",
@@ -1124,29 +1111,6 @@
     },
     "BrandSample": {
       "title": "Brand Sample",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Auto-generated object ID.",
-          "type": "string"
-        },
-        "name": {
-          "description": "",
-          "type": "string"
-        },
-        "deleted_at": {
-          "description": "Deletion timestamp in UTC.",
-          "type": "string"
-        },
-        "version": {
-          "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
-    "CategorySample1": {
-      "title": "Category Sample 1",
       "type": "object",
       "properties": {
         "id": {
@@ -1256,56 +1220,6 @@
           "description": "The number of items over the expected level.",
           "type": "number",
           "format": "double"
-        }
-      }
-    },
-    "ConsignmentBase": {
-      "title": "Consignment Base",
-      "type": "object",
-      "properties": {
-        "outlet_id": {
-          "description": "A valid ID of an outlet where stock will be received.",
-          "type": "string"
-        },
-        "name": {
-          "description": "Tue 29 Nov 2016 (string) - Consignment name.",
-          "type": "string"
-        },
-        "consignment_date": {
-          "description": "11-28T19:02:15+00:00 (timestamp) - Consignment creation date.",
-          "type": "string"
-        },
-        "due_at": {
-          "description": "11-30T19:08:541+00:00 (timestamp) - Due date.",
-          "type": "string"
-        },
-        "received_at": {
-          "description": "11-30T19:08:541+00:00 (timestamp) - The date when consignment was received.",
-          "type": "string"
-        },
-        "type": {
-          "description": "One of `SUPPLIER`, `OUTLET`, `STOCKTAKE`, `RETURN`.",
-          "type": "string"
-        },
-        "status": {
-          "description": "One of `OPEN`, `RECEIVED`, `SENT`, `STOCKTAKE`, `STOCKTAKE_SCHEDULED`, `STOCKTAKE_IN_PROGRESS`, `STOCKTAKE_IN_PROGRESS_PROCESSED`, `STOCKTAKE_COMPLETE`, `CLOSED`, `CANCELLED`",
-          "type": "string"
-        },
-        "supplier_id": {
-          "description": "a valid supplier ID.",
-          "type": "string"
-        },
-        "source_outlet_id": {
-          "description": "A valid ID of an outlet where stock will come from. **Stock transfers only**.",
-          "type": "string"
-        },
-        "supplier_invoice": {
-          "description": "Supplier invoice number.",
-          "type": "string"
-        },
-        "reference": {
-          "description": "Order number.",
-          "type": "string"
         }
       }
     },
@@ -1725,23 +1639,6 @@
         "name"
       ]
     },
-    "CustomerGroupBase": {
-      "title": "Customer Group Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The customer group name.",
-          "type": "string"
-        },
-        "group_id": {
-          "description": "The customer group identifier.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
     "CustomerGroupCollection": {
       "title": "Customer Group Collection",
       "type": "object",
@@ -1752,15 +1649,6 @@
           "items": {
             "$ref": "#/definitions/CustomerGroup"
           }
-        }
-      }
-    },
-    "CustomerGroupResponse": {
-      "title": "Customer Group Response",
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/CustomerGroup"
         }
       }
     },
@@ -1873,35 +1761,6 @@
         },
         "reorder_amount": {
           "description": "Amount to be added to the automatic stock order.+ version: 1288421 (number) - Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
-    "InventoryBase": {
-      "title": "Inventory Base",
-      "type": "object",
-      "properties": {
-        "product_id": {
-          "description": "The ID of the product associated with this inventory record.",
-          "type": "string"
-        },
-        "outlet_id": {
-          "description": "The ID of the outlet associated with this inventory record.",
-          "type": "string"
-        },
-        "inventory_level": {
-          "description": "Current inventory level.",
-          "type": "number",
-          "format": "double"
-        },
-        "reorder_point": {
-          "description": "Level at which a product should be automatically included in stock orders.",
-          "type": "number",
-          "format": "double"
-        },
-        "reorder_amount": {
-          "description": "Amount to be added to the automatic stock order.",
           "type": "number",
           "format": "double"
         }
@@ -2075,15 +1934,6 @@
         "data"
       ]
     },
-    "InventoryResponse": {
-      "title": "Inventory Response",
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/Inventory"
-        }
-      }
-    },
     "LineItem": {
       "title": "Line Item",
       "type": "object",
@@ -2176,66 +2026,6 @@
         }
       }
     },
-    "LineItemBase": {
-      "title": "Line Item Base",
-      "type": "object",
-      "properties": {
-        "product_id": {
-          "description": "Valid product ID.",
-          "type": "string"
-        },
-        "quantity": {
-          "description": "Quantity of product units included in the sale.",
-          "type": "number",
-          "format": "double"
-        },
-        "price": {
-          "description": "Unit price for the product.",
-          "type": "number",
-          "format": "double"
-        },
-        "tax_components": {
-          "description": "Collection of tax components associated with the line item.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LineItemTaxComponent"
-          }
-        },
-        "discount": {
-          "description": "Discount. ??? Unit? Should that be even posted?",
-          "type": "number",
-          "format": "double"
-        },
-        "loyalty_value": {
-          "description": "The value that should be added to associated customer's loyalty balance.",
-          "type": "number",
-          "format": "double"
-        },
-        "price_set": {
-          "description": "Indicates whether the price was set manually. Using `true` means that the value will never be refreshed from the price book when reloaded (sale retrieved from parked sales).",
-          "type": "boolean"
-        },
-        "sequence": {
-          "description": "Order of the line item in the sale.",
-          "type": "number",
-          "format": "double"
-        },
-        "note": {
-          "description": "Line item note.",
-          "type": "string"
-        },
-        "status": {
-          "description": "Line item status. ???",
-          "type": "string"
-        }
-      },
-      "required": [
-        "product_id",
-        "quantity",
-        "price",
-        "tax_components"
-      ]
-    },
     "LineItemTaxComponent": {
       "title": "Line Item Tax Component",
       "type": "object",
@@ -2326,36 +2116,6 @@
         }
       }
     },
-    "OutletBase": {
-      "title": "Outlet Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The outlet name.",
-          "type": "string"
-        },
-        "time_zone": {
-          "description": "Outlet timezone. **read only**",
-          "type": "string"
-        },
-        "default_tax_id": {
-          "description": "Default tax id used for sales in this outlet. **deprecated**",
-          "type": "string"
-        },
-        "currency": {
-          "description": "Currency name.",
-          "type": "string"
-        },
-        "currency_symbol": {
-          "description": "Currency symbol.",
-          "type": "string"
-        },
-        "display_prices": {
-          "description": "Indicates whether prices in this outlet should be displayed as tax-inclusive.",
-          "type": "string"
-        }
-      }
-    },
     "OutletCollection": {
       "title": "Outlet Collection",
       "type": "object",
@@ -2386,33 +2146,6 @@
           "description": "Payment type name.",
           "type": "string"
         },
-        "register_id": {
-          "description": "A valid register ID.",
-          "type": "string"
-        },
-        "retailer_payment_type_id": {
-          "description": "A valid retailer payment type ID.",
-          "type": "string"
-        },
-        "payment_type_id": {
-          "description": "A payment type associated with the retailer payment type. **deprecated** ???",
-          "type": "string"
-        },
-        "payment_date": {
-          "description": "Payment date in UTC.",
-          "type": "string"
-        },
-        "amount": {
-          "description": "Payment amount.",
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
-    "PaymentBase": {
-      "title": "Payment Base",
-      "type": "object",
-      "properties": {
         "register_id": {
           "description": "A valid register ID.",
           "type": "string"
@@ -2591,44 +2324,6 @@
         "price_book_id"
       ]
     },
-    "PriceBookProductBase": {
-      "title": "Price Book Product Base",
-      "type": "object",
-      "properties": {
-        "product_id": {
-          "description": "The ID of the associated product.",
-          "type": "string"
-        },
-        "price_book_id": {
-          "description": "The ID of the price book this product belongs to.",
-          "type": "string"
-        },
-        "price": {
-          "description": "Retail price.",
-          "type": "number",
-          "format": "double"
-        },
-        "loyalty_value": {
-          "description": "Price book defined loyalty value.",
-          "type": "number",
-          "format": "double"
-        },
-        "min_units": {
-          "description": "The minimum number of items for which this price will be used.",
-          "type": "number",
-          "format": "double"
-        },
-        "max_units": {
-          "description": "The maximum number of items for which this price will be used.",
-          "type": "number",
-          "format": "double"
-        }
-      },
-      "required": [
-        "product_id",
-        "price_book_id"
-      ]
-    },
     "PriceBookProductCollection": {
       "title": "Price Book Product Collection",
       "type": "object",
@@ -2729,14 +2424,14 @@
           "description": "A list of variant option objects.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantOptionSample1"
+            "$ref": "#/definitions/VariantOption"
           }
         },
         "categories": {
           "description": "A list of tag objects.+ `variant_name`: `Bravo / Black` (string) - If the product is a variant this name will be a concatenation of the base name and variant option values.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CategorySample1"
+            "$ref": "#/definitions/Tag"
           }
         },
         "image_url": {
@@ -2770,97 +2465,6 @@
           "description": "Auto-incrementing object version number.",
           "type": "number",
           "format": "double"
-        }
-      },
-      "required": [
-        "name",
-        "handle",
-        "sku"
-      ]
-    },
-    "ProductBase": {
-      "title": "Product Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Product name.",
-          "type": "string"
-        },
-        "handle": {
-          "description": "Product handle. **Note:** Variants share the same handle.",
-          "type": "string"
-        },
-        "sku": {
-          "description": "Product sku. **Note:** Should be unique, but it's not verified while posting.",
-          "type": "string"
-        },
-        "source_id": {
-          "description": "External reference ID.",
-          "type": "string"
-        },
-        "source_variant_id": {
-          "description": "Secondary external reference ID.",
-          "type": "string"
-        },
-        "variant_parent_id": {
-          "description": "This value is set if a Product is a variant of another Product.",
-          "type": "string"
-        },
-        "source": {
-          "description": "Indicates the origin of the product. Can be USER, SYSTEM, SHOPIFY.",
-          "type": "string"
-        },
-        "active": {
-          "description": "Indicated whether the Product is active.",
-          "type": "boolean"
-        },
-        "has_inventory": {
-          "description": "Indicates whether inventory is being tracked for the Product.",
-          "type": "boolean"
-        },
-        "is_composite": {
-          "description": "Indicates whether the Product is a composite one.",
-          "type": "boolean"
-        },
-        "has_variants": {
-          "description": "Indicated whether product has variants.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "A detailed description of the Product. **Note** Can contain HTML.",
-          "type": "string"
-        },
-        "supplier_code": {
-          "description": "Supplier code.",
-          "type": "string"
-        },
-        "supply_price": {
-          "description": "Default supply price,",
-          "type": "number",
-          "format": "double"
-        },
-        "type": {
-          "$ref": "#/definitions/ProductTypeSample"
-        },
-        "supplier": {
-          "$ref": "#/definitions/SupplierSample"
-        },
-        "brand": {
-          "$ref": "#/definitions/BrandSample"
-        },
-        "variant_options": {
-          "description": "A list of variant option objects.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VariantOptionSample1"
-          }
-        },
-        "categories": {
-          "description": "A list of tag objects.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CategorySample1"
-          }
         }
       },
       "required": [
@@ -2911,19 +2515,6 @@
           "description": "Auto-incrementing object version number.",
           "type": "number",
           "format": "double"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "ProductTypeBase": {
-      "title": "Product Type Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The Product Type name.",
-          "type": "string"
         }
       },
       "required": [
@@ -3064,58 +2655,6 @@
         }
       }
     },
-    "RegisterBase": {
-      "title": "Register Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The Register name.",
-          "type": "string"
-        },
-        "outlet_id": {
-          "description": "A valid ID of an Outlet that this register is associated with.",
-          "type": "string"
-        },
-        "ask_for_note_on_save": {
-          "description": "`0`for **Never**, `1` for **On Save/Layby/Account/Return**, `2` for **Always**.",
-          "type": "number",
-          "format": "double"
-        },
-        "print_note_on_receipt": {
-          "description": "",
-          "type": "boolean"
-        },
-        "ask_for_user_on_sale": {
-          "description": "",
-          "type": "boolean"
-        },
-        "show_discounts_on_receipts": {
-          "description": "",
-          "type": "boolean"
-        },
-        "print_receipt": {
-          "description": "",
-          "type": "boolean"
-        },
-        "email_receipt": {
-          "description": "",
-          "type": "boolean"
-        },
-        "invoice_prefix": {
-          "description": "Invoice number prefix.",
-          "type": "string"
-        },
-        "invoice_suffix": {
-          "description": "Invoice number suffix.",
-          "type": "string"
-        },
-        "invoice_sequence": {
-          "description": "The numeric part of the last issued invoice.",
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
     "RegisterCollection": {
       "title": "Register Collection",
       "type": "object",
@@ -3228,70 +2767,6 @@
           "type": "string"
         }
       }
-    },
-    "SaleBase": {
-      "title": "Sale Base",
-      "type": "object",
-      "properties": {
-        "register_id": {
-          "description": "Valid register ID for the retailer.",
-          "type": "string"
-        },
-        "user_id": {
-          "description": "Valid user ID for the retailer.",
-          "type": "string"
-        },
-        "status": {
-          "description": "Sale status. One of: CLOSED, SAVED, ONACCOUNT, ONACCOUNT_CLOSED, LAYBY, LAYBY_CLOSED. VOIDED ???",
-          "type": "string"
-        },
-        "line_items": {
-          "description": "A collection of line items.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LineItem"
-          }
-        },
-        "payments": {
-          "description": "Collection of payments.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Payment"
-          }
-        },
-        "customer_id": {
-          "description": "Valid customer ID for the retailer.",
-          "type": "string"
-        },
-        "invoice_number": {
-          "description": "Invoice number which if provided, should use the prefix and suffix defined for the register.",
-          "type": "string"
-        },
-        "invoice_sequence": {
-          "description": "Optionally provided value.",
-          "type": "number",
-          "format": "double"
-        },
-        "note": {
-          "description": "Sale Note.",
-          "type": "string"
-        },
-        "short_code": {
-          "description": "6 character code used in the loyalty system. ???",
-          "type": "string"
-        },
-        "sale_date": {
-          "description": "Sale timestamp in UTC.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "register_id",
-        "user_id",
-        "status",
-        "line_items",
-        "payments"
-      ]
     },
     "SaleCollection": {
       "title": "Sale Collection",
@@ -3426,19 +2901,6 @@
           "description": "Auto-incrementing object version number.",
           "type": "number",
           "format": "double"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "TagBase": {
-      "title": "Tag Base",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The Tag name.",
-          "type": "string"
         }
       },
       "required": [
@@ -3583,24 +3045,6 @@
         },
         "value": {
           "description": "The value of a Variant Option.",
-          "type": "string"
-        }
-      }
-    },
-    "VariantOptionSample1": {
-      "title": "Variant Option Sample 1",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "Auto-generated object ID.",
-          "type": "string"
-        },
-        "name": {
-          "description": "",
-          "type": "string"
-        },
-        "value": {
-          "description": "",
           "type": "string"
         }
       }
