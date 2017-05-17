@@ -947,7 +947,7 @@
         "description": "Returns a single product type with a given ID.",
         "summary": "Get a single product type",
         "tags": [
-          "Product types"
+          "Product Types"
         ],
         "operationId": "GetProductTypeByID",
         "produces": [
