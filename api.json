@@ -3043,7 +3043,7 @@
           }
         },
         "categories": {
-          "description": "A list of tag objects.+ `variant_name`: `Bravo / Black` (string) - If the product is a variant this name will be a concatenation of the base name and variant option values.",
+          "description": "A list of tag objects.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Tag"
