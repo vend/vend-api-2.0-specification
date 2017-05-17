@@ -942,6 +942,47 @@
         }
       }
     },
+    "/product_types/{product_type_id}": {
+      "get": {
+        "description": "Returns a single product type with a given ID.",
+        "summary": "Get a single product type",
+        "tags": [
+          "Products"
+        ],
+        "operationId": "GetProductTypeByID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_type_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid product type ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ProductTypeResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b1e2babe-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "General",
+                  "deleted_at": null,
+                  "version": 449902
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/products": {
       "get": {
         "description": "Returns a paginated list of products.",
