@@ -47,6 +47,46 @@
         }
       }
     },
+    "/brands/{brand_id}": {
+      "get": {
+        "description": "Returns a single brand with a requested ID",
+        "summary": "Get a single brand",
+        "tags": [
+          "Brands"
+        ],
+        "operationId": "GetBrandByID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "brand_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Valid brand ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BrandResponse"
+            },
+            "examples": {
+              "new": {
+                "data": {
+                  "id": "bc305bf6-6183-11e4-f15a-162d34675ae7",
+                  "name": "Best Brand",
+                  "deleted_at": null,
+                  "version": 488483
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/consignments": {
       "get": {
         "description": "Returns a paginated list of consignments.",
