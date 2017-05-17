@@ -1196,29 +1196,6 @@
                     "register_open_sequence_id": "06e35f89-3783-11e6-ec7e-10e124cb1e78",
                     "cash_managed_payment_type_id": null,
                     "version": 1234541473
-                  },
-                  {
-                    "id": "06bf537b-c783-11e6-f6b9-53a827aeca85",
-                    "name": "Sydney",
-                    "outlet_id": "06bf537b-c783-11e6-f6b9-53a81bd6b215",
-                    "ask_for_note_on_save": 1,
-                    "print_note_on_receipt": false,
-                    "ask_for_user_on_sale": false,
-                    "show_discounts_on_receipts": true,
-                    "print_receipt": true,
-                    "email_receipt": false,
-                    "invoice_prefix": "",
-                    "invoice_suffix": "",
-                    "invoice_sequence": 1,
-                    "button_layout_id": null,
-                    "is_open": false,
-                    "is_quick_keys_enabled": true,
-                    "deleted_at": null,
-                    "register_open_time": null,
-                    "register_close_time": null,
-                    "register_open_sequence_id": null,
-                    "cash_managed_payment_type_id": null,
-                    "version": 1690448499
                   }
                 ],
                 "version": {
