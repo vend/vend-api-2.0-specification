@@ -1844,6 +1844,42 @@
         }
       }
     },
+    "/tags/{tag_id}": {
+      "get": {
+        "summary": "Get a single tag",
+        "description": "Returns a single tag with a given ID.",
+        "operationId": "getTagByID",
+        "tags": [
+          "Tags"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TagResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "a0bb3580-027a-11e4-a0f5-b8ca3a64f8f4",
+                  "name": "test",
+                  "deleted_at": null,
+                  "version": 535893
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tag_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    },
     "/taxes": {
       "get": {
         "description": "Returns a paginated list of taxes.",
