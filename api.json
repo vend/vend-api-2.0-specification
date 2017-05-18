@@ -36,7 +36,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -98,7 +108,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -250,6 +270,15 @@
             "type": "string",
             "format": "uuid",
             "description": "The ID of the consignment for which products should be listed."
+          },
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
           }
         ],
         "responses": {
@@ -345,7 +374,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -404,7 +443,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -551,7 +600,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -573,7 +632,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -733,7 +802,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -755,7 +834,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -931,7 +1020,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -994,7 +1093,20 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1095,6 +1207,15 @@
             "type": "string",
             "format": "uuid",
             "description": "Valid product ID."
+          },
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
           }
         ],
         "responses": {
@@ -1118,7 +1239,20 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1277,7 +1411,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1728,7 +1872,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1786,7 +1940,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1868,7 +2032,17 @@
         "produces": [
           "application/json"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3930,6 +4104,30 @@
       ]
     }
   },
+  "parameters": {
+    "After": {
+      "name": "after",
+      "in": "query",
+      "type": "number",
+      "description": "The lower limit for the version numbers to be included in the response."
+    },
+    "Before": {
+      "name": "before",
+      "in": "query",
+      "type": "number",
+      "description": "The upper limit for the version numbers to be included in the response."
+    },
+    "Deleted": {
+      "name": "deleted",
+      "in": "query",
+      "type": "boolean",
+      "description": "Indicates whether deleted items should be included in the response."
+    },
+    "PageSize": {
+      "name": "page_size",
+      "in": "query",
+      "type": "number",
+      "description": "The maximum number of items to be returned in the response."
     }
   }
 }
