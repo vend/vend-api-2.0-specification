@@ -3259,7 +3259,7 @@
         },
         "type_id": {
           "type": "integer",
-          "description": "The ID of the global Vend payment type."
+          "description": "The ID of the global Vend payment type. It shouldn't be used to identify the payment type - there may be multiple payment types with the same `type_id`."
         },
         "config": {
           "$ref": "#/definitions/PaymentTypeConfig"
