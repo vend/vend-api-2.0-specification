@@ -1917,6 +1917,9 @@
           "items": {
             "$ref": "#/definitions/Brand"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -2053,6 +2056,9 @@
           "items": {
             "$ref": "#/definitions/Consignment"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -2418,6 +2424,9 @@
           "items": {
             "$ref": "#/definitions/Customer"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -2469,6 +2478,9 @@
           "items": {
             "$ref": "#/definitions/CustomerGroup"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -2596,6 +2608,9 @@
           "items": {
             "$ref": "#/definitions/Inventory"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -2946,6 +2961,9 @@
           "items": {
             "$ref": "#/definitions/Outlet"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3087,6 +3105,9 @@
           "items": {
             "$ref": "#/definitions/PriceBook"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3154,6 +3175,9 @@
           "items": {
             "$ref": "#/definitions/PriceBookProduct"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3303,6 +3327,9 @@
           "items": {
             "$ref": "#/definitions/Product"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3351,6 +3378,9 @@
           "items": {
             "$ref": "#/definitions/ProductType"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3485,6 +3515,9 @@
           "items": {
             "$ref": "#/definitions/Register"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3598,6 +3631,9 @@
           "items": {
             "$ref": "#/definitions/Sale"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3666,6 +3702,9 @@
           "items": {
             "$ref": "#/definitions/Supplier"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3737,6 +3776,9 @@
           "items": {
             "$ref": "#/definitions/Tag"
           }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
@@ -3868,6 +3910,26 @@
           "type": "string"
         }
       }
+    },
+    "Version": {
+      "type": "object",
+      "description": "An object containing the highest and lowest version numbers for all items of the returned collection.",
+      "properties": {
+        "min": {
+          "type": "integer",
+          "description": "Lowest version number of the payload."
+        },
+        "max": {
+          "type": "integer",
+          "description": "Highest version number of the payload."
+        }
+      },
+      "required": [
+        "min",
+        "max"
+      ]
+    }
+  },
     }
   }
 }
