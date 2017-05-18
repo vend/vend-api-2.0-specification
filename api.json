@@ -791,6 +791,74 @@
         }
       }
     },
+    "/payment_types": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PaymentTypeCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "0adaafb3-6583-11e5-fb60-fd093076e9d3",
+                    "name": "Gift Card",
+                    "type_id": 118,
+                    "config": null,
+                    "deleted_at": null,
+                    "version": 1120194938
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-e112-51cc5a8ffc96",
+                    "name": "Loyalty",
+                    "type_id": 106,
+                    "config": {
+                      "url": "/pay/dc85058a-a683-11e5-e112-51cc5a8ffc96"
+                    },
+                    "deleted_at": null,
+                    "version": 342955
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-ef46-0b1f0d167dea",
+                    "name": "DPS",
+                    "type_id": 3,
+                    "config": {
+                      "url": "https://sec.paymentexpress.com/pxmi/logon",
+                      "print": true
+                    },
+                    "deleted_at": null,
+                    "version": 297938
+                  }
+                ],
+                "version": {
+                  "max": 1120194938,
+                  "min": 297938
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Payment Types"
+        ],
+        "operationId": "ListPaymentTypes",
+        "summary": "List payment types",
+        "description": "Returns a paginated collection of payment types."
+      }
+    },
     "/price_book_products": {
       "get": {
         "description": "Returns a paginated list of price book products.",
@@ -799,9 +867,6 @@
           "Price Book Products"
         ],
         "operationId": "List price book products",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -3178,6 +3243,68 @@
           "description": "Payment amount.",
           "type": "number",
           "format": "double"
+        }
+      }
+    },
+    "PaymentType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated object ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the payment type."
+        },
+        "type_id": {
+          "type": "integer",
+          "description": "The ID of the global Vend payment type. It shouldn't be used to identify the payment type - there may be multiple payment types with the same `type_id`."
+        },
+        "config": {
+          "$ref": "#/definitions/PaymentTypeConfig"
+        },
+        "deleted_at": {
+          "type": "null",
+          "description": "The deletion timestamp."
+        },
+        "version": {
+          "type": "number",
+          "description": "Auto"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type_id",
+        "version"
+      ]
+    },
+    "PaymentTypeCollection": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "description": "An array of payment types.",
+          "items": {
+            "$ref": "#/definitions/PaymentType"
+          }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
+        }
+      }
+    },
+    "PaymentTypeConfig": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The URL of  the gateway."
+        },
+        "print": {
+          "type": "boolean",
+          "description": "Indicates whether a receipt will be printed???"
         }
       }
     },
