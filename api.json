@@ -33,9 +33,6 @@
           "Brands"
         ],
         "operationId": "List brands",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -65,9 +62,6 @@
           "Brands"
         ],
         "operationId": "GetBrandByID",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "brand_id",
@@ -105,9 +99,6 @@
           "Consignments"
         ],
         "operationId": "List consignments",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -135,9 +126,6 @@
           "Consignments"
         ],
         "operationId": "Create an inventory count",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -164,9 +152,6 @@
           "Consignments"
         ],
         "operationId": "Get a single consignment",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -193,9 +178,6 @@
           "Consignments"
         ],
         "operationId": "Update an inventory count",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -231,9 +213,6 @@
           "Consignments"
         ],
         "operationId": "Delete a consignment",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -259,9 +238,6 @@
           "Consignments"
         ],
         "operationId": "List all products for a specific consignment",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -297,9 +273,6 @@
           "Consignments"
         ],
         "operationId": "Adjust the inventory item count",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -337,9 +310,6 @@
           "Consignments"
         ],
         "operationId": "Delete an item from an inventory count",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "consignment_id",
@@ -371,9 +341,6 @@
           "Customer Groups"
         ],
         "operationId": "List customer groups",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -470,9 +437,6 @@
           "Customers"
         ],
         "operationId": "Create a new customer",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -531,9 +495,6 @@
           "Customers"
         ],
         "operationId": "Update a customer",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "customer_id",
@@ -597,9 +558,6 @@
           "Inventory"
         ],
         "operationId": "List inventory records",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -629,9 +587,6 @@
           "Outlets"
         ],
         "operationId": "List outlets",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -744,10 +699,7 @@
         "tags": [
           "Outlets"
         ],
-        "operationId": "Get a single outlet",
-        "produces": [
-          "application/json"
-        ],
+        "operationId": "GetOutletByID",
         "parameters": [
           {
             "name": "outlet_id",
@@ -926,9 +878,6 @@
           "Price Books"
         ],
         "operationId": "Create a price book",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -958,9 +907,6 @@
           "Price Books"
         ],
         "operationId": "Get a single price book",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "price_book_id",
@@ -989,9 +935,6 @@
           "Product Images"
         ],
         "operationId": "Get a single product_image data",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "product_image_id",
@@ -1018,9 +961,6 @@
           "Product Images"
         ],
         "operationId": "Set image position",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "body",
@@ -1055,9 +995,6 @@
           "Product Images"
         ],
         "operationId": "Delete a product_image",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "product_image_id",
@@ -1082,9 +1019,6 @@
           "Product Types"
         ],
         "operationId": "List product types",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1114,9 +1048,6 @@
           "Product Types"
         ],
         "operationId": "GetProductTypeByID",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "product_type_id",
@@ -1155,9 +1086,6 @@
           "Products"
         ],
         "operationId": "List products",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1190,9 +1118,6 @@
           "Products"
         ],
         "operationId": "Get a single product",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "product_id",
@@ -1259,9 +1184,6 @@
           "Products"
         ],
         "operationId": "Get inventory data for a single product",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "product_id",
@@ -1299,9 +1221,6 @@
           "Registers"
         ],
         "operationId": "List registers",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1413,9 +1332,6 @@
           "Registers"
         ],
         "operationId": "Get a single register",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "register_id",
@@ -1471,9 +1387,6 @@
           "Sales"
         ],
         "operationId": "List Sales",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1781,9 +1694,6 @@
           "Sales"
         ],
         "operationId": "GetSaleByID",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "sale_id",
@@ -1932,9 +1842,6 @@
           "Suppliers"
         ],
         "operationId": "List suppliers",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -2000,9 +1907,6 @@
           "Tags"
         ],
         "operationId": "List tags",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -2092,9 +1996,6 @@
           "Taxes"
         ],
         "operationId": "List taxes",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -2186,14 +2087,6 @@
       }
     },
     "/users/{user_id}": {
-      "parameters": [
-        {
-          "name": "user_id",
-          "in": "path",
-          "type": "string",
-          "required": true
-        }
-      ],
       "get": {
         "description": "Returns a single user with the requested ID.",
         "summary": "Get a single user",
@@ -2440,7 +2333,6 @@
     },
     "ConsignmentProductCollection": {
       "title": "Consignment Product  Collection",
-      "type": "object",
       "properties": {
         "data": {
           "description": "An array of consignment products.",
@@ -2450,12 +2342,7 @@
           }
         }
       },
-      "required": [
-        "data"
-      ],
-      "allOf": [
-        {}
-      ]
+      "type": "object"
     },
     "ConsignmentResponse": {
       "title": "Consignment Response",
