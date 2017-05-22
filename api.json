@@ -2115,6 +2115,145 @@
           }
         }
       }
+    },
+    "/users": {
+      "get": {
+        "description": "Returns a paginated list of users.",
+        "summary": "List users",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "ListUsers",
+        "parameters": [
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "username": "api@vendhq.com",
+                    "display_name": "Dev Rel",
+                    "email": "api@vendhq.com",
+                    "email_verified_at": null,
+                    "restricted_outlet_id": null,
+                    "restricted_outlet_ids": [],
+                    "account_type": "admin",
+                    "created_at": "2014-06-09T21:04:50+00:00",
+                    "updated_at": "2017-05-01T20:36:40+00:00",
+                    "deleted_at": null,
+                    "seen_at": "2017-05-22T00:46:59+00:00",
+                    "target_daily": 1000,
+                    "target_weekly": 10000,
+                    "target_monthly": 50000,
+                    "version": 3348795492,
+                    "permissions": null,
+                    "is_primary_user": true,
+                    "image_source": "https://vendimageuploadcdn.global.ssl.fastly.net/50x50,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "images": {
+                      "ss": "https://vendimageuploadcdn.global.ssl.fastly.net/50x50,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "standard": "https://vendimageuploadcdn.global.ssl.fastly.net/350,fit,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "st": "https://vendimageuploadcdn.global.ssl.fastly.net/40x40,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "original": "https://vendimageuploadcdn.global.ssl.fastly.net/1920,fit/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "thumb": "https://vendimageuploadcdn.global.ssl.fastly.net/160,fit,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "sl": "https://vendimageuploadcdn.global.ssl.fastly.net/150x150,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                      "sm": "https://vendimageuploadcdn.global.ssl.fastly.net/100x100,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg"
+                    }
+                  }
+                ],
+                "version": {
+                  "min": 298969,
+                  "max": 3348795492
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "get": {
+        "description": "Returns a single user with the requested ID.",
+        "summary": "Get a single user",
+        "tags": [
+          "Users"
+        ],
+        "operationId": "GetUserByID",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "Valid user ID."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b1ed6158-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "username": "api@vendhq.com",
+                  "display_name": "Dev Rel",
+                  "email": "api@vendhq.com",
+                  "email_verified_at": null,
+                  "restricted_outlet_id": null,
+                  "restricted_outlet_ids": [],
+                  "account_type": "admin",
+                  "created_at": "2014-06-09T21:04:50+00:00",
+                  "updated_at": "2017-05-01T20:36:40+00:00",
+                  "deleted_at": null,
+                  "seen_at": "2017-05-22T03:30:27+00:00",
+                  "target_daily": 1000,
+                  "target_weekly": 10000,
+                  "target_monthly": 50000,
+                  "version": 3348795492,
+                  "permissions": null,
+                  "is_primary_user": true,
+                  "image_source": "https://vendimageuploadcdn.global.ssl.fastly.net/50x50,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                  "images": {
+                    "ss": "https://vendimageuploadcdn.global.ssl.fastly.net/50x50,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "standard": "https://vendimageuploadcdn.global.ssl.fastly.net/350,fit,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "st": "https://vendimageuploadcdn.global.ssl.fastly.net/40x40,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "original": "https://vendimageuploadcdn.global.ssl.fastly.net/1920,fit/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "thumb": "https://vendimageuploadcdn.global.ssl.fastly.net/160,fit,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "sl": "https://vendimageuploadcdn.global.ssl.fastly.net/150x150,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg",
+                    "sm": "https://vendimageuploadcdn.global.ssl.fastly.net/100x100,q90/vend-images/user/original/1/b/1ba1099aecfbbcbdfc4aa8efb136507f99a3c0d9.jpg"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4179,6 +4318,168 @@
         "rate",
         "display_name"
       ]
+    },
+    "User": {
+      "type": "object",
+      "title": "User",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Auto-generated object ID."
+        },
+        "username": {
+          "type": "string",
+          "description": "User's username used for login."
+        },
+        "display_name": {
+          "type": "string",
+          "description": "Full user's name to be used for display in the UI."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "email_verified_at": {
+          "type": "string",
+          "description": "The timestamp of users email verification."
+        },
+        "restricted_outlet_id": {
+          "type": "string",
+          "description": "**deprecated** Use the `restricted_outlet_ids` instead."
+        },
+        "restricted_outlet_ids": {
+          "type": "array",
+          "description": "A list of outlet IDs the user is associated with",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "account_type": {
+          "type": "string",
+          "enum": [
+            "cashier",
+            "manager",
+            "admin"
+          ],
+          "description": "User's account type."
+        },
+        "created_at": {
+          "type": "string",
+          "description": "Creation timestamp in UTC."
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "Last update timestamp in UTC."
+        },
+        "deleted_at": {
+          "type": "string",
+          "description": "Deletion timestamp in UTC."
+        },
+        "seen_at": {
+          "type": "string",
+          "description": "The timestamp of the user's last activity in the system."
+        },
+        "target_daily": {
+          "type": "number",
+          "description": "Daily sales target for the user."
+        },
+        "target_weekly": {
+          "type": "number",
+          "description": "Weekly sales target for the user."
+        },
+        "target_monthly": {
+          "type": "number",
+          "description": "Monthly sales target for the user."
+        },
+        "version": {
+          "type": "integer",
+          "description": "Auto-incrementing version number"
+        },
+        "permissions": {
+          "type": "null"
+        },
+        "is_primary_user": {
+          "type": "boolean",
+          "description": "Indicated whether this user is the primary user for the account."
+        },
+        "image_source": {
+          "type": "string",
+          "description": "URL of the default-sized user's avatar."
+        },
+        "images": {
+          "$ref": "#/definitions/UserImages"
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "account_type",
+        "created_at",
+        "updated_at",
+        "version",
+        "is_primary_user"
+      ]
+    },
+    "UserCollection": {
+      "type": "object",
+      "title": "User Collection",
+      "properties": {
+        "data": {
+          "type": "array",
+          "description": "An array of users.",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
+        }
+      },
+      "required": [
+        "data",
+        "version"
+      ]
+    },
+    "UserImages": {
+      "type": "object",
+      "description": "On object containing URLs for different sizes of the user’s avatar.",
+      "title": "User Image",
+      "properties": {
+        "ss": {
+          "type": "string"
+        },
+        "standard": {
+          "type": "string"
+        },
+        "st": {
+          "type": "string"
+        },
+        "original": {
+          "type": "string"
+        },
+        "thumb": {
+          "type": "string"
+        },
+        "sl": {
+          "type": "string"
+        },
+        "sm": {
+          "type": "string"
+        }
+      }
+    },
+    "UserResponse": {
+      "type": "object",
+      "title": "User Response",
+      "description": "A response for a single user GET request.",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      }
     },
     "VariantOption": {
       "title": "Variant Option",
