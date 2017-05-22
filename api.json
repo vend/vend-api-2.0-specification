@@ -32,7 +32,7 @@
         "tags": [
           "Brands"
         ],
-        "operationId": "List brands",
+        "operationId": "ListBrands",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -98,7 +98,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "List consignments",
+        "operationId": "ListConsignments",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -125,7 +125,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Create an inventory count",
+        "operationId": "CreateInventoryCount",
         "parameters": [
           {
             "name": "body",
@@ -151,7 +151,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Get a single consignment",
+        "operationId": "GetConsignmentByID",
         "parameters": [
           {
             "name": "consignment_id",
@@ -177,7 +177,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Update an inventory count",
+        "operationId": "UpdateInventoryCountByID",
         "parameters": [
           {
             "name": "consignment_id",
@@ -212,7 +212,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Delete a consignment",
+        "operationId": "DeleteConsignmentByID",
         "parameters": [
           {
             "name": "consignment_id",
@@ -237,7 +237,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "List all products for a specific consignment",
+        "operationId": "ListProductsByConsignmentID",
         "parameters": [
           {
             "name": "consignment_id",
@@ -272,7 +272,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Adjust the inventory item count",
+        "operationId": "AdjustInventoryItemCount",
         "parameters": [
           {
             "name": "consignment_id",
@@ -309,7 +309,7 @@
         "tags": [
           "Consignments"
         ],
-        "operationId": "Delete an item from an inventory count",
+        "operationId": "DeleteItemFromInventoryCount",
         "parameters": [
           {
             "name": "consignment_id",
@@ -340,7 +340,7 @@
         "tags": [
           "Customer Groups"
         ],
-        "operationId": "List customer groups",
+        "operationId": "ListCustomerGroups",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -406,7 +406,7 @@
         "tags": [
           "Customers"
         ],
-        "operationId": "List customers",
+        "operationId": "ListCustomers",
         "produces": [
           "application/json"
         ],
@@ -436,7 +436,7 @@
         "tags": [
           "Customers"
         ],
-        "operationId": "Create a new customer",
+        "operationId": "CreateCustomer",
         "parameters": [
           {
             "name": "body",
@@ -465,7 +465,7 @@
         "tags": [
           "Customers"
         ],
-        "operationId": "Get a single customer",
+        "operationId": "GetCustomerByID",
         "produces": [
           "application/json"
         ],
@@ -494,7 +494,7 @@
         "tags": [
           "Customers"
         ],
-        "operationId": "Update a customer",
+        "operationId": "UpdateCustomerByID",
         "parameters": [
           {
             "name": "customer_id",
@@ -529,7 +529,7 @@
         "tags": [
           "Customers"
         ],
-        "operationId": "Delete a customer",
+        "operationId": "DeleteCustomerByID",
         "produces": [
           "application/json"
         ],
@@ -557,7 +557,7 @@
         "tags": [
           "Inventory"
         ],
-        "operationId": "List inventory records",
+        "operationId": "ListInventoryRecords",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -586,7 +586,7 @@
         "tags": [
           "Outlets"
         ],
-        "operationId": "List outlets",
+        "operationId": "ListOutlets",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -818,7 +818,7 @@
         "tags": [
           "Price Book Products"
         ],
-        "operationId": "List price book products",
+        "operationId": "ListPriceBookProducts",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -847,7 +847,7 @@
         "tags": [
           "Price Books"
         ],
-        "operationId": "List price books",
+        "operationId": "ListPriceBooks",
         "produces": [
           "application/json"
         ],
@@ -877,7 +877,7 @@
         "tags": [
           "Price Books"
         ],
-        "operationId": "Create a price book",
+        "operationId": "CreatePriceBook",
         "parameters": [
           {
             "name": "body",
@@ -906,7 +906,7 @@
         "tags": [
           "Price Books"
         ],
-        "operationId": "Get a single price book",
+        "operationId": "GetPriceBookbyID",
         "parameters": [
           {
             "name": "price_book_id",
@@ -934,7 +934,7 @@
         "tags": [
           "Product Images"
         ],
-        "operationId": "Get a single product_image data",
+        "operationId": "GetProductImageDataByID",
         "parameters": [
           {
             "name": "product_image_id",
@@ -960,7 +960,7 @@
         "tags": [
           "Product Images"
         ],
-        "operationId": "Set image position",
+        "operationId": "SetImagePosition",
         "parameters": [
           {
             "name": "body",
@@ -994,7 +994,7 @@
         "tags": [
           "Product Images"
         ],
-        "operationId": "Delete a product_image",
+        "operationId": "DeleteProductImageByID",
         "parameters": [
           {
             "name": "product_image_id",
@@ -1014,7 +1014,7 @@
     "/product_types": {
       "get": {
         "description": "Returns a paginated list of product types.",
-        "summary": "List product types",
+        "summary": "ListProductTypes",
         "tags": [
           "Product Types"
         ],
@@ -1085,7 +1085,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "List products",
+        "operationId": "ListProducts",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1117,7 +1117,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "Get a single product",
+        "operationId": "GetProductByID",
         "parameters": [
           {
             "name": "product_id",
@@ -1145,7 +1145,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "Upload an image",
+        "operationId": "UploadImage",
         "parameters": [
           {
             "name": "product_id",
@@ -1183,7 +1183,7 @@
         "tags": [
           "Products"
         ],
-        "operationId": "Get inventory data for a single product",
+        "operationId": "GetInventoryByProductID",
         "parameters": [
           {
             "name": "product_id",
@@ -1220,7 +1220,7 @@
         "tags": [
           "Registers"
         ],
-        "operationId": "List registers",
+        "operationId": "ListRegisters",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1331,7 +1331,7 @@
         "tags": [
           "Registers"
         ],
-        "operationId": "Get a single register",
+        "operationId": "GetRegisterByID",
         "parameters": [
           {
             "name": "register_id",
@@ -1386,7 +1386,7 @@
         "tags": [
           "Sales"
         ],
-        "operationId": "List Sales",
+        "operationId": "ListSales",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1841,7 +1841,7 @@
         "tags": [
           "Suppliers"
         ],
-        "operationId": "List suppliers",
+        "operationId": "ListSuppliers",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1867,7 +1867,7 @@
       "get": {
         "summary": "Get a single supplier",
         "description": "Returns a single supplier with a given ID.",
-        "operationId": "getSupplierByID",
+        "operationId": "GetSupplierByID",
         "tags": [
           "Suppliers"
         ],
@@ -1906,7 +1906,7 @@
         "tags": [
           "Tags"
         ],
-        "operationId": "List tags",
+        "operationId": "ListTags",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -1956,7 +1956,7 @@
       "get": {
         "summary": "Get a single tag",
         "description": "Returns a single tag with a given ID.",
-        "operationId": "getTagByID",
+        "operationId": "GetTagByID",
         "tags": [
           "Tags"
         ],
@@ -1995,7 +1995,7 @@
         "tags": [
           "Taxes"
         ],
-        "operationId": "List taxes",
+        "operationId": "ListTaxes",
         "parameters": [
           {
             "$ref": "#/parameters/After"
