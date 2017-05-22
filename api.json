@@ -1221,19 +1221,7 @@
           "Products"
         ],
         "operationId": "Upload an image",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UploadAnImageRequest"
-            }
-          },
           {
             "name": "product_id",
             "in": "path",
@@ -1241,6 +1229,13 @@
             "type": "string",
             "format": "UUID",
             "description": "The ID of the product which the imaged should be associated with."
+          },
+          {
+            "in": "formData",
+            "name": "image",
+            "type": "file",
+            "description": "File to upload. Can be in `jpg` or `png` format.",
+            "required": true
           }
         ],
         "responses": {
@@ -1250,7 +1245,10 @@
               "$ref": "#/definitions/ImageResponse"
             }
           }
-        }
+        },
+        "consumes": [
+          "multipart/form-data"
+        ]
       }
     },
     "/products/{product_id}/inventory": {
@@ -4180,19 +4178,6 @@
         "name",
         "rate",
         "display_name"
-      ]
-    },
-    "UploadAnImageRequest": {
-      "title": "Upload an image request",
-      "type": "object",
-      "properties": {
-        "image": {
-          "description": "File to upload. Can be in jpg or png format.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "image"
       ]
     },
     "VariantOption": {
