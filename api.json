@@ -615,6 +615,56 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "0af7b240-ab83-11e7-eddc-4025043113d5",
+                  "customer_code": "Tony-AB2W",
+                  "name": "Tony Stark",
+                  "first_name": "Tony",
+                  "last_name": "Stark",
+                  "email": "tony@starkinc.com",
+                  "year_to_date": 0,
+                  "balance": 0,
+                  "loyalty_balance": 0,
+                  "note": null,
+                  "gender": null,
+                  "date_of_birth": null,
+                  "company_name": "Stark Inc.",
+                  "do_not_email": false,
+                  "contact_source": null,
+                  "phone": null,
+                  "mobile": null,
+                  "fax": null,
+                  "twitter": null,
+                  "website": null,
+                  "physical_address_1": null,
+                  "physical_address_2": null,
+                  "physical_suburb": null,
+                  "physical_city": null,
+                  "physical_postcode": null,
+                  "physical_state": null,
+                  "physical_country_id": null,
+                  "postal_address_1": null,
+                  "postal_address_2": null,
+                  "postal_suburb": null,
+                  "postal_city": null,
+                  "postal_postcode": null,
+                  "postal_state": null,
+                  "postal_country_id": null,
+                  "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "enable_loyalty": true,
+                  "custom_field_1": "Custom value 1",
+                  "custom_field_2": "Custom value 2",
+                  "custom_field_3": "Custom value 3",
+                  "custom_field_4": "Custom value 4",
+                  "created_at": "2017-05-24T02:02:18+00:00",
+                  "updated_at": "2017-05-24T02:03:59+00:00",
+                  "deleted_at": null,
+                  "version": 3505431251
+                }
+              }
             }
           }
         }
