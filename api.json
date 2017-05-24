@@ -134,12 +134,51 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCount"
+            },
+            "x-examples": {
+              "application/json": {
+                "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                "name": "API Inventory Count",
+                "type": "STOCKTAKE",
+                "status": "STOCKTAKE_SCHEDULED"
+              }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": ""
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "0af7b240-ab83-11e7-eddc-402337165363",
+                  "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "API Invenotry Count",
+                  "due_at": null,
+                  "type": "STOCKTAKE",
+                  "status": "STOCKTAKE_SCHEDULED",
+                  "supplier_id": null,
+                  "source_outlet_id": null,
+                  "consignment_date": "2017-05-24T01:49:25+00:00",
+                  "received_at": null,
+                  "show_inactive": true,
+                  "supplier_invoice": null,
+                  "reference": null,
+                  "total_count_gain": null,
+                  "total_cost_gain": null,
+                  "total_count_loss": null,
+                  "total_cost_loss": null,
+                  "created_at": "2017-05-24T01:49:25+00:00",
+                  "updated_at": "2017-05-24T01:49:25+00:00",
+                  "deleted_at": null,
+                  "version": 3505324485,
+                  "filters": []
+                }
+              }
+            }
           }
         }
       }
