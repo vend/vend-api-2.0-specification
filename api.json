@@ -598,23 +598,23 @@
                     "version": 2162167
                   },
                   {
-                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
-                    "product_id": "b8ca3a65-0183-11e4-fbb5-281af7f3d091",
-                    "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
-                    "deleted_at": null,
-                    "version": 2162168
-                  },
-                  {
                     "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
                     "product_id": "b8ca3a65-0183-11e4-fbb5-281b151ee9a6",
                     "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
                     "deleted_at": null,
                     "version": 2162183
+                  },
+                  {
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "product_id": "b8ca3a64-f883-11e4-e0f5-15e94b089bc5",
+                    "tax_id": "b1cecdf6-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "deleted_at": null,
+                    "version": 10734484
                   }
                 ],
                 "version": {
                   "min": 2162167,
-                  "max": 40462456
+                  "max": 10734484
                 }
               }
             }
