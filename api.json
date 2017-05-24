@@ -579,6 +579,75 @@
         }
       }
     },
+    "/outlet_taxes": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutletTaxCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-281af7f3d091",
+                    "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "deleted_at": null,
+                    "version": 2162167
+                  },
+                  {
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-281af7f3d091",
+                    "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "deleted_at": null,
+                    "version": 2162168
+                  },
+                  {
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-281b151ee9a6",
+                    "tax_id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "deleted_at": null,
+                    "version": 2162183
+                  }
+                ],
+                "version": {
+                  "min": 2162167,
+                  "max": 40462456
+                }
+              }
+            }
+          }
+        },
+        "operationId": "listOutletProductTaxes",
+        "tags": [
+          "Outlet Product Taxes"
+        ],
+        "summary": "List outlet product taxes",
+        "description": "Returns a paginated list of outlet-product-tax records.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "outlet_id",
+            "type": "string",
+            "description": "The ID of the outlet for which the results should be returned."
+          },
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
+          }
+        ]
+      }
+    },
     "/outlets": {
       "get": {
         "description": "Returns a collection of outlets.",
@@ -3236,6 +3305,56 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/Outlet"
+        }
+      }
+    },
+    "OutletTax": {
+      "type": "object",
+      "title": "Outlet Product Tax",
+      "properties": {
+        "outlet_id": {
+          "type": "string",
+          "description": "The ID of the outlet this record is associated with.",
+          "format": "uuid"
+        },
+        "product_id": {
+          "type": "string",
+          "description": "The ID of the product this record is associated with.",
+          "format": "uuid"
+        },
+        "tax_id": {
+          "type": "string",
+          "description": "The ID of the tax this record is associated with.",
+          "format": "uuid"
+        },
+        "deleted_at": {
+          "type": "string",
+          "description": "Deletion timestamp in UTC."
+        },
+        "version": {
+          "type": "integer",
+          "description": "Auto-incrementing object version number."
+        }
+      },
+      "required": [
+        "outlet_id",
+        "product_id",
+        "tax_id",
+        "version"
+      ]
+    },
+    "OutletTaxCollection": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "description": "An array of outlet-product-tax records.",
+          "items": {
+            "$ref": "#/definitions/OutletTax"
+          }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
         }
       }
     },
