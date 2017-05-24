@@ -261,6 +261,31 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCount"
+            },
+            "x-examples": {
+              "application/json": {
+                "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                "name": "API Stock Transfer",
+                "due_at": "2014-08-21T00:00:00+00:00",
+                "type": "OUTLET",
+                "status": "RECEIVED",
+                "supplier_id": null,
+                "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                "consignment_date": "2014-08-20T03:07:07+00:00",
+                "received_at": "2014-08-20T03:08:49+00:00",
+                "show_inactive": true,
+                "supplier_invoice": "",
+                "reference": null,
+                "total_count_gain": null,
+                "total_cost_gain": null,
+                "total_count_loss": null,
+                "total_cost_loss": null,
+                "created_at": "2014-08-20T03:07:07+00:00",
+                "updated_at": "2014-08-20T03:08:49+00:00",
+                "deleted_at": null,
+                "version": 1228872,
+                "filters": []
+              }
             }
           }
         ],
@@ -269,6 +294,34 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ConsignmentResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-281711e05741",
+                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "name": "Stock Transfer",
+                  "due_at": "2014-08-21T00:00:00+00:00",
+                  "type": "OUTLET",
+                  "status": "RECEIVED",
+                  "supplier_id": null,
+                  "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "consignment_date": "2014-08-20T03:07:07+00:00",
+                  "received_at": "2014-08-20T03:08:49+00:00",
+                  "show_inactive": true,
+                  "supplier_invoice": "",
+                  "reference": null,
+                  "total_count_gain": null,
+                  "total_cost_gain": null,
+                  "total_count_loss": null,
+                  "total_cost_loss": null,
+                  "created_at": "2014-08-20T03:07:07+00:00",
+                  "updated_at": "2014-08-20T03:08:49+00:00",
+                  "deleted_at": null,
+                  "version": 1228872,
+                  "filters": []
+                }
+              }
             }
           }
         }
