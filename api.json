@@ -12,18 +12,32 @@
       "id": "vend/specs/api-2-0"
     }
   },
-  "x-explorer-enabled": false,
+  "tags": [
+    {
+      "name": "Brands",
+      "description": "Brand operations."
+    },
+    {
+      "name": "Consignments",
+      "description": "Stock control operations."
+    },
+    {
+      "name": "Customers",
+      "description": "Customer operations."
+    }
+  ],
   "host": "domain_prefix.vendhq.com",
   "basePath": "/api/2.0",
   "schemes": [
     "https"
   ],
-  "consumes": [
-    "application/json"
-  ],
   "produces": [
     "application/json"
   ],
+  "consumes": [
+    "application/json"
+  ],
+  "x-explorer-enabled": false,
   "paths": {
     "/brands": {
       "get": {
