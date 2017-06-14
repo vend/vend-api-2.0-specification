@@ -5,11 +5,16 @@
     "title": "API 2.0",
     "description": "Early release of version 2.0 of the Vend API.",
     "license": {
-      "name": "MIT",
-      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+      "name": "Apache 2.0",
+      "url": ""
     },
     "x-stoplight": {
       "id": "vend/specs/api-2-0"
+    },
+    "contact": {
+      "name": "Vend Developer Relations Team",
+      "url": "https://developers.vendhq.com",
+      "email": "api@vendhq.com"
     }
   },
   "tags": [
