@@ -5,25 +5,44 @@
     "title": "API 2.0",
     "description": "Early release of version 2.0 of the Vend API.",
     "license": {
-      "name": "MIT",
-      "url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-stoplight": {
       "id": "vend/specs/api-2-0"
+    },
+    "contact": {
+      "name": "Vend Developer Relations Team",
+      "url": "https://developers.vendhq.com",
+      "email": "api@vendhq.com"
     }
   },
-  "x-explorer-enabled": false,
+  "tags": [
+    {
+      "name": "Brands",
+      "description": "Brand operations."
+    },
+    {
+      "name": "Consignments",
+      "description": "Stock control operations."
+    },
+    {
+      "name": "Customers",
+      "description": "Customer operations."
+    }
+  ],
   "host": "domain_prefix.vendhq.com",
   "basePath": "/api/2.0",
   "schemes": [
     "https"
   ],
-  "consumes": [
-    "application/json"
-  ],
   "produces": [
     "application/json"
   ],
+  "consumes": [
+    "application/json"
+  ],
+  "x-explorer-enabled": false,
   "paths": {
     "/brands": {
       "get": {
@@ -134,12 +153,51 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCount"
+            },
+            "x-examples": {
+              "application/json": {
+                "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                "name": "API Inventory Count",
+                "type": "STOCKTAKE",
+                "status": "STOCKTAKE_SCHEDULED"
+              }
             }
           }
         ],
         "responses": {
-          "200": {
-            "description": ""
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ConsignmentResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "0af7b240-ab83-11e7-eddc-402337165363",
+                  "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "API Invenotry Count",
+                  "due_at": null,
+                  "type": "STOCKTAKE",
+                  "status": "STOCKTAKE_SCHEDULED",
+                  "supplier_id": null,
+                  "source_outlet_id": null,
+                  "consignment_date": "2017-05-24T01:49:25+00:00",
+                  "received_at": null,
+                  "show_inactive": true,
+                  "supplier_invoice": null,
+                  "reference": null,
+                  "total_count_gain": null,
+                  "total_cost_gain": null,
+                  "total_count_loss": null,
+                  "total_cost_loss": null,
+                  "created_at": "2017-05-24T01:49:25+00:00",
+                  "updated_at": "2017-05-24T01:49:25+00:00",
+                  "deleted_at": null,
+                  "version": 3505324485,
+                  "filters": []
+                }
+              }
+            }
           }
         }
       }
@@ -167,6 +225,34 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ConsignmentResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-281711e05741",
+                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "name": "Stock Transfer",
+                  "due_at": "2014-08-21T00:00:00+00:00",
+                  "type": "OUTLET",
+                  "status": "RECEIVED",
+                  "supplier_id": null,
+                  "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "consignment_date": "2014-08-20T03:07:07+00:00",
+                  "received_at": "2014-08-20T03:08:49+00:00",
+                  "show_inactive": true,
+                  "supplier_invoice": "",
+                  "reference": null,
+                  "total_count_gain": null,
+                  "total_cost_gain": null,
+                  "total_count_loss": null,
+                  "total_cost_loss": null,
+                  "created_at": "2014-08-20T03:07:07+00:00",
+                  "updated_at": "2014-08-20T03:08:49+00:00",
+                  "deleted_at": null,
+                  "version": 1228872,
+                  "filters": []
+                }
+              }
             }
           }
         }
@@ -194,6 +280,31 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCount"
+            },
+            "x-examples": {
+              "application/json": {
+                "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                "name": "API Stock Transfer",
+                "due_at": "2014-08-21T00:00:00+00:00",
+                "type": "OUTLET",
+                "status": "RECEIVED",
+                "supplier_id": null,
+                "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                "consignment_date": "2014-08-20T03:07:07+00:00",
+                "received_at": "2014-08-20T03:08:49+00:00",
+                "show_inactive": true,
+                "supplier_invoice": "",
+                "reference": null,
+                "total_count_gain": null,
+                "total_cost_gain": null,
+                "total_count_loss": null,
+                "total_cost_loss": null,
+                "created_at": "2014-08-20T03:07:07+00:00",
+                "updated_at": "2014-08-20T03:08:49+00:00",
+                "deleted_at": null,
+                "version": 1228872,
+                "filters": []
+              }
             }
           }
         ],
@@ -202,6 +313,34 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ConsignmentResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-281711e05741",
+                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                  "name": "Stock Transfer",
+                  "due_at": "2014-08-21T00:00:00+00:00",
+                  "type": "OUTLET",
+                  "status": "RECEIVED",
+                  "supplier_id": null,
+                  "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "consignment_date": "2014-08-20T03:07:07+00:00",
+                  "received_at": "2014-08-20T03:08:49+00:00",
+                  "show_inactive": true,
+                  "supplier_invoice": "",
+                  "reference": null,
+                  "total_count_gain": null,
+                  "total_cost_gain": null,
+                  "total_count_loss": null,
+                  "total_cost_loss": null,
+                  "created_at": "2014-08-20T03:07:07+00:00",
+                  "updated_at": "2014-08-20T03:08:49+00:00",
+                  "deleted_at": null,
+                  "version": 1228872,
+                  "filters": []
+                }
+              }
             }
           }
         }
@@ -224,7 +363,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": ""
           }
         }
@@ -327,7 +466,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": ""
           }
         }
@@ -445,14 +584,71 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerBase"
+            },
+            "x-examples": {
+              "application/json": {
+                "first_name": "Tony",
+                "last_name": "Stark",
+                "email": "tony@starkinc.com"
+              }
             }
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerResponse"
+            },
+            "examples": {
+              "new": {
+                "data": {
+                  "id": "0af7b240-ab83-11e7-eddc-4023c64c85e5",
+                  "customer_code": "Tony-37YP",
+                  "name": "Tony Stark",
+                  "first_name": "Tony",
+                  "last_name": "Stark",
+                  "email": "tony@starkinc.com",
+                  "year_to_date": 0,
+                  "balance": 0,
+                  "loyalty_balance": 0,
+                  "note": null,
+                  "gender": null,
+                  "date_of_birth": null,
+                  "company_name": null,
+                  "do_not_email": false,
+                  "contact_source": null,
+                  "phone": null,
+                  "mobile": null,
+                  "fax": null,
+                  "twitter": null,
+                  "website": null,
+                  "physical_address_1": null,
+                  "physical_address_2": null,
+                  "physical_suburb": null,
+                  "physical_city": null,
+                  "physical_postcode": null,
+                  "physical_state": null,
+                  "physical_country_id": null,
+                  "postal_address_1": null,
+                  "postal_address_2": null,
+                  "postal_suburb": null,
+                  "postal_city": null,
+                  "postal_postcode": null,
+                  "postal_state": null,
+                  "postal_country_id": null,
+                  "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "enable_loyalty": true,
+                  "custom_field_1": null,
+                  "custom_field_2": null,
+                  "custom_field_3": null,
+                  "custom_field_4": null,
+                  "created_at": "2017-05-24T01:53:25+00:00",
+                  "updated_at": "2017-05-24T01:53:25+00:00",
+                  "deleted_at": null,
+                  "version": 3505346597
+                }
+              }
             }
           }
         }
@@ -511,6 +707,50 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerBase"
+            },
+            "x-examples": {
+              "application/json": {
+                "id": "0af7b240-ab83-11e7-eddc-4025043113d5",
+                "customer_code": "Tony-AB2W",
+                "name": "Tony Stark",
+                "first_name": "Tony",
+                "last_name": "Stark",
+                "email": "tony@starkinc.com",
+                "year_to_date": 0,
+                "balance": 0,
+                "loyalty_balance": 0,
+                "note": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_name": "Stark Inc.",
+                "do_not_email": false,
+                "contact_source": null,
+                "phone": null,
+                "mobile": null,
+                "fax": null,
+                "twitter": null,
+                "website": null,
+                "physical_address_1": null,
+                "physical_address_2": null,
+                "physical_suburb": null,
+                "physical_city": null,
+                "physical_postcode": null,
+                "physical_state": null,
+                "physical_country_id": null,
+                "postal_address_1": null,
+                "postal_address_2": null,
+                "postal_suburb": null,
+                "postal_city": null,
+                "postal_postcode": null,
+                "postal_state": null,
+                "postal_country_id": null,
+                "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                "enable_loyalty": true,
+                "custom_field_1": "Custom value 1",
+                "custom_field_2": "Custom value 2",
+                "custom_field_3": "Custom value 3",
+                "custom_field_4": "Custom value 4"
+              }
             }
           }
         ],
@@ -519,6 +759,56 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "0af7b240-ab83-11e7-eddc-4025043113d5",
+                  "customer_code": "Tony-AB2W",
+                  "name": "Tony Stark",
+                  "first_name": "Tony",
+                  "last_name": "Stark",
+                  "email": "tony@starkinc.com",
+                  "year_to_date": 0,
+                  "balance": 0,
+                  "loyalty_balance": 0,
+                  "note": null,
+                  "gender": null,
+                  "date_of_birth": null,
+                  "company_name": "Stark Inc.",
+                  "do_not_email": false,
+                  "contact_source": null,
+                  "phone": null,
+                  "mobile": null,
+                  "fax": null,
+                  "twitter": null,
+                  "website": null,
+                  "physical_address_1": null,
+                  "physical_address_2": null,
+                  "physical_suburb": null,
+                  "physical_city": null,
+                  "physical_postcode": null,
+                  "physical_state": null,
+                  "physical_country_id": null,
+                  "postal_address_1": null,
+                  "postal_address_2": null,
+                  "postal_suburb": null,
+                  "postal_city": null,
+                  "postal_postcode": null,
+                  "postal_state": null,
+                  "postal_country_id": null,
+                  "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "enable_loyalty": true,
+                  "custom_field_1": "Custom value 1",
+                  "custom_field_2": "Custom value 2",
+                  "custom_field_3": "Custom value 3",
+                  "custom_field_4": "Custom value 4",
+                  "created_at": "2017-05-24T02:02:18+00:00",
+                  "updated_at": "2017-05-24T02:03:59+00:00",
+                  "deleted_at": null,
+                  "version": 3505431251
+                }
+              }
             }
           }
         }
