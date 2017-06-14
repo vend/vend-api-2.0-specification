@@ -6,7 +6,7 @@
     "description": "Early release of version 2.0 of the Vend API.",
     "license": {
       "name": "Apache 2.0",
-      "url": ""
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
     "x-stoplight": {
       "id": "vend/specs/api-2-0"
