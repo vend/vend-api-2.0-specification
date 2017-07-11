@@ -2760,6 +2760,11 @@
           "description": "Company name.",
           "type": "string"
         },
+        "do_not_email": {
+          "default": false,
+          "type": "boolean",
+          "description": "Indicates whether the customer opted out of email communications."
+        },
         "phone": {
           "description": "Phone no.",
           "type": "string"
@@ -2937,6 +2942,11 @@
         "company_name": {
           "description": "Company name.",
           "type": "string"
+        },
+        "do_not_email": {
+          "default": false,
+          "type": "boolean",
+          "description": "Indicates whether the customer opted out of email communications."
         },
         "phone": {
           "description": "Phone no.",
