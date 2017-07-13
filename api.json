@@ -864,6 +864,39 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "7896f269-2b20-ff38-602a-ace60b172b12",
+                    "product_id": "a0369f1f-9083-11e4-f68e-d26298afef03",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "inventory_level": 0,
+                    "reorder_point": null,
+                    "reorder_amount": null,
+                    "version": 1639940
+                  },
+                  {
+                    "id": "c15190b9-0c37-6b52-54e2-f804b00fa8c5",
+                    "product_id": "a0369f1f-9083-11e4-f68e-d26298afef03",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "inventory_level": 0,
+                    "reorder_point": null,
+                    "reorder_amount": null,
+                    "version": 1639941
+                  },
+                  {
+                    "id": "0b32fb5c-9cff-5d26-2b64-1593ed2a463b",
+                    "product_id": "a0369f1f-9083-11e4-f68e-cc284567c50d",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "inventory_level": -10,
+                    "reorder_point": null,
+                    "reorder_amount": null,
+                    "version": 3426971
+                  }
+                ]
+              }
             }
           }
         }
