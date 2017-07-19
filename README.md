@@ -7,4 +7,3 @@ https://docs.vendhq.com/v0.9/reference
 
 The docs can also be viewed separately here:  
 https://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/vend/vend-api-2.0-specification/master/api.json
-
