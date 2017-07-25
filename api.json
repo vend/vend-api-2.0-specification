@@ -15,7 +15,8 @@
       "name": "Vend Developer Relations Team",
       "url": "https://developers.vendhq.com",
       "email": "api@vendhq.com"
-    }
+    },
+    "termsOfService": "https://www.vendhq.com/terms"
   },
   "tags": [
     {
@@ -4877,6 +4878,27 @@
       "in": "query",
       "type": "number",
       "description": "The maximum number of items to be returned in the response."
+    }
+  },
+  "security": [
+    {
+      "oauth": []
+    },
+    {
+      "personal_token": []
+    }
+  ],
+  "securityDefinitions": {
+    "oauth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://secure.vendhq.com/connect",
+      "tokenUrl": "https://domain_prefix.vendhq.com/api/1.0/token"
+    },
+    "personal_token": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
     }
   }
 }
