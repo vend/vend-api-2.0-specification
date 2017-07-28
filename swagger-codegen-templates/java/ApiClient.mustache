@@ -57,7 +57,7 @@ import {{invokerPackage}}.auth.OAuth;
 {{>generatedAnnotation}}
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  private String basePath = "{{{basePath}}}";
+  private String basePath = "";
   private boolean debugging = false;
   private int connectionTimeout = 0;
 
@@ -71,7 +71,7 @@ public class ApiClient {
 
   private DateFormat dateFormat;
 
-  public ApiClient() {
+  public ApiClient(String domainPrefix, String applicationName) {
     objectMapper = new ObjectMapper();
     objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -97,7 +97,9 @@ public class ApiClient {
     dateFormat = ApiClient.buildDefaultDateFormat();
 
     // Set default User-Agent.
-    setUserAgent("{{#httpUserAgent}}{{{.}}}{{/httpUserAgent}}{{^httpUserAgent}}Swagger-Codegen/{{{artifactVersion}}}/java{{/httpUserAgent}}");
+    setUserAgent("{{#httpUserAgent}}{{{.}}}{{/httpUserAgent}}{{^httpUserAgent}}/{{{artifactVersion}}}/java{{/httpUserAgent}}");
+
+    setBasePath(domainPrefix);
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<String, Authentication>();{{#authMethods}}{{#isBasic}}
@@ -166,8 +168,8 @@ public class ApiClient {
     return basePath;
   }
 
-  public ApiClient setBasePath(String basePath) {
-    this.basePath = basePath;
+  public ApiClient setBasePath(String domainPrefix) {
+    this.basePath = "https://" + domainPrefix + ".vendhq.com/api";
     return this;
   }
 
