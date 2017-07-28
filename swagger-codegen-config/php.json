@@ -1,0 +1,10 @@
+{
+        "packagePath": "VendAPI2",
+        "artifactVersion": "2.0.1",
+        "invokerPackage": "Vend\\API2",
+        "modelPackage": "Model2",
+        "apiPackage": "Api2",
+        "composerProjectName": "api",
+        "gitUserId": "vend",
+        "gitRepoId": "vend-api-2-php-sdk"
+}
