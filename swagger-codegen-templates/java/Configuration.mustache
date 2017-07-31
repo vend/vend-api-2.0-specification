@@ -5,14 +5,18 @@ package {{invokerPackage}};
 {{>generatedAnnotation}}
 public class Configuration {
 
-    private static String domainPrefix = "";
-    private static String applicationName = "";
+    private String domainPrefix = "";
+    private String applicationName = "";
 
-    private static ApiClient defaultApiClient = new ApiClient(domainPrefix, applicationName);
+    private ApiClient defaultApiClient = new ApiClient(domainPrefix, applicationName);
 
     public Configuration (String domainPrefix, String applicationName) {
+        if (domainPrefix.isEmpty() || applicationName.isEmpty()) {
+            throw new IllegalArgumentException("domainPrefix and applicationName must not be empty");
+        }
         this.domainPrefix = domainPrefix;
         this.applicationName = applicationName;
+        defaultApiClient = new ApiClient(domainPrefix, applicationName);
     }
 
     /**
@@ -21,7 +25,7 @@ public class Configuration {
      *
      * @return Default API client
      */
-    public static ApiClient getDefaultApiClient() {
+    public ApiClient getDefaultApiClient() {
         return defaultApiClient;
     }
 
@@ -31,7 +35,7 @@ public class Configuration {
      *
      * @param apiClient API client
      */
-    public static void setDefaultApiClient(ApiClient apiClient) {
+    public void setDefaultApiClient(ApiClient apiClient) {
         defaultApiClient = apiClient;
     }
 }
