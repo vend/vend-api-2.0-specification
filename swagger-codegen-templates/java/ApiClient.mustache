@@ -79,7 +79,7 @@ public class ApiClient {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("{{#httpUserAgent}}{{{.}}}{{/httpUserAgent}}{{^httpUserAgent}}Swagger-Codegen/{{{artifactVersion}}}/java{{/httpUserAgent}}/" + applicationName);
+    setUserAgent("{{#httpUserAgent}}{{{.}}}{{/httpUserAgent}}{{^httpUserAgent}}vend-api-2.0-spec/{{{artifactVersion}}}/java{{/httpUserAgent}}/" + applicationName);
 
     setBasePath(domainPrefix);
 
