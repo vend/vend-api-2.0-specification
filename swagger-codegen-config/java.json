@@ -1,9 +1,9 @@
 {
-  "modelPackage": "com.vendhq.models-2",
-  "apiPackage": "com.vendhq.api-2",
-  "invokerPackage": "com.vendhq.api-2",
+  "modelPackage": "com.vendhq.models2",
+  "apiPackage": "com.vendhq.api2",
+  "invokerPackage": "com.vendhq.api2",
   "groupId": "com.vendhq",
-  "artifactId": "api-2",
+  "artifactId": "api2",
   "artifactVersion": "2.0.1",
   "artifactUrl": "https://github.com/vend/vend-api-2.0-java-sdk/",
   "artifactDescription": "Java client library for the Vend API 2.0",
