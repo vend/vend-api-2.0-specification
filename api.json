@@ -30,6 +30,10 @@
     {
       "name": "Customers",
       "description": "Customer operations."
+    },
+    {
+      "name": "Search",
+      "description": "Search related operations"
     }
   ],
   "host": "domain_prefix.vendhq.com",
@@ -2468,6 +2472,11 @@
             "type": "string",
             "description": "**CUSTOMERS** The `email` for the customer(s) to find."
           }
+        ],
+        "summary": "Search",
+        "operationId": "Search",
+        "tags": [
+          "Search"
         ]
       }
     },
