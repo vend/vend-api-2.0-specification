@@ -72,7 +72,9 @@ import java.util.*;
 public class {{{classname}}}Example {
 
     public static void main(String[] args) {
-        {{#hasAuthMethods}}ApiClient defaultClient = Configuration.getDefaultApiClient();
+        Configuration config = new Configuration("YOUR DOMAIN PREFIX, "YOUR APPLICATION NAME");
+
+        {{#hasAuthMethods}}ApiClient defaultClient = config.getDefaultApiClient();
         {{#authMethods}}{{#isBasic}}
         // Configure HTTP basic authorization: {{{name}}}
         HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");

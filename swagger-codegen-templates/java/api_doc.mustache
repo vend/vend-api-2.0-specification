@@ -27,8 +27,11 @@ Method | HTTP request | Description
 //import {{{invokerPackage}}}.auth.*;{{/hasAuthMethods}}
 //import {{{package}}}.{{{classname}}};
 
+// New config with the domain prefix and application name for the User-Agent
+Configuration config = new Configuration("YOUR DOMAIN PREFIX, "YOUR APPLICATION NAME");
+
 {{#hasAuthMethods}}
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+ApiClient defaultClient = config.getDefaultApiClient();
 {{#authMethods}}{{#isBasic}}
 // Configure HTTP basic authorization: {{{name}}}
 HttpBasicAuth {{{name}}} = (HttpBasicAuth) defaultClient.getAuthentication("{{{name}}}");
