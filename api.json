@@ -2227,6 +2227,250 @@
         }
       }
     },
+    "/search": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SearchResponse"
+            }
+          }
+        },
+        "description": "This endpoint enables seaching for a few types of entities (currently sales, products and customers) by a number of different attributes associated with them.\nThe description for every query parameter indicates which type of object the parameter can be used to search for.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "required": true,
+            "description": "The enity type to search for. One of: `sales`, `products`, `customers`.",
+            "enum": [
+              "sales",
+              "products",
+              "customers"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "type": "string",
+            "description": "The attribute used to sort items returned in the response."
+          },
+          {
+            "in": "query",
+            "name": "order_direction",
+            "type": "string",
+            "description": "Sorting direction. One of: `asc`, `desc`.",
+            "enum": [
+              "asc",
+              "desc"
+            ]
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "type": "integer",
+            "description": "The maximum number of objects to be included in the response, currently limited to 10000."
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "description": "The number of objects to be \"skipped\" for the response. Used for pagination."
+          },
+          {
+            "in": "query",
+            "name": "_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "The `id` of the object to be included in the response."
+          },
+          {
+            "in": "query",
+            "name": "-_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "The `id` of the object to be excluded from the response."
+          },
+          {
+            "in": "query",
+            "name": "deleted",
+            "type": "boolean",
+            "description": "Indicated whether deleted objects should be included in the response."
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "description": "**SALES** Status of the sale to find.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "invoice_number",
+            "type": "string",
+            "description": "**SALES** Invoice number of the sale."
+          },
+          {
+            "in": "query",
+            "name": "customer_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "**SALES** The `ID` of the customer associated with the sales."
+          },
+          {
+            "in": "query",
+            "name": "user_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "**SALES** The `ID` of the user associated with the sales."
+          },
+          {
+            "in": "query",
+            "name": "outlet_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "**SALES** The `ID` of the outlet associated with the sales."
+          },
+          {
+            "in": "query",
+            "name": "date_from",
+            "type": "string",
+            "description": "**SALES** Lower limit for the sale date."
+          },
+          {
+            "in": "query",
+            "name": "date_to",
+            "type": "string",
+            "description": "**SALES** The `ID` Upper limit for the sale date."
+          },
+          {
+            "in": "query",
+            "name": "sku",
+            "type": "string",
+            "description": "__PRODUCTS__ The SKU of products to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-sku",
+            "type": "string",
+            "description": "__PRODUCTS__ The SKU of products to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "supplier_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the supplier associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-supplier_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the supplier associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "brand_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-brand_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "tag_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the tag associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-tag_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "product_type_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the product type associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-product_type_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the product type associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "variant_parent_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "-variant_parent_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+          },
+          {
+            "in": "query",
+            "name": "customer_code",
+            "type": "string",
+            "description": "**CUSTOMERS** The `customer_code` associated with the customer to find."
+          },
+          {
+            "in": "query",
+            "name": "first_name",
+            "type": "string",
+            "description": "**CUSTOMERS** The `first_name` for the customers to find."
+          },
+          {
+            "in": "query",
+            "name": "last_name",
+            "type": "string",
+            "description": "**CUSTOMERS** The `last_name` for the customers to find."
+          },
+          {
+            "in": "query",
+            "name": "company_name",
+            "type": "string",
+            "description": "**CUSTOMERS** The `company_name` for the customers to find."
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "type": "string",
+            "description": "**CUSTOMERS** The `phone_number` for the customer(s) to find."
+          },
+          {
+            "in": "query",
+            "name": "mobile",
+            "type": "string",
+            "description": "**CUSTOMERS** The `mobile` phone number for the customer(s) to find."
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string",
+            "description": "**CUSTOMERS** The `email` for the customer(s) to find."
+          }
+        ]
+      }
+    },
     "/suppliers": {
       "get": {
         "description": "Returns a paginated list of suppliers.",
@@ -4441,6 +4685,20 @@
           "description": "Tax amount.",
           "type": "number",
           "format": "double"
+        }
+      }
+    },
+    "SearchResponse": {
+      "title": "Search Response",
+      "type": "object",
+      "description": "",
+      "properties": {
+        "data": {
+          "description": "A collection of objects of one of the supported types: sales, products or customers.",
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       }
     },
