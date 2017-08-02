@@ -2814,8 +2814,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -2865,8 +2864,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -2951,8 +2949,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         },
         "total_count_gain": {
           "description": "The number of items over the expected level.",
@@ -3177,8 +3174,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -3379,8 +3375,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -3423,8 +3418,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         },
         "product_id": {
           "description": "The ID of the product this image is associated with.",
@@ -3479,8 +3473,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -3511,7 +3504,7 @@
           "format": "double"
         },
         "reorder_amount": {
-          "description": "Amount to be added to the automatic stock order.+ version: 1288421 (number) - Auto-incrementing object version number.",
+          "description": "Amount to be added to the automatic stock order.",
           "type": "number",
           "format": "double"
         }
@@ -3642,8 +3635,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -3865,8 +3857,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -4079,8 +4070,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         },
         "deleted_at": {
           "description": "Deletion timestamp in UTC.",
@@ -4174,7 +4164,7 @@
           "format": "double"
         },
         "max_units": {
-          "description": "The maximum number of items for which this price will be used.+ version: 1288421 (number) - Auto-incrementing object version number.",
+          "description": "The maximum number of items for which this price will be used.",
           "type": "number",
           "format": "double"
         },
@@ -4338,8 +4328,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -4391,8 +4380,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -4442,8 +4430,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -4531,8 +4518,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -4589,8 +4575,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         },
         "taxes": {
           "description": "Collection of taxes.",
@@ -4729,8 +4714,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
@@ -4780,8 +4764,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       }
     },
@@ -4803,8 +4786,7 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "number",
-          "format": "double"
+          "type": "integer"
         }
       },
       "required": [
