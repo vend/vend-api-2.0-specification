@@ -2814,7 +2814,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -2864,7 +2865,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -2949,7 +2951,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "total_count_gain": {
           "description": "The number of items over the expected level.",
@@ -3174,7 +3177,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -3375,7 +3379,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -3418,7 +3423,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "product_id": {
           "description": "The ID of the product this image is associated with.",
@@ -3473,7 +3479,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -3635,7 +3642,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -3857,7 +3865,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -3910,8 +3919,9 @@
           "description": "Deletion timestamp in UTC."
         },
         "version": {
+          "description": "Auto-incrementing object version number.",
           "type": "integer",
-          "description": "Auto-incrementing object version number."
+          "format": "int64"
         }
       },
       "required": [
@@ -4070,7 +4080,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "deleted_at": {
           "description": "Deletion timestamp in UTC.",
@@ -4328,7 +4339,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -4380,7 +4392,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -4430,7 +4443,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -4518,7 +4532,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -4575,7 +4590,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         },
         "taxes": {
           "description": "Collection of taxes.",
@@ -4714,7 +4730,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -4764,7 +4781,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -4786,7 +4804,8 @@
         },
         "version": {
           "description": "Auto-incrementing object version number.",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
@@ -4832,8 +4851,9 @@
           "type": "string"
         },
         "version": {
+          "description": "Auto-incrementing object version number.",
           "type": "integer",
-          "format": "int32"
+          "format": "int64"
         },
         "deleted_at": {
           "description": "The deletion timestamp.",
@@ -4984,8 +5004,9 @@
           "description": "Monthly sales target for the user."
         },
         "version": {
+          "description": "Auto-incrementing object version number.",
           "type": "integer",
-          "description": "Auto-incrementing version number"
+          "format": "int64"
         },
         "permissions": {
           "type": "null"
@@ -5090,10 +5111,12 @@
       "properties": {
         "min": {
           "type": "integer",
+          "format": "int64",
           "description": "Lowest version number of the payload."
         },
         "max": {
           "type": "integer",
+          "format": "int64",
           "description": "Highest version number of the payload."
         }
       },
