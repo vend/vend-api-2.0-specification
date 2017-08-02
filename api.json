@@ -2233,6 +2233,9 @@
     },
     "/search": {
       "get": {
+        "summary": "Search for resources",
+        "operationId": "Search",
+        "description": "This endpoint enables seaching for a few types of entities (currently sales, products and customers) by a number of different attributes associated with them.\nThe description for every query parameter indicates which type of object the parameter can be used to search for.",
         "responses": {
           "200": {
             "description": "",
@@ -2241,7 +2244,6 @@
             }
           }
         },
-        "description": "This endpoint enables seaching for a few types of entities (currently sales, products and customers) by a number of different attributes associated with them.\nThe description for every query parameter indicates which type of object the parameter can be used to search for.",
         "parameters": [
           {
             "in": "query",
@@ -2473,8 +2475,6 @@
             "description": "**CUSTOMERS** The `email` for the customer(s) to find."
           }
         ],
-        "summary": "Search",
-        "operationId": "Search",
         "tags": [
           "Search"
         ]
