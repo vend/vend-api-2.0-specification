@@ -2342,13 +2342,13 @@
             "in": "query",
             "name": "date_from",
             "type": "string",
-            "description": "**SALES** Lower limit for the sale date."
+            "description": "**SALES** The lower limit for the sale date."
           },
           {
             "in": "query",
             "name": "date_to",
             "type": "string",
-            "description": "**SALES** The `ID` Upper limit for the sale date."
+            "description": "**SALES** The upper limit for the sale date."
           },
           {
             "in": "query",
