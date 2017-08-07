@@ -5130,13 +5130,15 @@
     "After": {
       "name": "after",
       "in": "query",
-      "type": "number",
+      "type": "integer",
+      "format": "int64",
       "description": "The lower limit for the version numbers to be included in the response."
     },
     "Before": {
       "name": "before",
       "in": "query",
-      "type": "number",
+      "type": "integer",
+      "format": "int64",
       "description": "The upper limit for the version numbers to be included in the response."
     },
     "Deleted": {
@@ -5148,7 +5150,7 @@
     "PageSize": {
       "name": "page_size",
       "in": "query",
-      "type": "number",
+      "type": "integer",
       "description": "The maximum number of items to be returned in the response."
     }
   },
