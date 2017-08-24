@@ -73,6 +73,30 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/BrandCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "0adaafb3-6583-11e5-fb60-d5b67a17df2f",
+                    "name": "Peak Performance",
+                    "deleted_at": null,
+                    "version": 882391722
+                  },
+                  {
+                    "id": "0adaafb3-6583-11e5-fb60-ebae84675ae4",
+                    "name": "Sennheiser",
+                    "deleted_at": null,
+                    "version": 1013841198
+                  },
+                  {
+                    "id": "b1e2624f-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Generic Brand",
+                    "deleted_at": null,
+                    "version": 2364279587
+                  }
+                ]
+              }
             }
           }
         }
@@ -104,10 +128,10 @@
             "examples": {
               "new": {
                 "data": {
-                  "id": "bc305bf6-6183-11e4-f15a-162d34675ae7",
-                  "name": "Best Brand",
+                  "id": "0adaafb3-6583-11e5-fb60-d5b67a17df2f",
+                  "name": "Peak Performance",
                   "deleted_at": null,
-                  "version": 488483
+                  "version": 882391722
                 }
               }
             }
@@ -139,6 +163,84 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ConsignmentCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "7dbe52cd-0ae4-11e4-a0f5-b8ca3a64f8f4",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Order - Mon 14 Jul 2014",
+                    "due_at": null,
+                    "type": "SUPPLIER",
+                    "status": "RECEIVED",
+                    "supplier_id": null,
+                    "source_outlet_id": null,
+                    "consignment_date": "2014-07-13T23:22:00+00:00",
+                    "received_at": "2015-07-30T02:59:51+00:00",
+                    "show_inactive": true,
+                    "supplier_invoice": "",
+                    "reference": null,
+                    "total_count_gain": null,
+                    "total_cost_gain": null,
+                    "total_count_loss": null,
+                    "total_cost_loss": null,
+                    "created_at": "2014-07-13T23:22:00+00:00",
+                    "updated_at": "2015-07-30T02:59:51+00:00",
+                    "deleted_at": null,
+                    "version": 827406,
+                    "filters": []
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-2812b9e74b37",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "Stocktake 1",
+                    "due_at": null,
+                    "type": "STOCKTAKE",
+                    "status": "STOCKTAKE_COMPLETE",
+                    "supplier_id": null,
+                    "source_outlet_id": null,
+                    "consignment_date": "2014-08-20T02:36:02+00:00",
+                    "received_at": "2014-08-20T02:37:32+00:00",
+                    "show_inactive": true,
+                    "supplier_invoice": "",
+                    "reference": null,
+                    "total_count_gain": null,
+                    "total_cost_gain": null,
+                    "total_count_loss": null,
+                    "total_cost_loss": null,
+                    "created_at": "2014-08-20T02:36:02+00:00",
+                    "updated_at": "2014-08-20T02:37:32+00:00",
+                    "deleted_at": null,
+                    "version": 1228871,
+                    "filters": []
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-281711e05741",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "name": "Stock Transfer",
+                    "due_at": "2014-08-21T00:00:00+00:00",
+                    "type": "OUTLET",
+                    "status": "RECEIVED",
+                    "supplier_id": null,
+                    "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "consignment_date": "2014-08-20T03:07:07+00:00",
+                    "received_at": "2014-08-20T03:08:49+00:00",
+                    "show_inactive": true,
+                    "supplier_invoice": "",
+                    "reference": null,
+                    "total_count_gain": null,
+                    "total_cost_gain": null,
+                    "total_count_loss": null,
+                    "total_cost_loss": null,
+                    "created_at": "2014-08-20T03:07:07+00:00",
+                    "updated_at": "2014-08-20T03:08:49+00:00",
+                    "deleted_at": null,
+                    "version": 1228872,
+                    "filters": []
+                  }
+                ]
+              }
             }
           }
         }
@@ -234,16 +336,16 @@
             "examples": {
               "application/json": {
                 "data": {
-                  "id": "b8ca3a65-0183-11e4-fbb5-281711e05741",
-                  "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
-                  "name": "Stock Transfer",
-                  "due_at": "2014-08-21T00:00:00+00:00",
-                  "type": "OUTLET",
+                  "id": "7dbe52cd-0ae4-11e4-a0f5-b8ca3a64f8f4",
+                  "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "Order - Mon 14 Jul 2014",
+                  "due_at": null,
+                  "type": "SUPPLIER",
                   "status": "RECEIVED",
                   "supplier_id": null,
-                  "source_outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
-                  "consignment_date": "2014-08-20T03:07:07+00:00",
-                  "received_at": "2014-08-20T03:08:49+00:00",
+                  "source_outlet_id": null,
+                  "consignment_date": "2014-07-13T23:22:00+00:00",
+                  "received_at": "2015-07-30T02:59:51+00:00",
                   "show_inactive": true,
                   "supplier_invoice": "",
                   "reference": null,
@@ -251,10 +353,10 @@
                   "total_cost_gain": null,
                   "total_count_loss": null,
                   "total_cost_loss": null,
-                  "created_at": "2014-08-20T03:07:07+00:00",
-                  "updated_at": "2014-08-20T03:08:49+00:00",
+                  "created_at": "2014-07-13T23:22:00+00:00",
+                  "updated_at": "2015-07-30T02:59:51+00:00",
                   "deleted_at": null,
-                  "version": 1228872,
+                  "version": 827406,
                   "filters": []
                 }
               }
@@ -406,6 +508,55 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ConsignmentProductCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "product_id": "fa16cdf8-063c-11e4-a0f5-b8ca3a64f8f4",
+                    "product_sku": null,
+                    "count": "10.00000",
+                    "received": "10.00000",
+                    "cost": "0.00000",
+                    "is_included": false,
+                    "status": "RECEIVE_SUCCESS",
+                    "created_at": "2015-02-23T18:46:12+00:00",
+                    "updated_at": "2015-07-30T02:59:51+00:00",
+                    "deleted_at": null,
+                    "version": 3542970
+                  },
+                  {
+                    "product_id": "fa16cdf8-063c-11e4-a0f5-b8ca3a64f8f4",
+                    "product_sku": null,
+                    "count": null,
+                    "received": "0.00000",
+                    "cost": "0.00000",
+                    "is_included": false,
+                    "status": "RECEIVE_SUCCESS",
+                    "created_at": "2015-02-23T18:46:24+00:00",
+                    "updated_at": "2015-07-30T02:59:51+00:00",
+                    "deleted_at": null,
+                    "version": 3542975
+                  },
+                  {
+                    "product_id": "fa16cdf8-063c-11e4-a0f5-b8ca3a64f8f4",
+                    "product_sku": null,
+                    "count": "10.00000",
+                    "received": "0.00000",
+                    "cost": "100.00000",
+                    "is_included": true,
+                    "status": "RECEIVE_SUCCESS",
+                    "created_at": "2014-07-13T23:22:59+00:00",
+                    "updated_at": "2015-07-30T02:59:51+00:00",
+                    "deleted_at": null,
+                    "version": 20813790
+                  }
+                ],
+                "version": {
+                  "max": 20813790,
+                  "min": 3542970
+                }
+              }
             }
           }
         }
@@ -570,6 +721,102 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-4f73f02a9d1c",
+                    "customer_code": "Tony-N4ZJ",
+                    "first_name": "Anthony",
+                    "last_name": "Stark",
+                    "email": "tony@stark.com",
+                    "year_to_date": 0,
+                    "balance": -25840.85,
+                    "loyalty_balance": 5809.64,
+                    "note": "",
+                    "gender": "M",
+                    "date_of_birth": "1963-03-03",
+                    "company_name": "Stark Industries Inc",
+                    "do_not_email": false,
+                    "phone": "+001 555 12345678",
+                    "mobile": "+001 485 23456789",
+                    "fax": "+001 555 12345345",
+                    "twitter": "@ironman",
+                    "website": "http://www.starkinc.com",
+                    "physical_suburb": "Suburb",
+                    "physical_city": "Los Angeles",
+                    "physical_postcode": "23422",
+                    "physical_state": "California",
+                    "postal_suburb": "Suburb",
+                    "postal_city": "Los Angeles",
+                    "postal_state": "California",
+                    "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "enable_loyalty": true,
+                    "created_at": "2014-10-09T05:20:09+00:00",
+                    "updated_at": "2017-01-19T16:49:35+00:00",
+                    "deleted_at": null,
+                    "version": 2691964626,
+                    "postal_postcode": "23422",
+                    "name": "Anthony Stark",
+                    "physical_address_1": "Street 1",
+                    "physical_address_2": "Street 2",
+                    "physical_country_id": "NZ",
+                    "postal_address_1": "Street 1",
+                    "postal_address_2": "Street 2",
+                    "postal_country_id": "NZ",
+                    "custom_field_1": "test",
+                    "custom_field_2": "",
+                    "custom_field_3": "",
+                    "custom_field_4": ""
+                  },
+                  {
+                    "id": "06bf537b-c783-11e6-ff13-f21286299973",
+                    "customer_code": "UNNAMED-669D",
+                    "first_name": null,
+                    "last_name": null,
+                    "email": null,
+                    "year_to_date": 0,
+                    "balance": 0,
+                    "loyalty_balance": 0,
+                    "note": null,
+                    "gender": null,
+                    "date_of_birth": null,
+                    "company_name": null,
+                    "do_not_email": false,
+                    "phone": null,
+                    "mobile": null,
+                    "fax": null,
+                    "twitter": null,
+                    "website": null,
+                    "physical_suburb": null,
+                    "physical_city": null,
+                    "physical_postcode": null,
+                    "physical_state": null,
+                    "postal_suburb": null,
+                    "postal_city": null,
+                    "postal_state": null,
+                    "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "enable_loyalty": true,
+                    "created_at": "2017-02-13T17:33:25+00:00",
+                    "updated_at": "2017-02-13T17:33:25+00:00",
+                    "deleted_at": null,
+                    "version": 2847386277,
+                    "postal_postcode": null,
+                    "name": null,
+                    "physical_address_1": null,
+                    "physical_address_2": null,
+                    "physical_country_id": null,
+                    "postal_address_1": null,
+                    "postal_address_2": null,
+                    "postal_country_id": null,
+                    "custom_field_1": null,
+                    "custom_field_2": null,
+                    "custom_field_3": null,
+                    "custom_field_4": null
+                  }
+                ]
+              }
             }
           }
         }
@@ -685,6 +932,55 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-4f73f02a9d1c",
+                  "customer_code": "Tony-N4ZJ",
+                  "first_name": "Anthony",
+                  "last_name": "Stark",
+                  "email": "tony@stark.com",
+                  "year_to_date": 0,
+                  "balance": -25840.85,
+                  "loyalty_balance": 5809.64,
+                  "note": "",
+                  "gender": "M",
+                  "date_of_birth": "1963-03-03",
+                  "company_name": "Stark Industries Inc",
+                  "do_not_email": false,
+                  "phone": "+001 555 12345678",
+                  "mobile": "+001 485 23456789",
+                  "fax": "+001 555 12345345",
+                  "twitter": "@ironman",
+                  "website": "http://www.starkinc.com",
+                  "physical_suburb": "Suburb",
+                  "physical_city": "Los Angeles",
+                  "physical_postcode": "23422",
+                  "physical_state": "California",
+                  "postal_suburb": "Suburb",
+                  "postal_city": "Los Angeles",
+                  "postal_state": "California",
+                  "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "enable_loyalty": true,
+                  "created_at": "2014-10-09T05:20:09+00:00",
+                  "updated_at": "2017-01-19T16:49:35+00:00",
+                  "deleted_at": null,
+                  "version": 2691964626,
+                  "postal_postcode": "23422",
+                  "name": "Anthony Stark",
+                  "physical_address_1": "Street 1",
+                  "physical_address_2": "Street 2",
+                  "physical_country_id": "NZ",
+                  "postal_address_1": "Street 1",
+                  "postal_address_2": "Street 2",
+                  "postal_country_id": "NZ",
+                  "custom_field_1": "test",
+                  "custom_field_2": "",
+                  "custom_field_3": "",
+                  "custom_field_4": ""
+                }
+              }
             }
           }
         }
@@ -1232,6 +1528,51 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/PriceBookProductCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "327a1b25-4a47-9ba7-15cd-f65dfb3f06e2",
+                    "product_id": "9a84e9e1-f038-11e3-a0f5-b8ca3a64f8f4",
+                    "price_book_id": "b1cc4593-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "price": 0,
+                    "loyalty_value": null,
+                    "min_units": null,
+                    "max_units": null,
+                    "version": 74322454,
+                    "created_at": "2014-06-10T00:46:05+00:00",
+                    "updated_at": "2014-06-10T00:46:05+00:00",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "dc85058a-a683-11e4-ef46-e15361f7916a",
+                    "product_id": "188a87aa-06fe-11e4-a0f5-b8ca3a64f8f4",
+                    "price_book_id": "dc85058a-a683-11e4-ef46-e1535cf1ebe5",
+                    "price": 246.92,
+                    "loyalty_value": 22,
+                    "min_units": 12.5,
+                    "max_units": 43.2,
+                    "version": 94533112,
+                    "created_at": "2014-07-09T00:15:13+00:00",
+                    "updated_at": "2016-04-13T22:27:29+00:00",
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-ef46-0fe437d43747",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-6ba391393b6e",
+                    "price_book_id": "dc85058a-a683-11e4-ef46-e1535cf1ebe5",
+                    "price": 1200,
+                    "loyalty_value": null,
+                    "min_units": null,
+                    "max_units": null,
+                    "version": 107001929,
+                    "created_at": "2014-11-14T02:11:38+00:00",
+                    "updated_at": "2015-06-11T02:47:49+00:00",
+                    "deleted_at": null
+                  }
+                ]
+              }
             }
           }
         }
@@ -1264,6 +1605,58 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/PriceBookCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b1cc4593-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "General Price Book (All Products)",
+                    "type": "BASE",
+                    "valid_from": null,
+                    "valid_to": null,
+                    "restrict_to_platform_key": "1",
+                    "restrict_to_platform_label": "In Store",
+                    "customer_group": {
+                      "id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "name": "All Customers",
+                      "group_id": "1111111111",
+                      "version": 29483,
+                      "created_at": "2014-06-09T21:04:49+00:00",
+                      "updated_at": "2014-06-09T21:04:49+00:00",
+                      "deleted_at": null
+                    },
+                    "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "outlet": null,
+                    "outlet_id": null,
+                    "version": 368354,
+                    "deleted_at": null
+                  },
+                  {
+                    "id": "dc85058a-a683-11e4-ef46-e2ecc5bda31a",
+                    "name": "API test",
+                    "type": "GENERAL",
+                    "valid_from": null,
+                    "valid_to": null,
+                    "restrict_to_platform_key": "1",
+                    "restrict_to_platform_label": "In Store",
+                    "customer_group": {
+                      "id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                      "name": "All Customers",
+                      "group_id": "1111111111",
+                      "version": 29483,
+                      "created_at": "2014-06-09T21:04:49+00:00",
+                      "updated_at": "2014-06-09T21:04:49+00:00",
+                      "deleted_at": null
+                    },
+                    "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "outlet": null,
+                    "outlet_id": null,
+                    "version": 398146,
+                    "deleted_at": null
+                  }
+                ]
+              }
             }
           }
         }
@@ -1319,6 +1712,33 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/PriceBookResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b1cc4593-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "name": "General Price Book (All Products)",
+                  "type": "BASE",
+                  "valid_from": null,
+                  "valid_to": null,
+                  "restrict_to_platform_key": 1,
+                  "restrict_to_platform_label": "In Store",
+                  "customer_group": {
+                    "id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "All Customers",
+                    "group_id": "1111111111",
+                    "version": 29483,
+                    "created_at": "2014-06-09T21:04:49+00:00",
+                    "updated_at": "2014-06-09T21:04:49+00:00",
+                    "deleted_at": null
+                  },
+                  "customer_group_id": "b1ca8902-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "outlet": null,
+                  "outlet_id": null,
+                  "version": 368354,
+                  "deleted_at": null
+                }
+              }
             }
           }
         }
@@ -1432,6 +1852,30 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ProductTypeCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b1e2babe-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "General",
+                    "deleted_at": null,
+                    "version": 449902
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-3a61730ca2ef",
+                    "name": "Test type",
+                    "deleted_at": null,
+                    "version": 551718
+                  },
+                  {
+                    "id": "bc305bf6-6183-11e4-f15a-162d346b231e",
+                    "name": "Enrollment Packages",
+                    "deleted_at": null,
+                    "version": 627462
+                  }
+                ]
+              }
             }
           }
         }
@@ -1502,6 +1946,142 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ProductCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-9776c5cd0240",
+                    "source_id": null,
+                    "source_variant_id": null,
+                    "variant_parent_id": null,
+                    "name": "Product 0003",
+                    "variant_name": "Product 0003",
+                    "handle": "0003",
+                    "sku": "0003",
+                    "supplier_code": null,
+                    "active": true,
+                    "has_inventory": true,
+                    "is_composite": false,
+                    "description": null,
+                    "image_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-standard.png",
+                    "created_at": "2015-01-08T20:41:50+00:00",
+                    "updated_at": "2015-08-18T23:28:00+00:00",
+                    "deleted_at": null,
+                    "source": "USER",
+                    "account_code": null,
+                    "account_code_purchase": null,
+                    "supply_price": 0,
+                    "version": 59780745,
+                    "type": null,
+                    "supplier": null,
+                    "brand": null,
+                    "variant_options": [],
+                    "categories": [],
+                    "images": [],
+                    "has_variants": false,
+                    "button_order": 0,
+                    "price_including_tax": 3.02632,
+                    "price_excluding_tax": 2.63158,
+                    "loyalty_amount": null,
+                    "supplier_id": null,
+                    "product_type_id": null,
+                    "brand_id": null,
+                    "is_active": true,
+                    "image_thumbnail_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-thumb.png",
+                    "tag_ids": [],
+                    "attributes": []
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-9776c5faaed2",
+                    "source_id": null,
+                    "source_variant_id": null,
+                    "variant_parent_id": null,
+                    "name": "Product 0005",
+                    "variant_name": "Product 0005",
+                    "handle": "0005",
+                    "sku": "0005",
+                    "supplier_code": null,
+                    "active": true,
+                    "has_inventory": true,
+                    "is_composite": false,
+                    "description": null,
+                    "image_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-standard.png",
+                    "created_at": "2015-01-08T20:41:51+00:00",
+                    "updated_at": "2015-08-18T23:28:00+00:00",
+                    "deleted_at": null,
+                    "source": "USER",
+                    "account_code": null,
+                    "account_code_purchase": null,
+                    "supply_price": 0,
+                    "version": 59780753,
+                    "type": null,
+                    "supplier": null,
+                    "brand": null,
+                    "variant_options": [],
+                    "categories": [],
+                    "images": [],
+                    "has_variants": false,
+                    "button_order": 0,
+                    "price_including_tax": 5.04385,
+                    "price_excluding_tax": 4.38596,
+                    "loyalty_amount": null,
+                    "supplier_id": null,
+                    "product_type_id": null,
+                    "brand_id": null,
+                    "is_active": true,
+                    "image_thumbnail_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-thumb.png",
+                    "tag_ids": [],
+                    "attributes": []
+                  },
+                  {
+                    "id": "b8ca3a65-0183-11e4-fbb5-9776c611d865",
+                    "source_id": null,
+                    "source_variant_id": null,
+                    "variant_parent_id": null,
+                    "name": "Product 0006",
+                    "variant_name": "Product 0006",
+                    "handle": "0006",
+                    "sku": "0006",
+                    "supplier_code": null,
+                    "active": true,
+                    "has_inventory": true,
+                    "is_composite": false,
+                    "description": null,
+                    "image_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-standard.png",
+                    "created_at": "2015-01-08T20:41:51+00:00",
+                    "updated_at": "2015-08-18T23:28:00+00:00",
+                    "deleted_at": null,
+                    "source": "USER",
+                    "account_code": null,
+                    "account_code_purchase": null,
+                    "supply_price": 0,
+                    "version": 59780757,
+                    "type": null,
+                    "supplier": null,
+                    "brand": null,
+                    "variant_options": [],
+                    "categories": [],
+                    "images": [],
+                    "has_variants": false,
+                    "button_order": 0,
+                    "price_including_tax": 6.05263,
+                    "price_excluding_tax": 5.26316,
+                    "loyalty_amount": null,
+                    "supplier_id": null,
+                    "product_type_id": null,
+                    "brand_id": null,
+                    "is_active": true,
+                    "image_thumbnail_url": "https://secure.vendhq.com/images/placeholder/product/no-image-white-thumb.png",
+                    "tag_ids": [],
+                    "attributes": []
+                  }
+                ],
+                "version": {
+                  "min": 59780745,
+                  "max": 59780757
+                }
+              }
             }
           }
         }
@@ -1530,6 +2110,116 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ProductResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "b8ca3a65-0183-11e4-fbb5-7988a6ed80f8",
+                  "source_id": null,
+                  "source_variant_id": null,
+                  "variant_parent_id": null,
+                  "name": "Bravo",
+                  "variant_name": "Bravo / Black / Cotton / Cotton",
+                  "handle": "bravo",
+                  "sku": "787878",
+                  "supplier_code": "123456",
+                  "active": true,
+                  "has_inventory": true,
+                  "is_composite": false,
+                  "description": "<p>The best product ever, except for the next one.</p>",
+                  "image_url": "https://vendimageuploadcdn.global.ssl.fastly.net/350,fit,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                  "created_at": "2014-12-01T18:34:15+00:00",
+                  "updated_at": "2017-08-21T23:50:39+00:00",
+                  "deleted_at": null,
+                  "source": "USER",
+                  "account_code": null,
+                  "account_code_purchase": null,
+                  "supply_price": 100,
+                  "version": 4284638488,
+                  "type": {
+                    "id": "b1e2babe-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "General",
+                    "deleted_at": null,
+                    "version": 449902
+                  },
+                  "supplier": {
+                    "id": "dc85058a-a683-11e5-ef46-08f9a926615e",
+                    "name": "Peak",
+                    "source": "",
+                    "description": "",
+                    "deleted_at": null,
+                    "version": 2089502
+                  },
+                  "brand": {
+                    "id": "0adaafb3-6583-11e5-fb60-d5b67a17df2f",
+                    "name": "Peak Performance",
+                    "deleted_at": null,
+                    "version": 882391722
+                  },
+                  "variant_options": [
+                    {
+                      "id": "9a972fbe-3b53-102e-b60f-4abbcbc88955",
+                      "name": "Color",
+                      "value": "Black"
+                    },
+                    {
+                      "id": "6b8f11e2-5188-11e0-9d7a-4040f540b50a",
+                      "name": "Fabric",
+                      "value": "Cotton"
+                    },
+                    {
+                      "id": "6b8f11e2-5188-11e0-9d7a-4040f540b50a",
+                      "name": "Fabric",
+                      "value": "Cotton"
+                    }
+                  ],
+                  "categories": [
+                    {
+                      "id": "b8ca3a65-0183-11e4-fbb5-a7e973b74d92",
+                      "name": "tag_test",
+                      "deleted_at": null,
+                      "version": 1446856
+                    },
+                    {
+                      "id": "bc305bf6-6183-11e4-f15a-16ced23b8465",
+                      "name": "variant",
+                      "deleted_at": null,
+                      "version": 961180
+                    }
+                  ],
+                  "images": [
+                    {
+                      "id": "06bf537b-c783-11e6-f6b9-b73917d393b6",
+                      "url": "https://vendimageuploadcdn.global.ssl.fastly.net/1920,fit/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                      "version": 2398861114,
+                      "sizes": {
+                        "ss": "https://vendimageuploadcdn.global.ssl.fastly.net/50x50,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "standard": "https://vendimageuploadcdn.global.ssl.fastly.net/350,fit,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "st": "https://vendimageuploadcdn.global.ssl.fastly.net/40x40,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "original": "https://vendimageuploadcdn.global.ssl.fastly.net/1920,fit/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "thumb": "https://vendimageuploadcdn.global.ssl.fastly.net/160,fit,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "sl": "https://vendimageuploadcdn.global.ssl.fastly.net/150x150,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                        "sm": "https://vendimageuploadcdn.global.ssl.fastly.net/100x100,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg"
+                      }
+                    }
+                  ],
+                  "has_variants": true,
+                  "button_order": 2,
+                  "price_including_tax": 126.5,
+                  "price_excluding_tax": 110,
+                  "loyalty_amount": null,
+                  "attributes": [],
+                  "supplier_id": "dc85058a-a683-11e5-ef46-08f9a926615e",
+                  "product_type_id": "b1e2babe-f019-11e3-a0f5-b8ca3a64f8f4",
+                  "brand_id": "0adaafb3-6583-11e5-fb60-d5b67a17df2f",
+                  "is_active": true,
+                  "image_thumbnail_url": "https://vendimageuploadcdn.global.ssl.fastly.net/160,fit,q90/vend-images/product/original/f/0/f0ebadbc30947444d438678a4a7bd6d996f392fc.jpg",
+                  "tag_ids": [
+                    "b8ca3a65-0183-11e4-fbb5-a7e973b74d92",
+                    "bc305bf6-6183-11e4-f15a-16ced23b8465"
+                  ]
+                }
+              }
             }
           }
         }
@@ -1605,6 +2295,48 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/InventoryCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "18e86393-ebdf-fbba-5455-4120bc6773fd",
+                    "outlet_id": "b8ca3a65-0183-11e4-fbb5-2816d2677218",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-7988a6ed80f8",
+                    "inventory_level": 21,
+                    "current_amount": 21,
+                    "version": 2398817047,
+                    "deleted_at": null,
+                    "average_cost": 100,
+                    "reorder_point": 5,
+                    "reorder_amount": 20
+                  },
+                  {
+                    "id": "eb650394-9d49-8985-41f5-51507838d3b7",
+                    "outlet_id": "06bf537b-c783-11e6-f6b9-53a81bd6b215",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-7988a6ed80f8",
+                    "inventory_level": 42,
+                    "current_amount": 42,
+                    "version": 2398817048,
+                    "deleted_at": null,
+                    "average_cost": 100,
+                    "reorder_point": 5,
+                    "reorder_amount": 20
+                  },
+                  {
+                    "id": "a020eed7-7f96-3b50-e133-a435dfbc242b",
+                    "outlet_id": "b1e04bd8-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "product_id": "b8ca3a65-0183-11e4-fbb5-7988a6ed80f8",
+                    "inventory_level": 19,
+                    "current_amount": 19,
+                    "version": 3630064802,
+                    "deleted_at": null,
+                    "average_cost": 0,
+                    "reorder_point": 5,
+                    "reorder_amount": 20
+                  }
+                ]
+              }
             }
           }
         }
@@ -2342,13 +3074,13 @@
             "in": "query",
             "name": "date_from",
             "type": "string",
-            "description": "**SALES** The lower limit for the sale date."
+            "description": "**SALES** Lower limit for the sale date."
           },
           {
             "in": "query",
             "name": "date_to",
             "type": "string",
-            "description": "**SALES** The upper limit for the sale date."
+            "description": "**SALES** The `ID` Upper limit for the sale date."
           },
           {
             "in": "query",
@@ -2504,6 +3236,36 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/SupplierCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "dc85058a-a683-11e5-ef46-05a1ba8c8c08",
+                    "name": "Supplier post new test",
+                    "source": "USER",
+                    "description": null,
+                    "deleted_at": null,
+                    "version": 2068814
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-ef46-08f9a926615e",
+                    "name": "Peak",
+                    "source": "",
+                    "description": "",
+                    "deleted_at": null,
+                    "version": 2089502
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-e112-5734f1f3a2ca",
+                    "name": "API Supplier",
+                    "source": "USER",
+                    "description": "API Supplier description",
+                    "deleted_at": null,
+                    "version": 2555837
+                  }
+                ]
+              }
             }
           }
         }
@@ -2658,6 +3420,60 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/TaxCollection"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "b1cecdf6-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "No Tax",
+                    "version": 391487,
+                    "deleted_at": null,
+                    "rates": [
+                      {
+                        "id": "b1cfbc85-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "name": "No Tax",
+                        "rate": 0,
+                        "display_name": "No Tax"
+                      }
+                    ],
+                    "is_default": false,
+                    "display_name": "No Tax"
+                  },
+                  {
+                    "id": "b1d192bc-f019-11e3-a0f5-b8ca3a64f8f4",
+                    "name": "GST",
+                    "version": 391490,
+                    "deleted_at": null,
+                    "rates": [
+                      {
+                        "id": "b1dfed8b-f019-11e3-a0f5-b8ca3a64f8f4",
+                        "name": "GST",
+                        "rate": 0.15,
+                        "display_name": "GST"
+                      }
+                    ],
+                    "is_default": true,
+                    "display_name": "GST"
+                  },
+                  {
+                    "id": "dc85058a-a683-11e5-e112-4600acd0096a",
+                    "name": "VAT",
+                    "version": 478922,
+                    "deleted_at": null,
+                    "rates": [
+                      {
+                        "id": "accff2bf-4600-11e5-8112-dc85058aa69e",
+                        "name": "VAT",
+                        "rate": 0.2,
+                        "display_name": "VAT"
+                      }
+                    ],
+                    "is_default": false,
+                    "display_name": "VAT"
+                  }
+                ]
+              }
             }
           }
         }
