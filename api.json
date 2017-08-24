@@ -4816,8 +4816,9 @@
           "description": "The deletion timestamp."
         },
         "version": {
-          "type": "number",
-          "description": "Auto"
+          "description": "Auto-incrementing object version number.",
+          "type": "integer",
+          "format": "int64"
         }
       },
       "required": [
