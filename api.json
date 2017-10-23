@@ -156,6 +156,41 @@
           },
           {
             "$ref": "#/parameters/PageSize"
+          },
+          {
+            "in": "query",
+            "name": "outlet_id",
+            "type": "string",
+            "format": "UUID",
+            "description": "The ID of the outlet which the consignment is targeted at."
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "enum": [
+              "SUPPLIER",
+              "OUTLET",
+              "STOCKTAKE"
+            ],
+            "description": "The type of consignments to be returned."
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "enum": [
+              "RECEIVED",
+              "CANCELLED",
+              "OPEN",
+              "STOCKTAKE",
+              "SENT",
+              "STOCKTAKE_COMPLETE",
+              "STOCKTAKE_IN_PROGRESS",
+              "STOCKTAKE_SCHEDULED",
+              "STOCKTAKE_IN_PROGRESS_PROCESSED"
+            ],
+            "description": "The status of consignments to be returned."
           }
         ],
         "responses": {
