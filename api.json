@@ -1324,6 +1324,9 @@
           },
           {
             "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
           }
         ],
         "responses": {
