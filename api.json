@@ -5489,27 +5489,6 @@
           "type": "number",
           "format": "double"
         },
-        "taxes": {
-          "description": "Collection of taxes.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SaleTax"
-          }
-        },
-        "line_items": {
-          "description": "A collection of line items.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LineItem"
-          }
-        },
-        "payments": {
-          "description": "Collection of payments.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Payment"
-          }
-        },
         "sale_date": {
           "description": "Sale timestamp in UTC.",
           "type": "string"
@@ -5530,6 +5509,27 @@
           "description": "Auto-incrementing object version number.",
           "type": "integer",
           "format": "int64"
+        },
+        "taxes": {
+          "description": "Collection of taxes.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SaleTax"
+          }
+        },
+        "line_items": {
+          "description": "A collection of line items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItem"
+          }
+        },
+        "payments": {
+          "description": "Collection of payments.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Payment"
+          }
         }
       }
     },
