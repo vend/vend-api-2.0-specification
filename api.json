@@ -5421,39 +5421,13 @@
       "title": "Sale",
       "type": "object",
       "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
         "outlet_id": {
           "description": "Valid outlet ID for the retailer.",
           "type": "string"
-        },
-        "return_for": {
-          "description": "Reference ID to a different sale if this sale was created as a return.",
-          "type": "string"
-        },
-        "total_price": {
-          "description": "Sale total.",
-          "type": "number",
-          "format": "double"
-        },
-        "total_tax": {
-          "description": "Tax total.",
-          "type": "number",
-          "format": "double"
-        },
-        "deleted_at": {
-          "description": "Deletion timestamp in UTC.",
-          "type": "string"
-        },
-        "version": {
-          "description": "Auto-incrementing object version number.",
-          "type": "integer",
-          "format": "int64"
-        },
-        "taxes": {
-          "description": "Collection of taxes.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SaleTax"
-          }
         },
         "register_id": {
           "description": "Valid register ID for the retailer.",
@@ -5463,9 +5437,64 @@
           "description": "Valid user ID for the retailer.",
           "type": "string"
         },
+        "customer_id": {
+          "description": "Valid customer ID for the retailer.",
+          "type": "string"
+        },
+        "invoice_number": {
+          "description": "Invoice number which if provided, should use the prefix and suffix defined for the register.",
+          "type": "string"
+        },
+        "invoice_sequence": {
+          "description": "Optionally provided value.",
+          "type": "number",
+          "format": "double"
+        },
+        "source": {
+          "type": "string",
+          "description": "Origin of the sale. USER for sales created in Vend client apps, SHOPIFY for sale synced from Shopify by the integration, ECOMMERCE for sales coming from Vend Ecommerce."
+        },
+        "source_id": {
+          "type": "string",
+          "description": "External ID for sales coming from other systems"
+        },
         "status": {
           "description": "Sale status. One of: CLOSED, SAVED, ONACCOUNT, ONACCOUNT_CLOSED, LAYBY, LAYBY_CLOSED. VOIDED ???",
           "type": "string"
+        },
+        "note": {
+          "description": "Sale Note.",
+          "type": "string"
+        },
+        "short_code": {
+          "description": "6 character code used in the loyalty system. ???",
+          "type": "string"
+        },
+        "return_for": {
+          "description": "Reference ID to a different sale if this sale was created as a return.",
+          "type": "string"
+        },
+        "total_price": {
+          "description": "Total (tax exclusive) price of the sale",
+          "type": "number",
+          "format": "double"
+        },
+        "total_tax": {
+          "description": "Total tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_loyalty": {
+          "description": "Total incurred loyalty.",
+          "type": "number",
+          "format": "double"
+        },
+        "taxes": {
+          "description": "Collection of taxes.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SaleTax"
+          }
         },
         "line_items": {
           "description": "A collection of line items.",
@@ -5481,30 +5510,26 @@
             "$ref": "#/definitions/Payment"
           }
         },
-        "customer_id": {
-          "description": "Valid customer ID for the retailer.",
-          "type": "string"
-        },
-        "invoice_number": {
-          "description": "Invoice number which if provided, should use the prefix and suffix defined for the register.",
-          "type": "string"
-        },
-        "invoice_sequence": {
-          "description": "Optionally provided value.",
-          "type": "number",
-          "format": "double"
-        },
-        "note": {
-          "description": "Sale Note.",
-          "type": "string"
-        },
-        "short_code": {
-          "description": "6 character code used in the loyalty system. ???",
-          "type": "string"
-        },
         "sale_date": {
           "description": "Sale timestamp in UTC.",
           "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
