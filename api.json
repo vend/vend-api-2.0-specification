@@ -749,6 +749,9 @@
           },
           {
             "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
           }
         ],
         "responses": {
@@ -3124,83 +3127,83 @@
             "in": "query",
             "name": "sku",
             "type": "string",
-            "description": "__PRODUCTS__ The SKU of products to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The SKU of products to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-sku",
             "type": "string",
-            "description": "__PRODUCTS__ The SKU of products to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The SKU of products to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "supplier_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the supplier associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the supplier associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-supplier_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the supplier associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the supplier associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "brand_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the brand associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the brand associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-brand_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "tag_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the tag associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the tag associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-tag_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "product_type_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the product type associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the product type associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-product_type_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the product type associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the product type associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "variant_parent_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the variant parent product associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-variant_parent_id",
             "type": "string",
             "format": "UUID",
-            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "**PRODUCTS** The ID of the variant parent product associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
@@ -3225,24 +3228,6 @@
             "name": "company_name",
             "type": "string",
             "description": "**CUSTOMERS** The `company_name` for the customers to find."
-          },
-          {
-            "in": "query",
-            "name": "phone",
-            "type": "string",
-            "description": "**CUSTOMERS** The `phone_number` for the customer(s) to find."
-          },
-          {
-            "in": "query",
-            "name": "mobile",
-            "type": "string",
-            "description": "**CUSTOMERS** The `mobile` phone number for the customer(s) to find."
-          },
-          {
-            "in": "query",
-            "name": "email",
-            "type": "string",
-            "description": "**CUSTOMERS** The `email` for the customer(s) to find."
           }
         ],
         "tags": [
