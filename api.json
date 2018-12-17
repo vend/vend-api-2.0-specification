@@ -436,15 +436,7 @@
         "tags": [
           "Channel request log"
         ]
-      },
-      "parameters": [
-        {
-          "name": "request_log_id",
-          "in": "path",
-          "type": "string",
-          "required": true
-        }
-      ]
+      }
     },
     "/channels": {
       "get": {
