@@ -355,6 +355,23 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/RequestCollectionResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": [
+                  {
+                    "id": "1073019276397793280",
+                    "grouping_id": "job-5aa0bfd3f948109e314610883da6a6edf4c826db-1544662705",
+                    "request_method": "POST",
+                    "status_code": 200,
+                    "url": "https://woocommerce-domain.com/wp-json/wc/v2/products/batch",
+                    "request": "POST /wp-json/wc/v2/products/batch HTTP/1.1\r\nHost: woocommerce-domain.com\r\nUser-Agent: vend/integrations/268506b80c1d/go1.11\r\nContent-Length: 229\r\nAuthorization: [REDACTED]\r\nContent-Type: application/json\r\nAccept-Encoding: gzip\r\n\r\n{\"update\":[{\"id\":8,\"permalink\":\"\",\"date_created\":\"\",\"date_created_gmt\":\"0001-01-01T00:00:00\",\"date_modified\":\"\",\"date_modified_gmt\":\"0001-01-01T00:00:00\",\"price\":\"0\",\"stock_quantity\":\"0\",\"shipping_class_id\":0,\"variations\":null}]}",
+                    "response": "HTTP/2.0 200 OK\r\nContent-Length: 2137\r\nAccess-Control-Allow-Headers: Authorization, Content-Type\r\nAccess-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages\r\nAllow: POST, PUT, PATCH\r\nCache-Control: no-cache, must-revalidate, max-age=0\r\nContent-Type: application/json; charset=UTF-8\r\nDate: Thu, 13 Dec 2018 00:58:25 GMT\r\nExpires: Wed, 11 Jan 1984 05:00:00 GMT\r\nLink: <https://woocommerce-domain.com/wp-json/>; rel=\"https://api.w.org/\"\r\nServer: nginx/1.14.1\r\nStrict-Transport-Security: max-age=31536000\r\nX-Content-Type-Options: nosniff\r\nX-Powered-By: PHP/7.2.12\r\nX-Robots-Tag: noindex\r\n\r\n{\"update\":[{\"id\":8,\"name\":\"Simple + All 2\",\"slug\":\"simple1\",\"permalink\":\"https:\\/\\/woocommerce-domain.com\\/product\\/simple1\\/\",\"date_created\":\"2018-12-12T23:39:14\",\"date_created_gmt\":\"2018-12-12T23:39:14\",\"date_modified\":\"2018-12-13T00:58:25\",\"date_modified_gmt\":\"2018-12-13T00:58:25\",\"type\":\"simple\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"Simple product\",\"short_description\":\"\",\"sku\":\"1000001\",\"price\":\"40\",\"regular_price\":\"40\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>40.00<\\/span>\",\"on_sale\":false,\"purchasable\":true,\"total_sales\":0,\"virtual\":false,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":true,\"stock_quantity\":0,\"in_stock\":false,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"sold_individually\":false,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":true,\"shipping_taxable\":true,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":true,\"average_rating\":\"0\",\"rating_count\":0,\"related_ids\":[],\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":16,\"name\":\"Type 1\",\"slug\":\"type-1\"}],\"tags\":[{\"id\":17,\"name\":\"Tag2\",\"slug\":\"tag2\"}],\"images\":[{\"id\":0,\"date_created\":\"2018-12-13T00:58:25\",\"date_created_gmt\":\"2018-12-13T00:58:25\",\"date_modified\":\"2018-12-13T00:58:25\",\"date_modified_gmt\":\"2018-12-13T00:58:25\",\"src\":\"https:\\/\\/woocommerce-domain.com\\/wp-content\\/plugins\\/woocommerce\\/assets\\/images\\/placeholder.png\",\"name\":\"Placeholder\",\"alt\":\"Placeholder\",\"position\":0}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"meta_data\":[],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/woocommerce-domain.com\\/wp-json\\/wc\\/v2\\/products\\/8\"}],\"collection\":[{\"href\":\"https:\\/\\/woocommerce-domain.com\\/wp-json\\/wc\\/v2\\/products\"}]}}]}",
+                    "error": null,
+                    "occurred_at": "2018-12-13T00:58:25.919065Z"
+                  }
+                ]
+              }
             }
           }
         },
@@ -419,6 +436,21 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/RequestSingleResponse"
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "1073019276397793280",
+                  "grouping_id": "job-5aa0bfd3f948109e314610883da6a6edf4c826db-1544662705",
+                  "request_method": "POST",
+                  "status_code": 200,
+                  "url": "https://woocommerce-domain.com/wp-json/wc/v2/products/batch",
+                  "request": "POST /wp-json/wc/v2/products/batch HTTP/1.1\r\nHost: woocommerce-domain.com\r\nUser-Agent: vend/integrations/268506b80c1d/go1.11\r\nContent-Length: 229\r\nAuthorization: [REDACTED]\r\nContent-Type: application/json\r\nAccept-Encoding: gzip\r\n\r\n{\"update\":[{\"id\":8,\"permalink\":\"\",\"date_created\":\"\",\"date_created_gmt\":\"0001-01-01T00:00:00\",\"date_modified\":\"\",\"date_modified_gmt\":\"0001-01-01T00:00:00\",\"price\":\"0\",\"stock_quantity\":\"0\",\"shipping_class_id\":0,\"variations\":null}]}",
+                  "response": "HTTP/2.0 200 OK\r\nContent-Length: 2137\r\nAccess-Control-Allow-Headers: Authorization, Content-Type\r\nAccess-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages\r\nAllow: POST, PUT, PATCH\r\nCache-Control: no-cache, must-revalidate, max-age=0\r\nContent-Type: application/json; charset=UTF-8\r\nDate: Thu, 13 Dec 2018 00:58:25 GMT\r\nExpires: Wed, 11 Jan 1984 05:00:00 GMT\r\nLink: <https://woocommerce-domain.com/wp-json/>; rel=\"https://api.w.org/\"\r\nServer: nginx/1.14.1\r\nStrict-Transport-Security: max-age=31536000\r\nX-Content-Type-Options: nosniff\r\nX-Powered-By: PHP/7.2.12\r\nX-Robots-Tag: noindex\r\n\r\n{\"update\":[{\"id\":8,\"name\":\"Simple + All 2\",\"slug\":\"simple1\",\"permalink\":\"https:\\/\\/woocommerce-domain.com\\/product\\/simple1\\/\",\"date_created\":\"2018-12-12T23:39:14\",\"date_created_gmt\":\"2018-12-12T23:39:14\",\"date_modified\":\"2018-12-13T00:58:25\",\"date_modified_gmt\":\"2018-12-13T00:58:25\",\"type\":\"simple\",\"status\":\"publish\",\"featured\":false,\"catalog_visibility\":\"visible\",\"description\":\"Simple product\",\"short_description\":\"\",\"sku\":\"1000001\",\"price\":\"40\",\"regular_price\":\"40\",\"sale_price\":\"\",\"date_on_sale_from\":null,\"date_on_sale_from_gmt\":null,\"date_on_sale_to\":null,\"date_on_sale_to_gmt\":null,\"price_html\":\"<span class=\\\"woocommerce-Price-amount amount\\\"><span class=\\\"woocommerce-Price-currencySymbol\\\">&#36;<\\/span>40.00<\\/span>\",\"on_sale\":false,\"purchasable\":true,\"total_sales\":0,\"virtual\":false,\"downloadable\":false,\"downloads\":[],\"download_limit\":-1,\"download_expiry\":-1,\"external_url\":\"\",\"button_text\":\"\",\"tax_status\":\"taxable\",\"tax_class\":\"\",\"manage_stock\":true,\"stock_quantity\":0,\"in_stock\":false,\"backorders\":\"no\",\"backorders_allowed\":false,\"backordered\":false,\"sold_individually\":false,\"weight\":\"\",\"dimensions\":{\"length\":\"\",\"width\":\"\",\"height\":\"\"},\"shipping_required\":true,\"shipping_taxable\":true,\"shipping_class\":\"\",\"shipping_class_id\":0,\"reviews_allowed\":true,\"average_rating\":\"0\",\"rating_count\":0,\"related_ids\":[],\"upsell_ids\":[],\"cross_sell_ids\":[],\"parent_id\":0,\"purchase_note\":\"\",\"categories\":[{\"id\":16,\"name\":\"Type 1\",\"slug\":\"type-1\"}],\"tags\":[{\"id\":17,\"name\":\"Tag2\",\"slug\":\"tag2\"}],\"images\":[{\"id\":0,\"date_created\":\"2018-12-13T00:58:25\",\"date_created_gmt\":\"2018-12-13T00:58:25\",\"date_modified\":\"2018-12-13T00:58:25\",\"date_modified_gmt\":\"2018-12-13T00:58:25\",\"src\":\"https:\\/\\/woocommerce-domain.com\\/wp-content\\/plugins\\/woocommerce\\/assets\\/images\\/placeholder.png\",\"name\":\"Placeholder\",\"alt\":\"Placeholder\",\"position\":0}],\"attributes\":[],\"default_attributes\":[],\"variations\":[],\"grouped_products\":[],\"menu_order\":0,\"meta_data\":[],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/woocommerce-domain.com\\/wp-json\\/wc\\/v2\\/products\\/8\"}],\"collection\":[{\"href\":\"https:\\/\\/woocommerce-domain.com\\/wp-json\\/wc\\/v2\\/products\"}]}}]}",
+                  "error": null,
+                  "occurred_at": "2018-12-13T00:58:25.919065Z"
+                }
+              }
             }
           }
         },
