@@ -36,7 +36,7 @@
       "description": "Search related operations"
     }
   ],
-  "host": "domain_prefix.vendhq.com",
+  "host": "{domain_prefix}.vendhq.com",
   "basePath": "/api/2.0",
   "schemes": [
     "https"
@@ -49,6 +49,118 @@
   ],
   "x-explorer-enabled": false,
   "paths": {
+    "/channel_requests": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/request_collection_response"
+            }
+          }
+        },
+        "summary": "List request records",
+        "description": "A more elaborate description of what this method will do and what it will return and so on...",
+        "operationId": "listRequests",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Request log"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status_code",
+            "type": "string",
+            "description": "Limit the requests to 1 or more status codes."
+          },
+          {
+            "in": "query",
+            "name": "request_method",
+            "type": "string",
+            "description": "Limit the requests to 1 or more request methods."
+          },
+          {
+            "in": "query",
+            "name": "occurred_before",
+            "type": "string",
+            "format": "date-time",
+            "description": "Limit requests to before this RFC3339 date."
+          },
+          {
+            "in": "query",
+            "name": "occurred_after",
+            "type": "string",
+            "format": "date-time",
+            "description": "Limit requests to after this RFC3339 date."
+          },
+          {
+            "in": "query",
+            "name": "status_code_before",
+            "type": "string",
+            "description": "Limit requests to those with status codes less than this value."
+          },
+          {
+            "in": "query",
+            "name": "status_code_after",
+            "type": "string",
+            "description": "Limit requests to those with status codes greater than this value."
+          },
+          {
+            "in": "query",
+            "name": "channel_id",
+            "type": "string",
+            "description": "If provided, request logs will be limited to the supplied channel id. If no id is provided, only requests logged with no channel id will be returned. Requests with no channel id indicate requests made during the setup process."
+          }
+        ]
+      }
+    },
+    "/channel_requests/{request_log_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/request_single_response"
+            }
+          }
+        },
+        "summary": "List a single request log",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_log_id",
+            "type": "string",
+            "required": true
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "request_log_id",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "/channels": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/channel_collection_response"
+            }
+          }
+        },
+        "summary": "List channel records"
+      }
+    },
     "/brands": {
       "get": {
         "description": "Returns a paginated list of brands.",
@@ -749,9 +861,6 @@
           },
           {
             "$ref": "#/parameters/PageSize"
-          },
-          {
-            "$ref": "#/parameters/Deleted"
           }
         ],
         "responses": {
@@ -3008,7 +3117,7 @@
       "get": {
         "summary": "Search for resources",
         "operationId": "Search",
-        "description": "This endpoint allows integrators to search all of the most commonly used resources, **sales**, **products** and **customers**. Each type allowing search by a number of different parameters.\n\n### Supported resource types and attributes\n\n- **Sales**\n  - date_from\n  - date_to\n  - status\n  - invoice_number\n  - customer_id\n  - user_id\n  - outlet_id\n- **Products**\n  - sku\n  - supplier_id\n  - brand_id\n  - tag_id\n  - product_type_id\n  - variant_parent_id\n- **Customers**\n  - customer_code\n  - first_name\n  - last_name\n  - company_name\n \n### Sorting and pagination\n\nUnlike other endpoints in the API 2.0, search results from this endpoint can be sorted by any of the attributes above. Because of that, the default [pagination](https://docs.vendhq.com/v0.9/reference#section-api-2-0) mechanism is not appropriate for this endpoint. Instead, this endpoint uses `offset` and `page_size` attributes to handle search results spanning multiple pages.",
+        "description": "This endpoint allows integrators to search all of the most commonly used resources, **sales**, **products** and **customers**. Each type allowing search by a number of different parameters.\n\n### Supported resource types and attributes\n\n- **Sales**\n  - date_from\n  - date_to\n  - status\n  - invoice_number\n  - customer_id\n  - user_id\n  - outlet_id\n- **Products**\n  - sku\n  - supplier_id\n  - brand_id\n  - tag_id\n  - product_type_id\n  - variant_parent_id\n- **Customers**\n  - customer_code\n  - first_name\n  - last_name\n  - company_name\n  - phone\n  - mobile\n  - email\n  \n### Sorting and pagination\n\nUnlike other endpoints in the API 2.0, search results from this endpoint can be sorted by any of the attributes above. Because of that, the default [pagination](https://docs.vendhq.com/v0.9/reference#section-api-2-0) mechanism is not appropriate for this endpoint. Instead, this endpoint uses `offset` and `page_size` attributes to handle search results spanning multiple pages.",
         "responses": {
           "200": {
             "description": "",
@@ -3115,95 +3224,95 @@
             "in": "query",
             "name": "date_from",
             "type": "string",
-            "description": "**SALES** Lower limit for the sale date as UTC timestamp. Format: `2016-08-08T12:00:00Z`."
+            "description": "**SALES** Lower limit for the sale date."
           },
           {
             "in": "query",
             "name": "date_to",
             "type": "string",
-            "description": "**SALES** Upper limit for the sale date as UTC timestamp. Format: `2016-08-08T12:00:00Z`."
+            "description": "**SALES** The `ID` Upper limit for the sale date."
           },
           {
             "in": "query",
             "name": "sku",
             "type": "string",
-            "description": "**PRODUCTS** The SKU of products to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The SKU of products to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-sku",
             "type": "string",
-            "description": "**PRODUCTS** The SKU of products to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The SKU of products to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "supplier_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the supplier associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the supplier associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-supplier_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the supplier associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the supplier associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "brand_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the brand associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-brand_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "tag_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the tag associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the tag associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-tag_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the brand associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "product_type_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the product type associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the product type associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-product_type_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the product type associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the product type associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "variant_parent_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the variant parent product associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to include in the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
             "name": "-variant_parent_id",
             "type": "string",
             "format": "UUID",
-            "description": "**PRODUCTS** The ID of the variant parent product associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
+            "description": "__PRODUCTS__ The ID of the variant parent product associated with the product to exclude from the search.\nCan be used multiple times to search for objects with different values of this parameter."
           },
           {
             "in": "query",
@@ -3228,6 +3337,24 @@
             "name": "company_name",
             "type": "string",
             "description": "**CUSTOMERS** The `company_name` for the customers to find."
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "type": "string",
+            "description": "**CUSTOMERS** The `phone_number` for the customer(s) to find."
+          },
+          {
+            "in": "query",
+            "name": "mobile",
+            "type": "string",
+            "description": "**CUSTOMERS** The `mobile` phone number for the customer(s) to find."
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "type": "string",
+            "description": "**CUSTOMERS** The `email` for the customer(s) to find."
           }
         ],
         "tags": [
@@ -3635,6 +3762,158 @@
     }
   },
   "definitions": {
+    "request_log": {
+      "type": "object",
+      "title": "Request Log",
+      "description": "An object representing a single request and response made to a channel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated object ID."
+        },
+        "grouping_id": {
+          "type": "string",
+          "description": "An identifier used to group together requests that occurred together as part of the same job or Vend API request."
+        },
+        "request_method": {
+          "type": "string",
+          "description": "The HTTP method used to make the request.",
+          "enum": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+          ]
+        },
+        "status_code": {
+          "type": "number",
+          "description": "The HTTP status code received in the response."
+        },
+        "request": {
+          "type": "string",
+          "description": "A dump of the full request information in HTTP format, including headers and any request body."
+        },
+        "response": {
+          "type": "string",
+          "description": "A dump of the full response information in HTTP format, including headers and any response body."
+        },
+        "error": {
+          "type": "string",
+          "description": "f an error occurred with the request, such as an inability to resolve a hostname, connect or TLS errors, this will be recorded here. Only errors with the ability to make the request are logged here, rather than errors when interpreting a response."
+        },
+        "occurred_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which the request was logged.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "grouping_id",
+        "request_method",
+        "request",
+        "response",
+        "occurred_at"
+      ]
+    },
+    "request_collection_response": {
+      "type": "object",
+      "title": "Request Logs response",
+      "description": "A collection of request log records wrapped in the top-level data object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/request_log"
+          }
+        }
+      }
+    },
+    "channel": {
+      "type": "object",
+      "title": "Channel",
+      "description": "An object representing a single channel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated object ID."
+        },
+        "store_url": {
+          "type": "string",
+          "description": "The store identifier."
+        },
+        "channel_type": {
+          "type": "string",
+          "description": "The type of channel this is.",
+          "enum": [
+            "woocommerce"
+          ]
+        },
+        "register_id": {
+          "type": "string",
+          "description": "The Vend register id that sales will be associated to."
+        },
+        "payment_type_id": {
+          "type": "string",
+          "description": "The Vend payment type id that sale payments will be associated to."
+        },
+        "inventory_outlet_ids": {
+          "type": "array",
+          "description": "The Vend outlet ids that count towards inventory.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which the channel was created.",
+          "format": "date-time"
+        },
+        "sales_last_imported_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which sales were last imported.",
+          "format": "date-time"
+        },
+        "products_last_imported_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which products were last imported.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "store_url",
+        "channel_type",
+        "sales_last_imported_at",
+        "products_last_imported_at",
+        "register_id",
+        "payment_type_id",
+        "inventory_outlet_ids"
+      ]
+    },
+    "channel_collection_response": {
+      "type": "object",
+      "title": "Channels response",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/channel"
+          }
+        }
+      }
+    },
+    "request_single_response": {
+      "type": "object",
+      "title": "Request Log response",
+      "description": "A collection of request log records wrapped in the top-level data object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/request_log"
+        }
+      }
+    },
     "Brand": {
       "title": "Brand",
       "type": "object",
@@ -5474,27 +5753,6 @@
           "type": "number",
           "format": "double"
         },
-        "sale_date": {
-          "description": "Sale timestamp in UTC.",
-          "type": "string"
-        },
-        "created_at": {
-          "description": "Creation timestamp in UTC.",
-          "type": "string"
-        },
-        "updated_at": {
-          "description": "Last update timestamp in UTC.",
-          "type": "string"
-        },
-        "deleted_at": {
-          "description": "Deletion timestamp in UTC.",
-          "type": "string"
-        },
-        "version": {
-          "description": "Auto-incrementing object version number.",
-          "type": "integer",
-          "format": "int64"
-        },
         "taxes": {
           "description": "Collection of taxes.",
           "type": "array",
@@ -5515,6 +5773,27 @@
           "items": {
             "$ref": "#/definitions/Payment"
           }
+        },
+        "sale_date": {
+          "description": "Sale timestamp in UTC.",
+          "type": "string"
+        },
+        "created_at": {
+          "description": "Creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "deleted_at": {
+          "description": "Deletion timestamp in UTC.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Auto-incrementing object version number.",
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
