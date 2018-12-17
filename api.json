@@ -438,6 +438,39 @@
         ]
       }
     },
+    "/channel_requests/{request_log_id}.txt": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "Plain text representation of the request object."
+            },
+            "examples": {
+              "text/plain": "ID                   1074422697280679936\nGroupingID           api-TOx0VMzYJX\nURL                  https://woo-i9n.dev.vendhq.works/wp-json/wc/v2/system_status\nRequestMethod        GET\nRequest              GET /wp-json/wc/v2/system_status HTTP/1.1\n                     Host: woo-i9n.dev.vendhq.works\n                     User-Agent: vend/integrations/8e029c23748a/go1.10\n                     Authorization: [REDACTED]\n                     Content-Type: application/json\n                     Accept-Encoding: gzip\n\n\nStatusCode           401\nResponse             HTTP/2.0 401 Unauthorized\n                     Content-Length: 107\n                     Access-Control-Allow-Headers: Authorization, Content-Type\n                     Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages\n                     Content-Type: application/json; charset=UTF-8\n                     Date: Sun, 16 Dec 2018 21:55:07 GMT\n                     Link: <https://woo-i9n.dev.vendhq.works/wp-json/>; rel=\"https://api.w.org/\"\n                     Server: nginx/1.14.0\n                     Strict-Transport-Security: max-age=31536000\n                     X-Content-Type-Options: nosniff\n                     X-Powered-By: PHP/7.2.12\n                     X-Robots-Tag: noindex\n\n                     {\"code\":\"woocommerce_rest_cannot_view\",\"message\":\"Sorry, you cannot list resources.\",\"data\":{\"status\":401}}"
+            }
+          }
+        },
+        "summary": "Get a single request log as text",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_log_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "Returns a text representation of a single request log entry with a specific ID.",
+        "operationId": "getSingleRequestText",
+        "tags": [
+          "Channel request log"
+        ],
+        "produces": [
+          "text/plain"
+        ]
+      }
+    },
     "/channels": {
       "get": {
         "responses": {
