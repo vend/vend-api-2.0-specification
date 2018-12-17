@@ -34,6 +34,10 @@
     {
       "name": "Search",
       "description": "Search related operations"
+    },
+    {
+      "name": "Channel request log",
+      "description": "A log of requests and responses between Vend and an integration channel."
     }
   ],
   "host": "domain_prefix.vendhq.com",
@@ -342,6 +346,122 @@
             }
           }
         }
+      }
+    },
+    "/channel_requests": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestCollectionResponse"
+            }
+          }
+        },
+        "summary": "List request records",
+        "description": "Returns a list of request log records.",
+        "operationId": "listRequests",
+        "tags": [
+          "Channel request log"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "status_code",
+            "type": "string",
+            "description": "Limit the requests to 1 or more status codes."
+          },
+          {
+            "in": "query",
+            "name": "request_method",
+            "type": "string",
+            "description": "Limit the requests to 1 or more request methods."
+          },
+          {
+            "in": "query",
+            "name": "occurred_before",
+            "type": "string",
+            "format": "date-time",
+            "description": "Limit requests to before this RFC3339 date."
+          },
+          {
+            "in": "query",
+            "name": "occurred_after",
+            "type": "string",
+            "format": "date-time",
+            "description": "Limit requests to after this RFC3339 date."
+          },
+          {
+            "in": "query",
+            "name": "status_code_before",
+            "type": "string",
+            "description": "Limit requests to those with status codes less than this value."
+          },
+          {
+            "in": "query",
+            "name": "status_code_after",
+            "type": "string",
+            "description": "Limit requests to those with status codes greater than this value."
+          },
+          {
+            "in": "query",
+            "name": "channel_id",
+            "type": "string",
+            "description": "If provided, request logs will be limited to the supplied channel id. If no id is provided, only requests logged with no channel id will be returned. Requests with no channel id indicate requests made during the setup process."
+          }
+        ]
+      }
+    },
+    "/channel_requests/{request_log_id}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RequestSingleResponse"
+            }
+          }
+        },
+        "summary": "Get a single request log",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "request_log_id",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "description": "Returns a single request log entry with a specific ID.",
+        "operationId": "getSingleRequest",
+        "tags": [
+          "Channel request log"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "request_log_id",
+          "in": "path",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "/channels": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ChannelCollectionResponse"
+            }
+          }
+        },
+        "summary": "List channel records",
+        "operationId": "listChannels",
+        "tags": [
+          "Channel request log"
+        ],
+        "description": "Returns a list of configured channels."
       }
     },
     "/consignments/{consignment_id}": {
@@ -3709,6 +3829,82 @@
         }
       }
     },
+    "Channel": {
+      "type": "object",
+      "title": "Channel",
+      "description": "An object representing a single channel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated object ID."
+        },
+        "store_url": {
+          "type": "string",
+          "description": "The store identifier."
+        },
+        "channel_type": {
+          "type": "string",
+          "description": "The type of channel this is.",
+          "enum": [
+            "woocommerce"
+          ]
+        },
+        "register_id": {
+          "type": "string",
+          "description": "The Vend register id that sales will be associated to."
+        },
+        "payment_type_id": {
+          "type": "string",
+          "description": "The Vend payment type id that sale payments will be associated to."
+        },
+        "inventory_outlet_ids": {
+          "type": "array",
+          "description": "The Vend outlet ids that count towards inventory.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which the channel was created.",
+          "format": "date-time"
+        },
+        "sales_last_imported_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which sales were last imported.",
+          "format": "date-time"
+        },
+        "products_last_imported_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which products were last imported.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "store_url",
+        "channel_type",
+        "sales_last_imported_at",
+        "products_last_imported_at",
+        "register_id",
+        "payment_type_id",
+        "inventory_outlet_ids"
+      ]
+    },
+    "ChannelCollectionResponse": {
+      "type": "object",
+      "title": "Channels response",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Channel"
+          }
+        }
+      },
+      "description": "A collection of channel records wrapped in a top-level data object."
+    },
     "Consignment": {
       "title": "Consignment",
       "type": "object",
@@ -5399,6 +5595,83 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/Register"
+        }
+      }
+    },
+    "RequestLog": {
+      "type": "object",
+      "title": "Request Log",
+      "description": "An object representing a single request and response made to a channel.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated object ID."
+        },
+        "grouping_id": {
+          "type": "string",
+          "description": "An identifier used to group together requests that occurred together as part of the same job or Vend API request."
+        },
+        "request_method": {
+          "type": "string",
+          "description": "The HTTP method used to make the request.",
+          "enum": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE"
+          ]
+        },
+        "status_code": {
+          "type": "number",
+          "description": "The HTTP status code received in the response."
+        },
+        "request": {
+          "type": "string",
+          "description": "A dump of the full request information in HTTP format, including headers and any request body."
+        },
+        "response": {
+          "type": "string",
+          "description": "A dump of the full response information in HTTP format, including headers and any response body."
+        },
+        "error": {
+          "type": "string",
+          "description": "f an error occurred with the request, such as an inability to resolve a hostname, connect or TLS errors, this will be recorded here. Only errors with the ability to make the request are logged here, rather than errors when interpreting a response."
+        },
+        "occurred_at": {
+          "type": "string",
+          "description": "An RFC3339 representation of the time at which the request was logged.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "grouping_id",
+        "request_method",
+        "request",
+        "response",
+        "occurred_at"
+      ]
+    },
+    "RequestCollectionResponse": {
+      "type": "object",
+      "title": "Request Logs response",
+      "description": "A collection of request log records wrapped in the top-level data object.",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequestLog"
+          }
+        }
+      }
+    },
+    "RequestSingleResponse": {
+      "type": "object",
+      "title": "Request Log response",
+      "description": "A single request log record wrapped in the top-level data object.",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/RequestLog"
         }
       }
     },
