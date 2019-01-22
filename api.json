@@ -1879,33 +1879,6 @@
           }
         }
       },
-      "post": {
-        "description": "Creates a new price book.",
-        "summary": "Create a price book",
-        "tags": [
-          "Price Books"
-        ],
-        "operationId": "CreatePriceBook",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookBase"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PriceBookResponse"
-            }
-          }
-        }
-      }
     },
     "/price_books/{price_book_id}": {
       "get": {
