@@ -1878,7 +1878,7 @@
             }
           }
         }
-      },
+      }
     },
     "/price_books/{price_book_id}": {
       "get": {
