@@ -40,7 +40,7 @@
       "description": "A log of requests and responses between Vend and an integration channel."
     }
   ],
-  "host": "domain_prefix.vendhq.com",
+  "host": "{domain_prefix}.vendhq.com",
   "basePath": "/api/2.0",
   "schemes": [
     "https"
@@ -6335,7 +6335,7 @@
       "type": "oauth2",
       "flow": "accessCode",
       "authorizationUrl": "https://secure.vendhq.com/connect",
-      "tokenUrl": "https://domain_prefix.vendhq.com/api/1.0/token"
+      "tokenUrl": "https://{$$.env.domain_prefix}.vendhq.com/api/1.0/token"
     },
     "personal_token": {
       "type": "apiKey",
