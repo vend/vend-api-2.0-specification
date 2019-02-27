@@ -6,7 +6,6 @@ workflow "Trigger Stoplight build on push to master" {
 }
 
 action "HTTP client" {
-  needs = "Git Push"
   uses = "pzurek/httpie.action@master"
   secrets = ["STOPLIGHT_TOKEN"]
   env = {
