@@ -1,4 +1,10 @@
 {
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    },
+    "id": "vend/specs/api-2-0"
+  },
   "swagger": "2.0",
   "info": {
     "version": "2.0",
@@ -7,9 +13,6 @@
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "x-stoplight": {
-      "id": "vend/specs/api-2-0"
     },
     "contact": {
       "name": "Vend Developer Relations Team",
@@ -6324,19 +6327,10 @@
   },
   "security": [
     {
-      "oauth": []
-    },
-    {
       "personal_token": []
     }
   ],
   "securityDefinitions": {
-    "oauth": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "authorizationUrl": "https://secure.vendhq.com/connect",
-      "tokenUrl": "https://{$$.env.domain_prefix}.vendhq.com/api/1.0/token"
-    },
     "personal_token": {
       "type": "apiKey",
       "name": "Authorization",
