@@ -2025,11 +2025,11 @@
     "/product_types": {
       "get": {
         "description": "Returns a paginated list of product types.",
-        "summary": "ListProductTypes",
+        "summary": "List product types",
         "tags": [
           "Product Types"
         ],
-        "operationId": "List product types",
+        "operationId": "ListProductTypes",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -6295,6 +6295,31 @@
         "min",
         "max"
       ]
+    },
+    "adjustment": {
+      "type": "object",
+      "title": "Adjustment",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "NON_CASH_FEE",
+            "DISCOUNT"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "value"
+      ],
+      "description": "An adjustment contains a modification to the sale price. For example, it can be a service fee (fee when the customer pays by credit card) or a discount.\nThe types defined here are the one used so far, but we reserve the right to add others."
     }
   },
   "parameters": {
