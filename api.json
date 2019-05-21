@@ -2839,6 +2839,7 @@
                     ],
                     "version": 413,
                     "receipt_number": "1036",
+                    "adjustments": [],
                     "taxes": [
                       {
                         "amount": 30,
@@ -2991,6 +2992,7 @@
                     ],
                     "version": 29316,
                     "receipt_number": "MR-1050-NZ",
+                    "adjustments": [],
                     "taxes": [
                       {
                         "amount": 1.94,
@@ -3144,6 +3146,7 @@
                   ],
                   "version": 413,
                   "receipt_number": "1036",
+                  "adjustments": [],
                   "taxes": [
                     {
                       "amount": 30,
@@ -5809,7 +5812,7 @@
           }
         },
         "line_items": {
-          "description": "A collection of line items.",
+          "description": "Collection of line items.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/LineItem"
@@ -5820,6 +5823,13 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Payment"
+          }
+        },
+        "adjustments": {
+          "type": "array",
+          "description": "Collection of adjustments.",
+          "items": {
+            "$ref": "#/definitions/adjustment"
           }
         }
       }
