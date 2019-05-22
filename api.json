@@ -3048,7 +3048,7 @@
                   "note": "",
                   "short_code": "xamfvy",
                   "return_for": null,
-                  "total_price": 200,
+                  "total_price": 201.5,
                   "total_tax": 30,
                   "total_loyalty": 23,
                   "created_at": "2014-09-11T21:09:59+00:00",
@@ -3137,7 +3137,7 @@
                       "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
                       "payment_type_id": "1",
                       "name": "Cash",
-                      "amount": 230,
+                      "amount": 231.5,
                       "payment_date": "2014-09-18T01:37:54+00:00",
                       "deleted_at": null,
                       "external_attributes": [],
@@ -3146,7 +3146,13 @@
                   ],
                   "version": 413,
                   "receipt_number": "1036",
-                  "adjustments": [],
+                  "adjustments": [
+                    {
+                      "type": "NON_CASH_FEE",
+                      "name": "Non-cash Fee",
+                      "value": 1.5
+                    }
+                  ],
                   "taxes": [
                     {
                       "amount": 30,
