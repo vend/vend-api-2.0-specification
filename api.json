@@ -2022,11 +2022,11 @@
     "/product_types": {
       "get": {
         "description": "Returns a paginated list of product types.",
-        "summary": "ListProductTypes",
+        "summary": "List product types",
         "tags": [
           "Product Types"
         ],
-        "operationId": "List product types",
+        "operationId": "ListProductTypeses",
         "parameters": [
           {
             "$ref": "#/parameters/After"
