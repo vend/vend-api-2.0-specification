@@ -3801,7 +3801,14 @@
         "tags": [
           "Promotions"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "array[#/definitions/Promotion]"
+            }
+          }
+        },
         "parameters": [
           {
             "type": "string",
@@ -3830,7 +3837,14 @@
         "tags": [
           "Promotions"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        },
         "description": "This will create a promotion using the given information.",
         "operationId": "CreatePromotion"
       }
@@ -3847,7 +3861,17 @@
         "tags": [
           "Promotions"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          },
+          "": {
+            "description": ""
+          }
+        },
         "operationId": "GetPromotionByID",
         "description": "This will retrieve a single promotion using the given id"
       },
@@ -3856,9 +3880,27 @@
         "tags": [
           "Promotions"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        },
         "operationId": "UpdatePromotion",
-        "description": "Update a promotion"
+        "description": "Update a promotion",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        ]
       }
     }
   },
@@ -5640,7 +5682,7 @@
       }
     },
     "PromoCode": {
-      "title": "Promotion",
+      "title": "Promotion Code",
       "type": "object",
       "properties": {
         "id": {
@@ -5707,7 +5749,7 @@
           "description": "The time the promotion begins, in UTC.",
           "type": "string"
         },
-         "end_time": {
+        "end_time": {
           "description": "The time the promotion ends, in UTC.",
           "type": "string"
         },
@@ -5724,6 +5766,22 @@
         "action",
         "use_promo_code"
       ]
+    },
+    "PromotionCollection": {
+      "title": "Promotion Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Promotion objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Promotion"
+          }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
+        }
+      }
     },
     "Register": {
       "title": "Register",
