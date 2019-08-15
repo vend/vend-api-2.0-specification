@@ -3837,6 +3837,17 @@
         "tags": [
           "Promotions"
         ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
