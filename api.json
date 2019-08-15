@@ -1,4 +1,10 @@
 {
+  "x-stoplight": {
+    "docs": {
+      "showModels": false
+    },
+    "id": "vend/specs/api-2-0"
+  },
   "swagger": "2.0",
   "info": {
     "version": "2.0",
@@ -7,9 +13,6 @@
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "x-stoplight": {
-      "id": "vend/specs/api-2-0"
     },
     "contact": {
       "name": "Vend Developer Relations Team",
@@ -2026,7 +2029,7 @@
         "tags": [
           "Product Types"
         ],
-        "operationId": "ListProductTypeses",
+        "operationId": "ListProductTypes",
         "parameters": [
           {
             "$ref": "#/parameters/After"
@@ -2836,6 +2839,7 @@
                     ],
                     "version": 413,
                     "receipt_number": "1036",
+                    "adjustments": [],
                     "taxes": [
                       {
                         "amount": 30,
@@ -2988,6 +2992,7 @@
                     ],
                     "version": 29316,
                     "receipt_number": "MR-1050-NZ",
+                    "adjustments": [],
                     "taxes": [
                       {
                         "amount": 1.94,
@@ -3043,7 +3048,7 @@
                   "note": "",
                   "short_code": "xamfvy",
                   "return_for": null,
-                  "total_price": 200,
+                  "total_price": 201.5,
                   "total_tax": 30,
                   "total_loyalty": 23,
                   "created_at": "2014-09-11T21:09:59+00:00",
@@ -3132,7 +3137,7 @@
                       "retailer_payment_type_id": "b1e1d70e-f019-11e3-a0f5-b8ca3a64f8f4",
                       "payment_type_id": "1",
                       "name": "Cash",
-                      "amount": 230,
+                      "amount": 231.5,
                       "payment_date": "2014-09-18T01:37:54+00:00",
                       "deleted_at": null,
                       "external_attributes": [],
@@ -3141,6 +3146,13 @@
                   ],
                   "version": 413,
                   "receipt_number": "1036",
+                  "adjustments": [
+                    {
+                      "type": "NON_CASH_FEE",
+                      "name": "Non-cash Fee",
+                      "value": 1.5
+                    }
+                  ],
                   "taxes": [
                     {
                       "amount": 30,
@@ -5806,7 +5818,7 @@
           }
         },
         "line_items": {
-          "description": "A collection of line items.",
+          "description": "Collection of line items.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/LineItem"
@@ -5817,6 +5829,13 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Payment"
+          }
+        },
+        "adjustments": {
+          "type": "array",
+          "description": "Collection of adjustments.",
+          "items": {
+            "$ref": "#/definitions/adjustment"
           }
         }
       }
@@ -6292,6 +6311,31 @@
         "min",
         "max"
       ]
+    },
+    "adjustment": {
+      "type": "object",
+      "title": "Adjustment",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "NON_CASH_FEE",
+            "DISCOUNT"
+          ]
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "value"
+      ],
+      "description": "An adjustment contains a modification to the sale price. For example, it can be a service fee (fee when the customer pays by credit card) or a discount.\nThe types defined here are the one used so far, but we reserve the right to add others."
     }
   },
   "parameters": {
@@ -6324,19 +6368,10 @@
   },
   "security": [
     {
-      "oauth": []
-    },
-    {
       "personal_token": []
     }
   ],
   "securityDefinitions": {
-    "oauth": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "authorizationUrl": "https://secure.vendhq.com/connect",
-      "tokenUrl": "https://{$$.env.domain_prefix}.vendhq.com/api/1.0/token"
-    },
     "personal_token": {
       "type": "apiKey",
       "name": "Authorization",
