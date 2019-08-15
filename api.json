@@ -3794,6 +3794,72 @@
           }
         }
       }
+    },
+    "/promotions": {
+      "get": {
+        "summary": "List promotions",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {},
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "end_time_to",
+            "description": "Format: 2006-01-02T15:04:05"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "end_time_from",
+            "description": "Format: 2006-01-02T15:04:05"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "name": "page_size",
+            "description": ""
+          }
+        ],
+        "description": "This will show all available promotions for the retailer.",
+        "operationId": "ListPromotions"
+      },
+      "post": {
+        "summary": "Create a promotion",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {},
+        "description": "This will create a promotion using the given information.",
+        "operationId": "CreatePromotion"
+      }
+    },
+    "/promotions/{promotion_id}": {
+      "parameters": {
+        "name": "promotion_id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      "get": {
+        "summary": "Retrieve a single promotion",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {},
+        "operationId": "GetPromotionByID",
+        "description": "This will retrieve a single promotion using the given id"
+      },
+      "put": {
+        "summary": "Update a promotion",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {},
+        "operationId": "UpdatePromotion",
+        "description": "Update a promotion"
+      }
     }
   },
   "definitions": {
@@ -3946,6 +4012,39 @@
         }
       },
       "description": "A collection of channel records wrapped in a top-level data object."
+    },
+    "Condition": {
+      "title": "Condition",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Condition type.",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "quantity, if specified",
+          "type": "string"
+        },
+        "min_price": {
+          "description": "minimum price, if required by the condition type",
+          "type": "number",
+          "format": "double"
+        },
+        "include": {
+          "$ref": "#/definitions/Filter"
+        },
+        "exclude": {
+          "$ref": "#/definitions/Filter"
+        },
+        "min_quantity": {
+          "description": "minimum quantity, if required by the condition type",
+          "type": "integer"
+        },
+        "max_quantity": {
+          "description": "minimum quantity, if required by the condition type",
+          "type": "integer"
+        }
+      }
     },
     "Consignment": {
       "title": "Consignment",
@@ -4486,6 +4585,20 @@
       "properties": {
         "data": {
           "$ref": "#/definitions/Customer"
+        }
+      }
+    },
+    "Filter": {
+      "title": "Condition Filter",
+      "type": "object",
+      "properties": {
+        "field": {
+          "description": "name of the filter field",
+          "type": "string"
+        },
+        "value": {
+          "description": "value of the filter field",
+          "type": "string"
         }
       }
     },
@@ -5525,6 +5638,92 @@
           "format": "int64"
         }
       }
+    },
+    "PromoCode": {
+      "title": "Promotion",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "promotion_id": {
+          "description": "Promotion ID.",
+          "type": "string"
+        },
+        "created_user_id": {
+          "description": "Created User ID.",
+          "type": "string"
+        },
+        "created_user": {
+          "$ref": "#/definitions/User"
+        },
+        "code": {
+          "description": "Code",
+          "type": "string"
+        },
+        "redeemed": {
+          "description": "",
+          "type": "integer"
+        },
+        "limit": {
+          "description": "",
+          "type": "integer"
+        },
+        "created_at": {
+          "description": "Time the code was created",
+          "type": "string"
+        },
+        "group_name": {
+          "description": "Name of the group",
+          "type": "string"
+        }
+      },
+      "required": {
+        "id",
+        "promotion_id",
+        "created_user_id",
+        "code",
+        "created_at"
+      }
+    },
+    "Promotion": {
+      "title": "Promotion",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the promotion",
+          "type": "string"
+        },
+        "description": {
+          "description": "A short description for the promotion",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "The time the promotion begins, in UTC.",
+          "type": "string"
+        },
+         "end_time": {
+          "description": "The time the promotion ends, in UTC.",
+          "type": "string"
+        },
+        "condition": {
+          "description": "Conditions applicable to the promotion",
+          "$ref": "#/definitions/Condition"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "start_time",
+        "condition",
+        "action",
+        "use_promo_code"
+      ]
     },
     "Register": {
       "title": "Register",
