@@ -3916,6 +3916,39 @@
     }
   },
   "definitions": {
+    "Action": {
+      "title": "Action",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "The type of action",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Value associated with the action",
+          "type": "number",
+          "format": "double"
+        },
+        "include": {
+          "$ref": "array[#/definitions/Filter]"
+        },
+        "exclude": {
+          "$ref": "array[#/definitions/Filter]"
+        },
+        "min_quantity": {
+          "description": "Minimum quantity",
+          "type": "integer"
+        },
+        "max_quantity": {
+          "description": "Maximum quantity",
+          "type": "integer"
+        }
+      }
+    },
     "Brand": {
       "title": "Brand",
       "type": "object",
@@ -5767,6 +5800,46 @@
         "condition": {
           "description": "Conditions applicable to the promotion",
           "$ref": "#/definitions/Condition"
+        },
+        "action": {
+          "description": "Action applicable to the promotion",
+          "$ref": "#/definitions/Action"
+        },
+        "loyalty_multiplier": {
+          "description": "The loyalty multiplier for the promotion",
+          "type": "number",
+          "format": "double"
+        },
+        "outlet_ids": {
+          "description": "A list of outlet IDs for the promotion",
+          "type": "array[string]"
+        },
+        "channels": {
+          "description": "A list of outlet IDs for the promotion",
+          "type": "array[string]"
+        },
+        "customer_group_ids": {
+          "description": "A list of outlet IDs for the promotion",
+          "type": "array[string]"
+        },
+        "status": {
+          "description": "The status of the promotion",
+          "type": "string"
+        },
+        "use_promo_code": {
+          "description": "Whether or not this promotion uses promo codes",
+          "type": "boolean"
+        },
+        "add_promo_code": {
+          "description": "A list of promo codes to associate with this promotion",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PromoCode"
+          }
+        },
+        "promo_code_summary": {
+          "description": "A summary of the added promo codes added",
+          "type": "#/definitions/PromoCodeSummary"
         }
       },
       "required": [
@@ -5777,6 +5850,20 @@
         "action",
         "use_promo_code"
       ]
+    },
+    "PromoCodeSummary": {
+      "title": "Promo Code summary",
+      "type": "object",
+      "properties": {
+        "total_promo_code": {
+          "description": "Total promo code",
+          "type": "integer"
+        },
+        "redeemed_amount": {
+          "description": "Amount redeemed by promo codes",
+          "type": "integer"
+        }
+      }
     },
     "PromotionCollection": {
       "title": "Promotion Collection",
