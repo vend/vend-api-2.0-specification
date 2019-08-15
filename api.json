@@ -5679,13 +5679,13 @@
           "type": "string"
         }
       },
-      "required": {
+      "required": [
         "id",
         "promotion_id",
         "created_user_id",
         "code",
         "created_at"
-      }
+      ]
     },
     "Promotion": {
       "title": "Promotion",
