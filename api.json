@@ -2174,7 +2174,7 @@
                     "categories": [],
                     "images": [],
                     "has_variants": false,
-                    "button_order"2 0,
+                    "button_order": 0,
                     "price_including_tax": 3.02632,
                     "price_excluding_tax": 2.63158,
                     "loyalty_amount": null,
