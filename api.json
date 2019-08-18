@@ -3805,7 +3805,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "array[#/definitions/Promotion]"
+              "$ref": "#/definitions/PromotionCollection"
             }
           }
         },
@@ -3868,7 +3868,7 @@
         "type": "string"
       },
       "get": {
-        "summary": "Retrieve a single promotion",
+        "summary": "Get a single promotion",
         "tags": [
           "Promotions"
         ],
@@ -3878,9 +3878,6 @@
             "schema": {
               "$ref": "#/definitions/Promotion"
             }
-          },
-          "": {
-            "description": ""
           }
         },
         "operationId": "GetPromotionByID",
@@ -3913,6 +3910,54 @@
           }
         ]
       }
+    },
+    "/promotions/{promotion_id}/products": {
+      "parameters": {
+        "name": "promotion_id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      "get": {
+        "summary": "Get a list of products applicable for this promotion, and their discount price",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        },
+        "operationId": "GetPromotionProducts",
+        "description": "This will retrieve a single promotion using the given id"
+      }
+    },
+    "/promotions/{promotion_id}/promocodes": {
+      "parameters": {
+        "name": "promotion_id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      "get": {
+        "summary": "Get the promo codes associated with this promotion",
+        "tags": [
+          "Promotions"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PromotionPromoCodesResponse"
+            }
+          }
+        },
+        "operationId": "GetPromotionPromoCodes",
+        "description": "This will retrieve a single promotion using the given id"
+      }
     }
   },
   "definitions": {
@@ -3934,10 +3979,16 @@
           "format": "double"
         },
         "include": {
-          "$ref": "array[#/definitions/Filter]"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
         },
         "exclude": {
-          "$ref": "array[#/definitions/Filter]"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
         },
         "min_quantity": {
           "description": "Minimum quantity",
@@ -4104,12 +4155,16 @@
       "type": "object",
       "properties": {
         "type": {
+          "type": "string",
           "description": "Condition type.",
-          "type": "string"
+          "enum": [
+            "product_set",
+            "sale_price"
+          ]
         },
         "quantity": {
           "description": "quantity, if specified",
-          "type": "string"
+          "type": "integer"
         },
         "min_price": {
           "description": "minimum price, if required by the condition type",
@@ -4130,7 +4185,8 @@
           "description": "minimum quantity, if required by the condition type",
           "type": "integer"
         }
-      }
+      },
+      "description": ""
     },
     "Consignment": {
       "title": "Consignment",
@@ -4686,7 +4742,11 @@
           "description": "value of the filter field",
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "field",
+        "value"
+      ]
     },
     "Image": {
       "title": "Image",
@@ -5776,6 +5836,7 @@
     "Promotion": {
       "title": "Promotion",
       "type": "object",
+      "description": "",
       "properties": {
         "id": {
           "description": "Auto-generated object ID.",
@@ -5790,19 +5851,17 @@
           "type": "string"
         },
         "start_time": {
-          "description": "The time the promotion begins, in UTC.",
+          "description": "The time the promotion begins, in UTC, e.g. `2006-01-02T15:04:05`.",
           "type": "string"
         },
         "end_time": {
-          "description": "The time the promotion ends, in UTC.",
+          "description": "The time the promotion ends, in UTC, e.g. `2006-01-02T15:04:05`.",
           "type": "string"
         },
         "condition": {
-          "description": "Conditions applicable to the promotion",
           "$ref": "#/definitions/Condition"
         },
         "action": {
-          "description": "Action applicable to the promotion",
           "$ref": "#/definitions/Action"
         },
         "loyalty_multiplier": {
@@ -5850,6 +5909,16 @@
         "action",
         "use_promo_code"
       ]
+    },
+    "PromotionPromoCodesResponse": {
+      "title": "Promotion Promo Codes respones",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "A map of promo codes to booleans, wrapped inside a data object.",
+          "type": "object"
+        }
+      }
     },
     "PromoCodeSummary": {
       "title": "Promo Code summary",
