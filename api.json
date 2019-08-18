@@ -3964,17 +3964,28 @@
     "Action": {
       "title": "Action",
       "type": "object",
+      "description": "Action triggered by a promotion.",
       "properties": {
         "type": {
-          "description": "The type of action",
-          "type": "string"
+          "description": "The type of action.",
+          "type": "string",
+          "enum": [
+            "basic_percent_discount",
+            "basic_fixed_discount",
+            "fixed_discount",
+            "percent_discount",
+            "loyalty",
+            "fixed_price_discount",
+            "fixed_pool_discount",
+            "percent_pool_discount"
+          ]
         },
         "quantity": {
-          "description": "Quantity",
+          "description": "Quantity, if required by the action type.",
           "type": "integer"
         },
         "value": {
-          "description": "Value associated with the action",
+          "description": "Value associated with the action.",
           "type": "number",
           "format": "double"
         },
@@ -3991,14 +4002,18 @@
           }
         },
         "min_quantity": {
-          "description": "Minimum quantity",
+          "description": "Minimum quantity, if required by the action type.",
           "type": "integer"
         },
         "max_quantity": {
-          "description": "Maximum quantity",
+          "description": "Maximum quantity, if required by the action type.",
           "type": "integer"
         }
-      }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
     },
     "Brand": {
       "title": "Brand",
@@ -4163,11 +4178,11 @@
           ]
         },
         "quantity": {
-          "description": "quantity, if specified",
+          "description": "Quantity, if required by the condition type.",
           "type": "integer"
         },
         "min_price": {
-          "description": "minimum price, if required by the condition type",
+          "description": "Minimum price, if required by the condition type.",
           "type": "number",
           "format": "double"
         },
@@ -4178,15 +4193,15 @@
           "$ref": "#/definitions/Filter"
         },
         "min_quantity": {
-          "description": "minimum quantity, if required by the condition type",
+          "description": "Minimum quantity, if required by the condition type.",
           "type": "integer"
         },
         "max_quantity": {
-          "description": "minimum quantity, if required by the condition type",
+          "description": "Minimum quantity, if required by the condition type.",
           "type": "integer"
         }
       },
-      "description": ""
+      "description": "A condition to determine whether a promotion should apply to a sale."
     },
     "Consignment": {
       "title": "Consignment",
@@ -4508,7 +4523,7 @@
       "title": "Customer Base",
       "type": "object",
       "properties": {
-        "first_name": {
+        "first_name": {define
           "description": "Customer's first name.",
           "type": "string"
         },
@@ -4736,7 +4751,15 @@
       "properties": {
         "field": {
           "description": "name of the filter field",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "brand_id", 
+            "product_id", 
+            "supplier_id", 
+            "tag_id",
+            "type_id", 
+            "variant_parent_id"
+          ]
         },
         "value": {
           "description": "value of the filter field",
@@ -4857,7 +4880,7 @@
       "title": "Inventory Collection",
       "type": "object",
       "properties": {
-        "data": {
+        "data": {define
           "description": "An array of Inventory records wrapped in top level `data` object.",
           "type": "array",
           "items": {
@@ -5805,23 +5828,23 @@
           "$ref": "#/definitions/User"
         },
         "code": {
-          "description": "Code",
+          "description": "Code for use in the promotion.",
           "type": "string"
         },
         "redeemed": {
-          "description": "",
+          "description": "Number of times this code has been redeemed.",
           "type": "integer"
         },
         "limit": {
-          "description": "",
+          "description": "Redemption limit for this promotion.",
           "type": "integer"
         },
         "created_at": {
-          "description": "Time the code was created",
+          "description": "Time the code was created.",
           "type": "string"
         },
         "group_name": {
-          "description": "Name of the group",
+          "description": "Name of the group.",
           "type": "string"
         }
       },
@@ -5836,18 +5859,18 @@
     "Promotion": {
       "title": "Promotion",
       "type": "object",
-      "description": "",
+      "description": "A Promotion defines rules and actions for discounting products as part of a sales promotion.",
       "properties": {
         "id": {
           "description": "Auto-generated object ID.",
           "type": "string"
         },
         "name": {
-          "description": "The name of the promotion",
+          "description": "The name of the promotion.",
           "type": "string"
         },
         "description": {
-          "description": "A short description for the promotion",
+          "description": "A short description for the promotion.",
           "type": "string"
         },
         "start_time": {
@@ -5865,39 +5888,39 @@
           "$ref": "#/definitions/Action"
         },
         "loyalty_multiplier": {
-          "description": "The loyalty multiplier for the promotion",
+          "description": "The loyalty multiplier for the promotion.",
           "type": "number",
           "format": "double"
         },
         "outlet_ids": {
-          "description": "A list of outlet IDs for the promotion",
+          "description": "A list of outlet IDs for the promotion.",
           "type": "array[string]"
         },
         "channels": {
-          "description": "A list of outlet IDs for the promotion",
+          "description": "A list of outlet IDs for the promotion.",
           "type": "array[string]"
         },
         "customer_group_ids": {
-          "description": "A list of outlet IDs for the promotion",
+          "description": "A list of outlet IDs for the promotion.",
           "type": "array[string]"
         },
         "status": {
-          "description": "The status of the promotion",
+          "description": "The status of the promotion.",
           "type": "string"
         },
         "use_promo_code": {
-          "description": "Whether or not this promotion uses promo codes",
+          "description": "Whether or not this promotion uses promo codes.",
           "type": "boolean"
         },
         "add_promo_code": {
-          "description": "A list of promo codes to associate with this promotion",
+          "description": "A list of promo codes to associate with this promotion.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PromoCode"
           }
         },
         "promo_code_summary": {
-          "description": "A summary of the added promo codes added",
+          "description": "A summary of the added promo codes added.",
           "type": "#/definitions/PromoCodeSummary"
         }
       },
@@ -5911,7 +5934,7 @@
       ]
     },
     "PromotionPromoCodesResponse": {
-      "title": "Promotion Promo Codes respones",
+      "title": "Promotion Promo Codes response",
       "type": "object",
       "properties": {
         "data": {
@@ -5925,11 +5948,11 @@
       "type": "object",
       "properties": {
         "total_promo_code": {
-          "description": "Total promo code",
+          "description": "Total promo code.",
           "type": "integer"
         },
         "redeemed_amount": {
-          "description": "Amount redeemed by promo codes",
+          "description": "Amount redeemed by promo codes.",
           "type": "integer"
         }
       }
