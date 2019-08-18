@@ -4523,7 +4523,7 @@
       "title": "Customer Base",
       "type": "object",
       "properties": {
-        "first_name": {define
+        "first_name": {
           "description": "Customer's first name.",
           "type": "string"
         },
@@ -4753,11 +4753,11 @@
           "description": "name of the filter field",
           "type": "string",
           "enum": [
-            "brand_id", 
-            "product_id", 
-            "supplier_id", 
+            "brand_id",
+            "product_id",
+            "supplier_id",
             "tag_id",
-            "type_id", 
+            "type_id",
             "variant_parent_id"
           ]
         },
@@ -4880,7 +4880,7 @@
       "title": "Inventory Collection",
       "type": "object",
       "properties": {
-        "data": {define
+        "data": {
           "description": "An array of Inventory records wrapped in top level `data` object.",
           "type": "array",
           "items": {
