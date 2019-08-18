@@ -1,0 +1,16 @@
+on: push
+name: Trigger Stoplight build on push to master
+jobs:
+  hTTPClient:
+    name: HTTP client
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: HTTP client
+      uses: pzurek/httpie.action@master
+      env:
+        STOPLIGHT_DOMAIN: docs.vendhq.com
+        STOPLIGHT_TOKEN: ${{ secrets.STOPLIGHT_TOKEN }}
+        STOPLIGHT_URL: https://next-api.stoplight.io/docs.release
+      with:
+        args: POST $STOPLIGHT_URL?domain=$STOPLIGHT_DOMAIN --auth-type=token --auth=Bearer:$STOPLIGHT_TOKEN
