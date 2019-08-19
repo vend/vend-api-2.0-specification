@@ -3797,10 +3797,12 @@
     },
     "/promotions": {
       "get": {
+        "description": "This will show all available promotions for the retailer.",
         "summary": "List promotions",
         "tags": [
           "Promotions"
         ],
+        "operationId": "ListPromotions",
         "responses": {
           "200": {
             "description": "",
@@ -3814,29 +3816,29 @@
             "type": "string",
             "in": "query",
             "name": "end_time_to",
-            "description": "Format: 2006-01-02T15:04:05"
+            "description": "Upper limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`."
           },
           {
             "type": "string",
             "in": "query",
             "name": "end_time_from",
-            "description": "Format: 2006-01-02T15:04:05"
+            "description": "Lower limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`."
           },
           {
             "type": "integer",
             "in": "query",
             "name": "page_size",
-            "description": ""
+            "description": "The maximum number of items to be returned in the response."
           }
-        ],
-        "description": "This will show all available promotions for the retailer.",
-        "operationId": "ListPromotions"
+        ]
       },
       "post": {
         "summary": "Create a promotion",
+        "description": "This will create a promotion using the given information.",
         "tags": [
           "Promotions"
         ],
+        "operationId": "CreatePromotion",
         "parameters": [
           {
             "name": "body",
@@ -3855,9 +3857,7 @@
               "$ref": "#/definitions/Promotion"
             }
           }
-        },
-        "description": "This will create a promotion using the given information.",
-        "operationId": "CreatePromotion"
+        }
       }
     },
     "/promotions/{promotion_id}": {
@@ -3868,10 +3868,12 @@
         "type": "string"
       },
       "get": {
-        "summary": "Get a single promotion",
+        "summary": "Get a promotion by ID",
+        "description": "This will retrieve a single promotion using the given ID.",
         "tags": [
           "Promotions"
         ],
+        "operationId": "GetPromotionByID",
         "responses": {
           "200": {
             "description": "",
@@ -3879,9 +3881,7 @@
               "$ref": "#/definitions/Promotion"
             }
           }
-        },
-        "operationId": "GetPromotionByID",
-        "description": "This will retrieve a single promotion using the given id"
+        }
       },
       "put": {
         "summary": "Update a promotion",
@@ -3919,10 +3919,12 @@
         "type": "string"
       },
       "get": {
-        "summary": "Get a list of products applicable for this promotion, and their discount price",
+        "summary": "Get products for a promotion",
+        "description": "Get a list of products applicable for this promotion, and their discount price.",
         "tags": [
           "Promotions"
         ],
+        "operationId": "GetPromotionProducts",
         "responses": {
           "200": {
             "description": "",
@@ -3930,9 +3932,7 @@
               "$ref": "#/definitions/Promotion"
             }
           }
-        },
-        "operationId": "GetPromotionProducts",
-        "description": "This will retrieve a single promotion using the given id"
+        }
       }
     },
     "/promotions/{promotion_id}/promocodes": {
@@ -3943,10 +3943,12 @@
         "type": "string"
       },
       "get": {
-        "summary": "Get the promo codes associated with this promotion",
+        "summary": "Get the promo codes for a promotion",
+        "description": "Get the promo codes associated with this promotion.",
         "tags": [
           "Promotions"
         ],
+        "operationId": "GetPromotionPromoCodes",
         "responses": {
           "200": {
             "description": "",
@@ -3954,9 +3956,7 @@
               "$ref": "#/definitions/PromotionPromoCodesResponse"
             }
           }
-        },
-        "operationId": "GetPromotionPromoCodes",
-        "description": "This will retrieve a single promotion using the given id"
+        }
       }
     }
   },
