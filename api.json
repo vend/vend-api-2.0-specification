@@ -3885,9 +3885,11 @@
       },
       "put": {
         "summary": "Update a promotion",
+        "description": "Update the parameters for a promotion.",
         "tags": [
           "Promotions"
         ],
+        "operationId": "UpdatePromotion",
         "responses": {
           "200": {
             "description": "",
@@ -3896,8 +3898,6 @@
             }
           }
         },
-        "operationId": "UpdatePromotion",
-        "description": "Update a promotion",
         "parameters": [
           {
             "name": "body",
