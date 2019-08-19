@@ -3874,6 +3874,14 @@
           "Promotions"
         ],
         "operationId": "GetPromotionByID",
+        "parameters": [
+          {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3900,6 +3908,12 @@
         },
         "parameters": [
           {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -3912,12 +3926,6 @@
       }
     },
     "/promotions/{promotion_id}/products": {
-      "parameters": {
-        "name": "promotion_id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      },
       "get": {
         "summary": "Get products for a promotion",
         "description": "Get a list of products applicable for this promotion, and their discount price.",
@@ -3925,6 +3933,14 @@
           "Promotions"
         ],
         "operationId": "GetPromotionProducts",
+        "parameters": [
+          {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3936,12 +3952,14 @@
       }
     },
     "/promotions/{promotion_id}/promocodes": {
-      "parameters": {
-        "name": "promotion_id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      },
+      "parameters": [
+        {
+          "name": "promotion_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
       "get": {
         "summary": "Get the promo codes for a promotion",
         "description": "Get the promo codes associated with this promotion.",
@@ -4187,10 +4205,16 @@
           "format": "double"
         },
         "include": {
-          "$ref": "#/definitions/Filter"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
         },
         "exclude": {
-          "$ref": "#/definitions/Filter"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
         },
         "min_quantity": {
           "description": "Minimum quantity, if required by the condition type.",
@@ -5894,15 +5918,24 @@
         },
         "outlet_ids": {
           "description": "A list of outlet IDs for the promotion.",
-          "type": "array[string]"
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
         },
         "channels": {
           "description": "A list of outlet IDs for the promotion.",
-          "type": "array[string]"
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
         },
         "customer_group_ids": {
           "description": "A list of outlet IDs for the promotion.",
-          "type": "array[string]"
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
         },
         "status": {
           "description": "The status of the promotion.",
