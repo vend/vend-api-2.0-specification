@@ -6,4 +6,4 @@ jobs:
     steps:
     - name: Spectral checks
       uses: docker://stoplight/spectral
-      run: spectral lint api.json
+      # run: spectral lint api.json
