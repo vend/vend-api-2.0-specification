@@ -2,8 +2,8 @@ name: Lint the specification file
 on: push
 jobs:
   spec-lint:
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Spectral checks
       uses: docker://stoplight/spectral
-      # run: spectral lint api.json
+      run: spectral lint api.json
