@@ -1,8 +1,7 @@
 name: Lint the specification file
 on: push
 jobs:
-  docs-release:
-    runs-on: ubuntu-latest
+  spec-lint:
     steps:
     - name: Spectral checks
       uses: XVincentX/spectral-action@v0.3.0
