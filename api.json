@@ -4064,7 +4064,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/DiscountParam"
+              "$ref": "#/definitions/DiscountResponse"
             }
           }
         }
@@ -5000,6 +5000,33 @@
         "sale_date"
       ]
     },
+    "DiscountResponse": {
+      "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/DiscountResponseParam"
+        }
+      }
+    },
+    "DiscountResponseParam": {
+      "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
+      "type": "object",
+      "properties": {
+        "sale": {
+          "$ref": "#/definitions/DiscountSaleParam"
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PromotionDescription"
+          }
+        },
+        "promo_code_validation": {
+          "$ref": "#/definitions/PromoCodeValidation"
+        }
+      }
+    },
     "DiscountParam": {
       "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
       "type": "object",
@@ -5022,8 +5049,8 @@
           "description": "The outlet ID for this sale",
           "type": "string"
         },
-        "tax_inclusive": {
-          "description": "Indicataion whether the sale is tax inclusive or tax exclusive",
+        "is_tax_inclusive": {
+          "description": "Indication whether the sale is tax inclusive or tax exclusive",
           "type": "boolean"
         }
       },
@@ -6246,7 +6273,6 @@
         }
       }
     },
-
     "PromoCodesMap": {
       "title": "Map of Promo Codes to booleans",
       "type": "object",
@@ -6260,11 +6286,33 @@
       "type": "object",
       "properties": {
         "data": {
-          "description": "An array of codes which were not delted",
+          "description": "An array of codes which were not deleted.",
           "type": "array",
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "PromoCodeValidation": {
+      "title": "Promo Code validation result",
+      "type": "object",
+      "properties": {
+        "promotion_id": {
+          "description": "ID for the promotion.",
+          "type": "string"
+        },
+        "promo_code_id": {
+          "description": "ID for the promo code.",
+          "type": "string"
+        },
+        "promo_code": {
+          "description": "The promo code itself.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status field for the promo code.",
+          "type": "string"
         }
       }
     },
@@ -6295,6 +6343,25 @@
         },
         "version": {
           "$ref": "#/definitions/Version"
+        }
+      }
+    },
+    "PromotionDescription": {
+      "title": "PromotionDescription",
+      "type": "object",
+      "description": "Basic description for a Promotion.",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the promotion.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A short description for the promotion.",
+          "type": "string"
         }
       }
     },
