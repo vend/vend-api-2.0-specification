@@ -3794,9 +3794,338 @@
           }
         }
       }
+    },
+    "/promotions": {
+      "get": {
+        "description": "This endpoint lists all promotions for a retailer.\n\nThere are optional query parameters that allow filtering promotions. They can't be combined:\n\n * `end_time_from` - only show promotions that have end_time after or equal to this time \n * `end_time_to` - only show promotions that have end_time before this time\n\nFor example. the time format for end_time_from and end_time_to are: `2047-06-21T13:00:00`\n\n",
+        "summary": "List promotions",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "ListPromotions",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PromotionCollection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "end_time_to",
+            "description": "Upper limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`."
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "end_time_from",
+            "description": "Lower limit for the promotion end date as UTC timestamp. Format: `2020-08-08T12:00:00Z`."
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "name": "page_size",
+            "description": "The maximum number of items to be returned in the response."
+          }
+        ]
+      },
+      "post": {
+        "summary": "Create a promotion",
+        "description": "This endpoint creates a new promotion. \n\nIt responds with the newly-created promotion, including the promotion's ID.",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "CreatePromotion",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        }
+      }
+    },
+    "/promotions/{promotion_id}": {
+      "parameters": {
+        "name": "promotion_id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      "get": {
+        "summary": "Get a promotion by ID",
+        "description": "This will retrieve a single promotion using the given ID.",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "GetPromotionByID",
+        "parameters": [
+          {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a promotion",
+        "description": "This endpoint updates an existing promotion by ID. \n\n * All of a promotion's fields except its id may be updated. \n * There are no partial updates. \n * All fields must be specified in the update.\n * The response contains the updated promotion object.\n",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "UpdatePromotion",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        ]
+      }
+    },
+    "/promotions/{promotion_id}/products": {
+      "get": {
+        "summary": "Get products for a promotion",
+        "description": "Get a list of products applicable for this promotion, and their discount price.\n\nIt takes in `page_size`, `offset` and `name` (use for searching product by product name) as query parameters.\n\nThe endpoint returns:\n * a list of products with discount for the condition product set, and\n * another list for the action product sets. \n \n",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "GetPromotionProducts",
+        "parameters": [
+          {
+            "name": "promotion_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          }
+        }
+      }
+    },
+    "/promotions/{promotion_id}/promocodes": {
+      "parameters": [
+        {
+          "name": "promotion_id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "summary": "Get the promo codes for a promotion",
+        "description": "Get the promo codes associated with this promotion.",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "GetPromotionPromoCodes",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PromotionPromoCodesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/promocode/bulk/active": {
+      "post": {
+        "summary": "Get the active status of promo codes",
+        "description": "Get promo codes, with their associated promotions.",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "GetActivePromoCodesBulk",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PromotionActivePromoCodesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/promocode/bulk": {
+      "delete": {
+        "summary": "Delete promo codes",
+        "description": "Delete promo codes, by code",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "DeletePromoCodesBulk",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Remaining promo codes",
+            "schema": {
+              "$ref": "#/definitions/PromotionDeletePromoCodesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/discount": {
+      "post": {
+        "summary": "Apply discounts to a sale object",
+        "description": "This will find the best possible promotion to a sale, apply it and return the sale and the discount.\n\n * Despite its `POST` method, this endpoint does not modify any server-side state.\n * It is the caller's responsibility to pass along the full details of the sale, including all customer information and product information (product type, tags, etc.).\n",
+        "tags": [
+          "Promotions"
+        ],
+        "operationId": "ApplyDiscount",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DiscountParam"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DiscountResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "Action": {
+      "title": "Action",
+      "type": "object",
+      "description": "Action triggered by a promotion.",
+      "properties": {
+        "type": {
+          "description": "The type of action.",
+          "type": "string",
+          "enum": [
+            "basic_percent_discount",
+            "basic_fixed_discount",
+            "fixed_discount",
+            "percent_discount",
+            "loyalty",
+            "fixed_price_discount",
+            "fixed_pool_discount",
+            "percent_pool_discount"
+          ]
+        },
+        "quantity": {
+          "description": "Quantity, if required by the action type.",
+          "type": "integer"
+        },
+        "value": {
+          "description": "Value associated with the action.",
+          "type": "number",
+          "format": "double"
+        },
+        "include": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "min_quantity": {
+          "description": "Minimum quantity, if required by the action type.",
+          "type": "integer"
+        },
+        "max_quantity": {
+          "description": "Maximum quantity, if required by the action type.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
     "Brand": {
       "title": "Brand",
       "type": "object",
@@ -3946,6 +4275,50 @@
         }
       },
       "description": "A collection of channel records wrapped in a top-level data object."
+    },
+    "Condition": {
+      "title": "Condition",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Condition type.",
+          "enum": [
+            "product_set",
+            "sale_price"
+          ]
+        },
+        "quantity": {
+          "description": "Quantity, if required by the condition type.",
+          "type": "integer"
+        },
+        "min_price": {
+          "description": "Minimum price, if required by the condition type.",
+          "type": "number",
+          "format": "double"
+        },
+        "include": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Filter"
+          }
+        },
+        "min_quantity": {
+          "description": "Minimum quantity, if required by the condition type.",
+          "type": "integer"
+        },
+        "max_quantity": {
+          "description": "Minimum quantity, if required by the condition type.",
+          "type": "integer"
+        }
+      },
+      "description": "A condition to determine whether a promotion should apply to a sale."
     },
     "Consignment": {
       "title": "Consignment",
@@ -4488,6 +4861,231 @@
           "$ref": "#/definitions/Customer"
         }
       }
+    },
+    "DiscountCustomerParam": {
+      "title": "Customer applicable to a discount",
+      "type": "object",
+      "properties": {
+        "customer_group_id": {
+          "description": "Customer group ID",
+          "type": "string"
+        }
+      }
+    },
+    "DiscountLineItem": {
+      "title": "Line Item, for use while applying a discount",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Line item ID.",
+          "type": "string"
+        },
+        "handle": {
+          "description": "Handle.",
+          "type": "string"
+        },
+        "product_id": {
+          "description": "Product ID",
+          "type": "string"
+        },
+        "product_brand_id": {
+          "description": "Product Brand ID.",
+          "type": "string"
+        },
+        "product_supplier_id": {
+          "description": "Product Supplier ID.",
+          "type": "string"
+        },
+        "product_type_id": {
+          "description": "Product Type ID.",
+          "type": "string"
+        },
+        "product_tag_ids": {
+          "description": "Product Tag IDs.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "variant_parent_id": {
+          "description": "Product variant parent ID",
+          "type": "string"
+        },
+        "quantity": {
+          "description": "Quantity of the line item.",
+          "type": "integer"
+        },
+        "unit_price": {
+          "description": "The unit price for the line item.",
+          "type": "number",
+          "format": "double"
+        },
+        "price_adjusted": {
+          "description": "Indicator to suggest that the price has been adjusted manually, such as through a discount.",
+          "type": "boolean"
+        },
+        "confirmed": {
+          "description": "Whether the line item is confirmed as part of a layby or on account sale.",
+          "type": "boolean"
+        },
+        "loyalty_value": {
+          "description": "The line item's loyalty value",
+          "type": "number",
+          "format": "double"
+        },
+        "explicit_loyalty_value": {
+          "description": "Whether loyalty was explicitly set in the product or it just uses the default outlet ratio.",
+          "type": "boolean"
+        },
+        "unit_discount": {
+          "description": "The line item's unit discount",
+          "type": "number",
+          "format": "double"
+        },
+        "unit_tax_discount": {
+          "description": "The line item's unit tax discount",
+          "type": "number",
+          "format": "double"
+        },
+        "promotion_ids": {
+          "description": "List of promotion IDs applied to this line item.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "handle",
+        "product_id",
+        "product_brand_id",
+        "product_supplier_id",
+        "product_type_id",
+        "product_tag_ids",
+        "quantity",
+        "unit_price",
+        "unit_tax"
+      ]
+    },
+    "DiscountSaleParam": {
+      "title": "Sale object for use in a Discount request",
+      "type": "object",
+      "properties": {
+        "line_items": {
+          "description": "Collection of line items.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DiscountLineItem"
+          }
+        },
+        "total_price": {
+          "description": "Total (tax exclusive) price of the sale",
+          "type": "number",
+          "format": "double"
+        },
+        "total_tax": {
+          "description": "Total tax.",
+          "type": "number",
+          "format": "double"
+        },
+        "sale_date": {
+          "description": "Sale timestamp in UTC.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "line_items",
+        "total_price",
+        "total_tax",
+        "sale_date"
+      ]
+    },
+    "DiscountResponse": {
+      "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/DiscountResponseParam"
+        }
+      }
+    },
+    "DiscountResponseParam": {
+      "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
+      "type": "object",
+      "properties": {
+        "sale": {
+          "$ref": "#/definitions/DiscountSaleParam"
+        },
+        "promotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PromotionDescription"
+          }
+        },
+        "promo_code_validation": {
+          "$ref": "#/definitions/PromoCodeValidation"
+        }
+      }
+    },
+    "DiscountParam": {
+      "title": "DiscountParam consists of a Sale, and related information to check if a promotion applies, and to calculate the discount",
+      "type": "object",
+      "properties": {
+        "customer": {
+          "$ref": "#/definitions/DiscountCustomerParam"
+        },
+        "sale": {
+          "$ref": "#/definitions/DiscountSaleParam"
+        },
+        "promo_code": {
+          "description": "The promo code to apply to this sale",
+          "type": "string"
+        },
+        "channel": {
+          "description": "The channel where the sale is coming from",
+          "type": "string"
+        },
+        "outlet_id": {
+          "description": "The outlet ID for this sale",
+          "type": "string"
+        },
+        "is_tax_inclusive": {
+          "description": "Indication whether the sale is tax inclusive or tax exclusive",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "customer",
+        "sale",
+        "channel",
+        "outlet_id"
+      ]
+    },
+    "Filter": {
+      "title": "Condition Filter",
+      "type": "object",
+      "properties": {
+        "field": {
+          "description": "name of the filter field",
+          "type": "string",
+          "enum": [
+            "brand_id",
+            "product_id",
+            "supplier_id",
+            "tag_id",
+            "type_id",
+            "variant_parent_id"
+          ]
+        },
+        "value": {
+          "description": "value of the filter field",
+          "type": "string"
+        }
+      },
+      "required": [
+        "field",
+        "value"
+      ]
     },
     "Image": {
       "title": "Image",
@@ -5523,6 +6121,247 @@
           "description": "Auto-incrementing object version number.",
           "type": "integer",
           "format": "int64"
+        }
+      }
+    },
+    "PromoCode": {
+      "title": "Promotion Code",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "promotion_id": {
+          "description": "Promotion ID.",
+          "type": "string"
+        },
+        "created_user_id": {
+          "description": "Created User ID.",
+          "type": "string"
+        },
+        "created_user": {
+          "$ref": "#/definitions/User"
+        },
+        "code": {
+          "description": "Code for use in the promotion.",
+          "type": "string"
+        },
+        "redeemed": {
+          "description": "Number of times this code has been redeemed.",
+          "type": "integer"
+        },
+        "limit": {
+          "description": "Redemption limit for this promotion.",
+          "type": "integer"
+        },
+        "created_at": {
+          "description": "Time the code was created.",
+          "type": "string"
+        },
+        "group_name": {
+          "description": "Name of the group.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ]
+    },
+    "Promotion": {
+      "title": "Promotion",
+      "type": "object",
+      "description": "A Promotion defines rules and actions for discounting products as part of a sales promotion.",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the promotion.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A short description for the promotion.",
+          "type": "string"
+        },
+        "start_time": {
+          "description": "The time the promotion begins, in UTC, e.g. `2006-01-02T15:04:05`.",
+          "type": "string"
+        },
+        "end_time": {
+          "description": "The time the promotion ends, in UTC, e.g. `2006-01-02T15:04:05`.",
+          "type": "string"
+        },
+        "condition": {
+          "$ref": "#/definitions/Condition"
+        },
+        "action": {
+          "$ref": "#/definitions/Action"
+        },
+        "loyalty_multiplier": {
+          "description": "The loyalty multiplier for the promotion.",
+          "type": "number",
+          "format": "double"
+        },
+        "outlet_ids": {
+          "description": "A list of outlet IDs for the promotion.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "channels": {
+          "description": "A list of outlet IDs for the promotion.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customer_group_ids": {
+          "description": "A list of outlet IDs for the promotion.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "description": "The status of the promotion.",
+          "type": "string"
+        },
+        "use_promo_code": {
+          "description": "Whether or not this promotion uses promo codes.",
+          "type": "boolean"
+        },
+        "add_promo_code": {
+          "description": "A list of promo codes to associate with this promotion.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PromoCode"
+          }
+        },
+        "promo_code_summary": {
+          "description": "A summary of the added promo codes added.",
+          "type": "#/definitions/PromoCodeSummary"
+        }
+      },
+      "required": [
+        "name",
+        "start_time",
+        "condition",
+        "action",
+        "use_promo_code"
+      ]
+    },
+    "PromotionPromoCodesResponse": {
+      "title": "Promotion Promo Codes response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "A map of promo codes to booleans, wrapped inside a data object.",
+          "type": "object"
+        }
+      }
+    },
+    "PromotionActivePromoCodesResponse": {
+      "title": "Promotion Promo Codes response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "A map of promo codes to booleans, wrapped inside a data object.",
+          "$ref": "#/definitions/PromoCodesMap"
+        }
+      }
+    },
+    "PromoCodesMap": {
+      "title": "Map of Promo Codes to booleans",
+      "type": "object",
+      "additionalProperties": {
+          "description": "A map of promo codes to booleans.",
+          "type": "boolean"
+      }
+    },
+    "PromotionDeletePromoCodesResponse": {
+      "title": "Promotion Promo Codes response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of codes which were not deleted.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PromoCodeValidation": {
+      "title": "Promo Code validation result",
+      "type": "object",
+      "properties": {
+        "promotion_id": {
+          "description": "ID for the promotion.",
+          "type": "string"
+        },
+        "promo_code_id": {
+          "description": "ID for the promo code.",
+          "type": "string"
+        },
+        "promo_code": {
+          "description": "The promo code itself.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status field for the promo code.",
+          "type": "string"
+        }
+      }
+    },
+    "PromoCodeSummary": {
+      "title": "Promo Code summary",
+      "type": "object",
+      "properties": {
+        "total_promo_code": {
+          "description": "Total promo code.",
+          "type": "integer"
+        },
+        "redeemed_amount": {
+          "description": "Amount redeemed by promo codes.",
+          "type": "integer"
+        }
+      }
+    },
+    "PromotionCollection": {
+      "title": "Promotion Collection",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "An array of Promotion objects wrapped in top level `data` object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Promotion"
+          }
+        },
+        "version": {
+          "$ref": "#/definitions/Version"
+        }
+      }
+    },
+    "PromotionDescription": {
+      "title": "PromotionDescription",
+      "type": "object",
+      "description": "Basic description for a Promotion.",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the promotion.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A short description for the promotion.",
+          "type": "string"
         }
       }
     },
