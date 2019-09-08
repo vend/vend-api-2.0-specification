@@ -1359,6 +1359,51 @@
         }
       }
     },
+    "/gift_cards": {
+      "get": {
+        "description": "Returns a paginated list of gift cards.",
+        "summary": "List gift cards",
+        "tags": [
+          "Gift Cards"
+        ],
+        "operationId": "ListGiftCards",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "in": "query",
+            "name": "card_number",
+            "type": "string",
+            "description": "Find by gift card number."
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string",
+            "description": "Filter by gift card status.",
+            "enum": [
+              "ACTIVE",
+              "INACTIVE",
+              "REDEEMED",
+              "VOIDED",
+              "EXPIRED"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GiftCardCollection"
+            }
+          }
+        }
+      }
+    },
     "/inventory": {
       "get": {
         "description": "Returns a paginated list of inventory records.",
@@ -5086,6 +5131,127 @@
         "field",
         "value"
       ]
+    },
+    "GiftCard": {
+      "title": "Gift Card",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "number": {
+          "description": "The gift card number.",
+          "type": "string"
+        },
+        "sale_id": {
+          "description": "The Sale ID.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "description": "The creation timestamp in UTC.",
+          "type": "string"
+        },
+        "updated_at": {
+          "description": "Last update timestamp in UTC.",
+          "type": "string"
+        },
+        "expires_at": {
+          "description": "The expiry timestamp in UTC.",
+          "type": "string"
+        },
+        "status": {
+            "description": "The gift card status.",
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "INACTIVE",
+              "REDEEMED",
+              "VOIDED",
+              "EXPIRED"
+            ]
+        },
+        "balance": {
+            "description": "The balance of the gift card.",
+            "type": "number",
+            "format": "double"
+        },
+        "total_sold": {
+            "description": "the amount loaded onto this gift card during activation or reloading.",
+            "type": "number",
+            "format": "double"
+        },
+        "total_redeemed": {
+            "description": "The amount redeemed with this gift card.",
+            "type": "number",
+            "format": "double"
+        },
+        "gift_card_transactions": {
+          "type": "array",
+          "description": "An array of Gift Card Transactions.",
+          "items": {
+            "$ref": "#/definitions/GiftCardTransaction"
+          }
+        }
+      }
+    },
+    "GiftCardCollection": {
+      "type": "object",
+      "title": "Gift Card Collection",
+      "properties": {
+        "data": {
+          "type": "array",
+          "description": "An array of Gift Cards.",
+          "items": {
+            "$ref": "#/definitions/GiftCard"
+          }
+        }
+      },
+      "required": [
+        "data"
+      ]
+    },
+    "GiftCardTransaction": {
+      "title": "Image",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Auto-generated object ID.",
+          "type": "string"
+        },
+        "amount": {
+            "description": "The amount.",
+            "type": "number",
+            "format": "double"
+        },
+        "type": {
+            "description": "The type of transaction.",
+            "type": "string",
+            "enum": [
+              "ACTIVATION",
+              "REDEEMING",
+              "IMPORTING",
+              "VOIDING",
+              "EXPIRING",
+              "REVERSING",
+              "RELOADING"
+            ]
+        },
+        "user_id": {
+          "description": "The User ID associated with the transaction.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "description": "The creation timestamp in UTC.",
+          "type": "string"
+        },
+        "client_id": {
+          "description": "The client id is a unique transaction identifier, optionally provided by the client.",
+          "type": "string"
+        }
+      }
     },
     "Image": {
       "title": "Image",
