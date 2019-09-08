@@ -1369,10 +1369,16 @@
         "operationId": "ListGiftCards",
         "parameters": [
           {
-            "$ref": "#/parameters/Before"
+            "in": "query",
+            "name": "before",
+            "type": "string",
+            "description": "The upper limit for the ID to be included in the response."
           },
           {
-            "$ref": "#/parameters/PageSize"
+            "in": "query",
+            "name": "page_size",
+            "type": "integer",
+            "description": "The maximum number of items to be returned in the response."
           },
           {
             "in": "query",
@@ -5151,10 +5157,6 @@
         },
         "created_at": {
           "description": "The creation timestamp in UTC.",
-          "type": "string"
-        },
-        "updated_at": {
-          "description": "Last update timestamp in UTC.",
           "type": "string"
         },
         "expires_at": {
