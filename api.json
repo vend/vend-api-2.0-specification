@@ -1378,7 +1378,7 @@
             "in": "query",
             "name": "page_size",
             "type": "integer",
-            "description": "The maximum number of items to be returned in the response."
+            "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter."
           },
           {
             "in": "query",
