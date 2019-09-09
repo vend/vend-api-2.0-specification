@@ -1359,7 +1359,7 @@
         }
       }
     },
-    "/gift_cards": {
+    "/balances/gift_cards": {
       "get": {
         "description": "Returns a paginated list of gift cards.",
         "summary": "List gift cards",
