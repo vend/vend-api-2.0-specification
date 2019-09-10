@@ -1408,6 +1408,41 @@
             }
           }
         }
+      },
+      "post": {
+        "description": "Creates a new gift card.",
+        "summary": "Create gift card",
+        "tags": [
+          "Gift Cards"
+        ],
+        "operationId": "CreateGiftCard",
+        "parameters": [
+          {
+            "name": "GiftCardActivationParams",
+            "in": "body",
+            "required": true,
+            "description": "Create gift card parameters",
+            "schema": {
+              "$ref": "#/definitions/GiftCardActivationParams"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Gift card successfully created.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "422": {
+            "description": "Gift card has already been created and activated.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
       }
     },
     "/inventory": {
@@ -5164,30 +5199,30 @@
           "type": "string"
         },
         "status": {
-            "description": "The gift card status.",
-            "type": "string",
-            "enum": [
-              "ACTIVE",
-              "INACTIVE",
-              "REDEEMED",
-              "VOIDED",
-              "EXPIRED"
-            ]
+          "description": "The gift card status.",
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "REDEEMED",
+            "VOIDED",
+            "EXPIRED"
+          ]
         },
         "balance": {
-            "description": "The balance of the gift card.",
-            "type": "number",
-            "format": "double"
+          "description": "The balance of the gift card.",
+          "type": "number",
+          "format": "double"
         },
         "total_sold": {
-            "description": "the amount loaded onto this gift card during activation or reloading.",
-            "type": "number",
-            "format": "double"
+          "description": "the amount loaded onto this gift card during activation or reloading.",
+          "type": "number",
+          "format": "double"
         },
         "total_redeemed": {
-            "description": "The amount redeemed with this gift card.",
-            "type": "number",
-            "format": "double"
+          "description": "The amount redeemed with this gift card.",
+          "type": "number",
+          "format": "double"
         },
         "gift_card_transactions": {
           "type": "array",
@@ -5195,6 +5230,43 @@
           "items": {
             "$ref": "#/definitions/GiftCardTransaction"
           }
+        }
+      }
+    },
+    "GiftCardActivationParams": {
+      "type": "object",
+      "title": "Gift Card Activation Parameters",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "The amount to be loaded onto the gift card.",
+          "format": "double"
+        },
+        "number": {
+          "type": "string",
+          "description": "The number of the gift card."
+        },
+        "sale_id": {
+          "type": "string",
+          "description": "The sale id of the sale",
+          "format": "uuid"
+        },
+        "user_Id": {
+          "type": "string",
+          "description": "The user id of the user creating the gift card.",
+          "format": "uuid"
+        },
+        "domain_prefix": {
+          "type": "string",
+          "description": "The domain prefix of the retailer, e.g. for vend.vendhq.com the domain prefix would be vend."
+        },
+        "expires_at": {
+          "type": "string",
+          "description": "The expiry date time of the gift card."
+        },
+        "time_zone": {
+          "type": "string",
+          "description": "The timezone of the date times for the gift card."
         }
       }
     },
@@ -5223,22 +5295,22 @@
           "type": "string"
         },
         "amount": {
-            "description": "The amount.",
-            "type": "number",
-            "format": "double"
+          "description": "The amount.",
+          "type": "number",
+          "format": "double"
         },
         "type": {
-            "description": "The type of transaction.",
-            "type": "string",
-            "enum": [
-              "ACTIVATION",
-              "REDEEMING",
-              "IMPORTING",
-              "VOIDING",
-              "EXPIRING",
-              "REVERSING",
-              "RELOADING"
-            ]
+          "description": "The type of transaction.",
+          "type": "string",
+          "enum": [
+            "ACTIVATION",
+            "REDEEMING",
+            "IMPORTING",
+            "VOIDING",
+            "EXPIRING",
+            "REVERSING",
+            "RELOADING"
+          ]
         },
         "user_id": {
           "description": "The User ID associated with the transaction.",
@@ -6445,8 +6517,8 @@
       "title": "Map of Promo Codes to booleans",
       "type": "object",
       "additionalProperties": {
-          "description": "A map of promo codes to booleans.",
-          "type": "boolean"
+        "description": "A map of promo codes to booleans.",
+        "type": "boolean"
       }
     },
     "PromotionDeletePromoCodesResponse": {
