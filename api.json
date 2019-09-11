@@ -1445,6 +1445,32 @@
         }
       }
     },
+    "/balances/gift_cards/{number}": {
+      "delete": {
+        "description": "Void the given gift card.",
+        "summary": "Void gift card",
+        "tags": [
+          "Gift Cards"
+        ],
+        "operationId": "VoidGiftCard",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "number",
+            "type": "string",
+            "description": "The number of the gift card to be voided."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Gift card successfully deleted",
+            "schema": {
+              "$ref": "#/definitions/GiftCard"
+            }
+          }
+        }
+      }
+    },
     "/inventory": {
       "get": {
         "description": "Returns a paginated list of inventory records.",
