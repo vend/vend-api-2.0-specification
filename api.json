@@ -5358,7 +5358,12 @@
           "type": "string",
           "description": "The timezone of the date times for the gift card."
         }
-      }
+      },
+      "required": [
+        "amount",
+        "number",
+        "domain_prefix"
+      ]
     },
     "GiftCardTransactionParams": {
       "type": "object",
@@ -5370,17 +5375,17 @@
           "format": "double"
         },
         "type": {
-            "type": "string",
-            "description": "The type of the transaction",
-            "enum": [
-              "ACTIVATION",
-              "REDEEMING",
-              "IMPORTING",
-              "VOIDING",
-              "EXPIRING",
-              "REVERSING",
-              "RELOADING"
-            ]
+          "type": "string",
+          "description": "The type of the transaction",
+          "enum": [
+            "ACTIVATION",
+            "REDEEMING",
+            "IMPORTING",
+            "VOIDING",
+            "EXPIRING",
+            "REVERSING",
+            "RELOADING"
+          ]
         },
         "user_id": {
           "type": "string",
@@ -5399,7 +5404,11 @@
           "type": "string",
           "description": "The timezone of the date times for the gift card."
         }
-      }
+      },
+      "required": [
+        "amount",
+        "type"
+      ]
     },
     "GiftCardCollection": {
       "type": "object",
