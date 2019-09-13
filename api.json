@@ -5346,10 +5346,6 @@
           "description": "The user id of the user creating the gift card.",
           "format": "uuid"
         },
-        "domain_prefix": {
-          "type": "string",
-          "description": "The domain prefix of the retailer, e.g. for vend.vendhq.com the domain prefix would be vend."
-        },
         "expires_at": {
           "type": "string",
           "description": "The expiry date time of the gift card."
