@@ -1423,8 +1423,8 @@
     },
     "/metadata/fields": {
       "get": {
-        "summary": "Fetch metadata fields.",
-        "description": "List defined metadata fields.",
+        "summary": "List or search for custom field definitions.",
+        "description": "List custom fields.",
         "operationId": "ListMetadataFields",
         "tags": [
           "Custom Fields"
@@ -1459,8 +1459,8 @@
         }
       },
       "post": {
-        "summary": "Create a metadata field.",
-        "description": "Create a metadata field and its usage constraints.",
+        "summary": "Create a custom field.",
+        "description": "Create a custom field and define its usage constraints.",
         "operationId": "CreateMetadataField",
         "tags": [
           "Custom Fields"
@@ -1522,38 +1522,11 @@
             }
           }
         }
-      },
-      "put": {
-        "summary": "Create/update metadata for an entity.",
-        "description": "Create/update metadata for an entity.",
-        "operationId": "CreateMetadataValue",
-        "tags": [
-          "Custom Fields"
-        ],
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/MetadataValue"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/MetadataValueResponse"
-            }
-          }
-        }
       }
     },
     "/metadata/values/{entity_type/{entity_id}": {
       "get": {
-        "summary": "Get Metadata for a given entity",
+        "summary": "Get Metadata for an entity",
         "description": "Returns a list of metadata records.",
         "parameters": [
           {
@@ -1589,6 +1562,56 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/MetadataValuesCollection"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Set Metadata for an entity.",
+        "description": "Set metadata for an entity, according to its rules.",
+        "operationId": "SetMetadataValue",
+        "tags": [
+          "Custom Fields"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataValue"
+            }
+          },
+          {
+            "in": "path",
+            "name": "entity_type",
+            "enum": [
+              "sale",
+              "line_item",
+              "product",
+              "customer",
+              "order",
+              "consignment"
+            ],
+            "required": true,
+            "type": "string",
+            "description": "The type of the entity for which the results should be returned."
+          },
+          {
+            "name": "entity_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "ID of an entity."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataValueResponse"
             }
           }
         }
