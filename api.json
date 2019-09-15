@@ -1422,70 +1422,13 @@
       }
     },
     "/metadata/fields": {
-     "get": {
-      "operationId": "ListMetadataFields",
-      "tags": [
-        "Custom Fields"
-      ],
-      "parameters": [
-        {
-          "in": "query",
-          "name": "entity_type",
-          "type": "string",
-          "description": "The type of the entity for which the results should be returned."
-        },
-        {
-          "$ref": "#/parameters/After"
-        },
-        {
-          "$ref": "#/parameters/Before"
-        },
-        {
-          "$ref": "#/parameters/PageSize"
-        },
-        {
-          "$ref": "#/parameters/Deleted"
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "",
-          "schema": {
-            "$ref": "#/definitions/MetadataFieldsCollection"
-          }
-        }
-      }
-     },
-     "post": {
-       "operationId": "CreateMetadataField",
-       "tags": [
+      "get": {
+        "summary": "Fetch metadata fields.",
+        "description": "List defined metadata fields.",
+        "operationId": "ListMetadataFields",
+        "tags": [
           "Custom Fields"
-       ],
-      "parameters": [
-        {
-          "name": "body",
-          "in": "body",
-          "required": true,
-          "description": "",
-          "schema": {
-            "$ref": "#/definitions/MetadataField"
-          }
-        }
-      ],
-       "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/MetadataFieldResponse"
-            }
-          }
-        }
-      }
-    },
-    "/metadata/values": {
-     "get": {
-        "summary": "List outlet product taxes",
-        "description": "Returns a paginated list of outlet-product-tax records.",
+        ],
         "parameters": [
           {
             "in": "query",
@@ -1506,36 +1449,99 @@
             "$ref": "#/parameters/Deleted"
           }
         ],
-      "operationId": "ListMetadataValues",
-      "tags": [
-        "Custom Fields"
-      ],
-      "responses": {
-        "200": {
-          "description": "",
-          "schema": {
-            "$ref": "#/definitions/MetadataValuesCollection"
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataFieldsCollection"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a metadata field.",
+        "description": "Create a metadata field and its usage constraints.",
+        "operationId": "CreateMetadataField",
+        "tags": [
+          "Custom Fields"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataField"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataFieldResponse"
+            }
           }
         }
       }
-     },
-     "post": {
-       "operationId": "CreateMetadataValue",
-       "tags": [
+    },
+    "/metadata/values": {
+      "get": {
+        "summary": "List metadata values.",
+        "description": "Returns a paginated list of metadata values.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "entity_type",
+            "type": "string",
+            "description": "The type of the entity for which the results should be returned."
+          },
+          {
+            "$ref": "#/parameters/After"
+          },
+          {
+            "$ref": "#/parameters/Before"
+          },
+          {
+            "$ref": "#/parameters/PageSize"
+          },
+          {
+            "$ref": "#/parameters/Deleted"
+          }
+        ],
+        "operationId": "ListMetadataValues",
+        "tags": [
           "Custom Fields"
-       ],
-      "parameters": [
-        {
-          "name": "body",
-          "in": "body",
-          "required": true,
-          "description": "",
-          "schema": {
-            "$ref": "#/definitions/MetadataValue"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataValuesCollection"
+            }
           }
         }
-      ],
-       "responses": {
+      },
+      "put": {
+        "summary": "Create/update metadata for an entity.",
+        "description": "Create/update metadata for an entity.",
+        "operationId": "CreateMetadataValue",
+        "tags": [
+          "Custom Fields"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataValue"
+            }
+          }
+        ],
+        "responses": {
           "200": {
             "description": "",
             "schema": {
@@ -1546,40 +1552,47 @@
       }
     },
     "/metadata/values/{entity_type/{entity_id}": {
-     "get": {
-      "summary": "Get Metadata for a given entity",
-      "description": "Returns a list of metadata records.",
-      "parameters": [
-        {
-          "in": "path",
-          "name": "entity_type",
-          "enum": ["sale", "line_item", "product", "customer", "order", "consignment"],
-          "required": true,
-          "type": "string",
-          "description": "The type of the entity for which the results should be returned."
-        },
-        {
-          "name": "entity_id",
-          "in": "path",
-          "required": true,
-          "type": "string",
-          "format": "uuid",
-          "description": "ID of an entity."
-        }
-      ],
-      "operationId": "GetMetadataValues",
-      "tags": [
-        "Custom Fields"
-      ],
-      "responses": {
-        "200": {
-          "description": "",
-          "schema": {
-            "$ref": "#/definitions/MetadataValuesCollection"
+      "get": {
+        "summary": "Get Metadata for a given entity",
+        "description": "Returns a list of metadata records.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "entity_type",
+            "enum": [
+              "sale",
+              "line_item",
+              "product",
+              "customer",
+              "order",
+              "consignment"
+            ],
+            "required": true,
+            "type": "string",
+            "description": "The type of the entity for which the results should be returned."
+          },
+          {
+            "name": "entity_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "ID of an entity."
+          }
+        ],
+        "operationId": "GetMetadataValues",
+        "tags": [
+          "Custom Fields"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/MetadataValuesCollection"
+            }
           }
         }
       }
-     }
     },
     "/outlet_taxes": {
       "get": {
@@ -5658,12 +5671,20 @@
         "type": {
           "description": "Type of value",
           "type": "string",
-          "enum": ["string","number","boolean"]
+          "enum": [
+            "string",
+            "number",
+            "boolean"
+          ]
         },
         "format": {
           "description": "Formatting hint for validation",
           "type": "string",
-          "enum": ["uuid", "double", "datetime"]
+          "enum": [
+            "uuid",
+            "double",
+            "datetime"
+          ]
         },
         "display_ui": {
           "description": "Whether to display in the UI",
@@ -5704,6 +5725,16 @@
           "items": {
             "$ref": "#/definitions/MetadataField"
           }
+        }
+      }
+    },
+    "MetadataFieldResponse": {
+      "title": "Metadata Field Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "A Metadata Field object wrapped in top level `data` object.",
+          "$ref": "#/definitions/MetadataField"
         }
       }
     },
@@ -5753,6 +5784,16 @@
           "items": {
             "$ref": "#/definitions/MetadataValue"
           }
+        }
+      }
+    },
+    "MetadataValueResponse": {
+      "title": "Metadata Value Response",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "A Metadata Value object wrapped in top level `data` object.",
+          "$ref": "#/definitions/MetadataValue"
         }
       }
     },
@@ -6559,8 +6600,8 @@
       "title": "Map of Promo Codes to booleans",
       "type": "object",
       "additionalProperties": {
-          "description": "A map of promo codes to booleans.",
-          "type": "boolean"
+        "description": "A map of promo codes to booleans.",
+        "type": "boolean"
       }
     },
     "PromotionDeletePromoCodesResponse": {
