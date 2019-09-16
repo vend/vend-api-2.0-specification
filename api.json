@@ -1458,7 +1458,8 @@
             "in": "path",
             "name": "number",
             "type": "string",
-            "description": "The number of the gift card to find."
+            "description": "The number of the gift card to find.",
+            "required": "true"
           }
         ],
         "responses": {
@@ -1486,7 +1487,14 @@
             "in": "path",
             "name": "number",
             "type": "string",
-            "description": "The number of the gift card to be voided."
+            "description": "The number of the gift card to be voided.",
+            "required": "true"
+          },
+          {
+            "in": "body",
+            "schema": {
+              "type": "object"
+            }
           }
         ],
         "responses": {
@@ -1512,7 +1520,8 @@
             "in": "path",
             "name": "number",
             "type": "string",
-            "description": "The number of the gift card to add the transaction to."
+            "description": "The number of the gift card to add the transaction to.",
+            "required": "true"
           },
           {
             "name": "GiftCardActivationParams",
