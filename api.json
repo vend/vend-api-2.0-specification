@@ -3573,6 +3573,220 @@
         ]
       }
     },
+    "/store_credits": {
+      "get": {
+        "description": "Returns a list of store credit customers.",
+        "summary": "Store credit list",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ListStoreCredit",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "criteria",
+            "description": "The criteria to pass to the list store credit endpoint.",
+            "required": "true",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of store credit customers.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditCustomer"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/{customerId}": {
+      "get": {
+        "description": "Returns a list of store credits for the given customer id.",
+        "summary": "Store credit list for the given customer id",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ListStoreCreditForCustomer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customer_id",
+            "type": "string",
+            "description": "Find by customer id.",
+            "required": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The store credit details for the given customer.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditCustomer"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/bulk": {
+      "post": {
+        "description": "Returns a list of store credit for multiple customers.",
+        "summary": "Store credit bulk list",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "BulkStoreCreditList",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "The list of customer ids to get related store credit for.",
+            "required": "true",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of customers with associated store credit balances.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StoreCreditCustomer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/{customerId}/transactions": {
+      "post": {
+        "description": "Post a store credit transaction.",
+        "summary": "Add a transaction to a customer's store credit",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ApplyStoreCreditTransaction",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "The customer id to apply the store transaction too",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditTransactionParams"
+            }
+          },
+          {
+            "name": "StoreCreditTransactionParams",
+            "in": "body",
+            "required": true,
+            "description": "The store credit transaction details",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditTransactionParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transaction successfully added to customer's store credit.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditTransaction"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/report": {
+      "get": {
+        "description": "Returns a report of store credits.",
+        "summary": "Store credit report",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "StoreCreditReport",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A report of all store credit associated with the retailer.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditReport"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/retailer/reset": {
+      "delete": {
+        "description": "Resets a retailer setting for store credit.",
+        "summary": "Store credit setting reset",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ResetStoreCreditSetting",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Resets the retail store credit settings.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditSetting"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/settings": {
+      "get": {
+        "description": "Returns the settings for store credits.",
+        "summary": "Store credit settings",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "StoreCreditSettings",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns the store credit settings for the retailer.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditSetting"
+            }
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a setting for store credits.",
+        "summary": "Update store credit setting",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "UpdateStoreCreditSetting",
+        "parameters": [
+          {
+            "name": "RetailerSettingParams",
+            "in": "body",
+            "required": true,
+            "description": "Update store credit parameter",
+            "schema": {
+              "$ref": "#/definitions/RetailerSettingParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the updated store credit setting.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditSetting"
+            }
+          }
+        }
+      }
+    },
     "/suppliers": {
       "get": {
         "description": "Returns a paginated list of suppliers.",
@@ -4301,6 +4515,25 @@
         "type",
         "value"
       ]
+    },
+    "ApiCriteria": {
+      "title": "Api Criteria",
+      "description": "The API criteria to pass to the api endpoint",
+      "type": "object",
+      "properties": {
+        "page_size": {
+          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
+          "type": "integer"
+        },
+        "criteria": {
+          "description": "The criteria to pass to the list store credit endpoint.",
+          "required": "true",
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
     },
     "Brand": {
       "title": "Brand",
@@ -5321,7 +5554,10 @@
             "$ref": "#/definitions/GiftCardTransaction"
           }
         }
-      }
+      },
+      "required": [
+        "number"
+      ]
     },
     "GiftCardActivationParams": {
       "type": "object",
@@ -6932,6 +7168,39 @@
         }
       }
     },
+    "RetailerSettingParams": {
+      "type": "object",
+      "title": "Retailer setting parameter",
+      "description": "A retailer setting parameter.",
+      "properties": {
+        "user_id": {
+          "description": "The user id of the user creating/updating the setting.",
+          "type": "string"
+        },
+        "expiry_period": {
+          "description": "The number of days/months/years until the setting expires.",
+          "type": "integer"
+        },
+        "expiry_period_type": {
+          "description": "The duration type of the expiry period.",
+          "type": "string",
+          "enum": [
+            "DAYS",
+            "MONTHS",
+            "YEARS"
+          ]
+        },
+        "status": {
+          "description": "The status of the setting.",
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "RESET"
+          ]
+        }
+      }
+    },
     "Sale": {
       "title": "Sale",
       "type": "object",
@@ -7111,6 +7380,172 @@
           "items": {
             "type": "object"
           }
+        }
+      }
+    },
+    "StoreCreditCustomer": {
+      "title": "Store Credit Customer",
+      "type": "object",
+      "description": "The store credit information for a customer.",
+      "properties": {
+        "customer_id": {
+          "description": "The customer id.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "transactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StoreCreditTransaction"
+          }
+        },
+        "balance": {
+          "description": "The customers store credit balance.",
+          "type": "double"
+        },
+        "total_credit_issued": {
+          "description": "The total credit issued to this customer.",
+          "type": "double"
+        }
+      }
+    },
+    "StoreCreditReport": {
+      "title": "Store Credit Report",
+      "type": "object",
+      "description": "The store credit report for a retailer.",
+      "properties": {
+        "total_value_issued": {
+          "description": "The total credit issued.",
+          "type": "double"
+        },
+        "total_value_redeemed": {
+          "description": "The total value redeemed.",
+          "type": "double"
+        },
+        "outstanding_balance": {
+          "description": "The outstanding balance.",
+          "type": "double"
+        }
+      }
+    },
+    "StoreCreditSetting": {
+      "title": "Store Credit Setting",
+      "type": "object",
+      "description": "A store credit setting.",
+      "properties": {
+        "retailer_id": {
+          "description": "The id of the retailer.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "activation_date": {
+          "description": "The date the setting is valid from.",
+          "type": "datetime"
+        },
+        "status": {
+          "description": "The status of the setting.",
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "RESET"
+          ]
+        },
+        "updated_at": {
+          "description": "The date time the settings was updated.",
+          "type": "string"
+        }
+      }
+    },
+    "StoreCreditTransaction": {
+      "title": "Store Credit Transaction for Customer",
+      "type": "object",
+      "description": "The store credit information for a customer transaction.",
+      "properties": {
+        "amount": {
+          "description": "The amount of the transaction.",
+          "type": "double"
+        },
+        "type": {
+          "description": "The type of the transaction",
+          "type": "string",
+          "enum": [
+            "HOLD",
+            "HOLD_REVERSE",
+            "ISSUE",
+            "REDEMPTION",
+            "IMPORT",
+            "REVERSE"
+          ]
+        },
+        "notes": {
+          "description": "The notes associated with the transaction.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "The user id of the person who handled the transaction.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "sale_id": {
+          "description": "The sale id the transaction is associated with.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "client_id": {
+          "description": "The client id of the person the transaction is associated with.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "description": "The date time the transaction was created and/or modified.",
+          "type": "datetime"
+        }
+      }
+    },
+    "StoreCreditTransactionParams": {
+      "title": "Store Credit Transaction Parameters for Customer",
+      "type": "object",
+      "description": "The store credit transaction parameters for a customer transaction.",
+      "properties": {
+        "store_credit_customer_id": {
+          "description": "The store credit customer id",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of the transaction.",
+          "type": "double"
+        },
+        "type": {
+          "description": "The type of the transaction",
+          "type": "string",
+          "enum": [
+            "HOLD",
+            "HOLD_REVERSE",
+            "ISSUE",
+            "REDEMPTION",
+            "IMPORT",
+            "REVERSE"
+          ]
+        },
+        "notes": {
+          "description": "The notes associated with the transaction.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "The user id of the person who handled the transaction.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "sale_id": {
+          "description": "The sale id the transaction is associated with.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "client_id": {
+          "description": "The client id of the person the transaction is associated with.",
+          "type": "string",
+          "format": "uuid"
         }
       }
     },
