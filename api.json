@@ -5479,12 +5479,7 @@
           "type": "string",
           "description": "The type of the transaction",
           "enum": [
-            "ACTIVATION",
             "REDEEMING",
-            "IMPORTING",
-            "VOIDING",
-            "EXPIRING",
-            "REVERSING",
             "RELOADING"
           ]
         },
