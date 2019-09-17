@@ -1514,12 +1514,6 @@
             "type": "string",
             "description": "The number of the gift card to be voided.",
             "required": "true"
-          },
-          {
-            "in": "body",
-            "schema": {
-              "type": "object"
-            }
           }
         ],
         "responses": {
