@@ -1456,9 +1456,9 @@
         "parameters": [
           {
             "in": "formData",
-            "type": "file",
+            "type": "string",
             "name": "file",
-            "description": "The contents of the csv file to import.",
+            "description": "The name of the csv file to import.",
             "required": true
           }
         ],
