@@ -5462,8 +5462,7 @@
       },
       "required": [
         "amount",
-        "number",
-        "domain_prefix"
+        "number"
       ]
     },
     "GiftCardTransactionParams": {
