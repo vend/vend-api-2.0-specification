@@ -5734,6 +5734,7 @@
         },
         "client_id": {
           "type": "string",
+          "format": "uuid",
           "description": "The client id is a unique transaction identifier, optionally provided by the client."
         },
         "expires_at": {
@@ -5803,7 +5804,8 @@
         },
         "client_id": {
           "description": "The client id is a unique transaction identifier, optionally provided by the client.",
-          "type": "string"
+          "type": "string",
+          "format": "uuid"
         }
       }
     },
