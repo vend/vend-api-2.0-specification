@@ -1484,7 +1484,7 @@
             "name": "number",
             "type": "string",
             "description": "The number of the gift card to find.",
-            "required": "true"
+            "required": true
           }
         ],
         "responses": {
@@ -1513,7 +1513,7 @@
             "name": "number",
             "type": "string",
             "description": "The number of the gift card to be voided.",
-            "required": "true"
+            "required": true
           }
         ],
         "responses": {
@@ -1547,7 +1547,7 @@
             "name": "number",
             "type": "string",
             "description": "The number of the gift card to add the transaction to.",
-            "required": "true"
+            "required": true
           },
           {
             "name": "GiftCardActivationParams",
@@ -1598,7 +1598,7 @@
             "name": "transactionId",
             "type": "string",
             "description": "The transaction id of the gift card transaction to find.",
-            "required": "true"
+            "required": true
           }
         ],
         "responses": {
@@ -1627,7 +1627,7 @@
             "name": "transactionId",
             "type": "string",
             "description": "The transaction id to be reversed for the gift card.",
-            "required": "true"
+            "required": true
           }
         ],
         "responses": {
@@ -5698,8 +5698,7 @@
       },
       "required": [
         "amount",
-        "number",
-        "domain_prefix"
+        "number"
       ]
     },
     "GiftCardTransactionParams": {
