@@ -3690,12 +3690,11 @@
           {
             "in": "body",
             "name": "criteria",
-            "description": "The criteria to pass to the list store credit endpoint.",
-            "required": "true",
-            "type": "array",
-            "items": {
-              "type": "object"
-            }
+            "schema": {
+              "$ref": "#/definitions/ApiCriteria"
+            },
+            "description": "The API criteria for the list",
+            "required": true
           }
         ],
         "responses": {
@@ -3719,10 +3718,11 @@
         "parameters": [
           {
             "in": "path",
-            "name": "customer_id",
+            "name": "customerId",
             "type": "string",
+            "format": "uuid",
             "description": "Find by customer id.",
-            "required": "true"
+            "required": true
           }
         ],
         "responses": {
@@ -3748,11 +3748,12 @@
             "in": "body",
             "name": "ids",
             "description": "The list of customer ids to get related store credit for.",
-            "required": "true",
+            "required": true,
             "schema": {
               "type": "array",
               "items": {
-                "type": "string"
+                "type": "string",
+                "format": "uuid"
               }
             }
           }
@@ -3782,11 +3783,10 @@
           {
             "name": "customerId",
             "in": "path",
+            "type": "string",
+            "format": "uuid",
             "required": true,
-            "description": "The customer id to apply the store transaction too",
-            "schema": {
-              "$ref": "#/definitions/StoreCreditTransactionParams"
-            }
+            "description": "The customer id to apply the store transaction too"
           },
           {
             "name": "StoreCreditTransactionParams",
@@ -3854,7 +3854,17 @@
           "Store Credits"
         ],
         "operationId": "StoreCreditSettings",
-        "parameters": [],
+        "parameters": [
+            {
+                "in": "body",
+                "name": "setting",
+                "required": true,
+                "schema": {
+                    "$ref": "#/definitions/RetailerSettingParams"
+                },
+                "description": "The details of the setting to be changed"
+            }
+        ],
         "responses": {
           "200": {
             "description": "Returns the store credit settings for the retailer.",
@@ -4631,12 +4641,11 @@
           "type": "integer"
         },
         "criteria": {
-          "description": "The criteria to pass to the list store credit endpoint.",
-          "required": "true",
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
+            "description": "An array of criteria to use to filter the results",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
       }
     },
@@ -7494,17 +7503,20 @@
         },
         "transactions": {
           "type": "array",
+          "description": "The transactions associated with this customer.",
           "items": {
             "$ref": "#/definitions/StoreCreditTransaction"
           }
         },
         "balance": {
           "description": "The customers store credit balance.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         },
         "total_credit_issued": {
           "description": "The total credit issued to this customer.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -7515,15 +7527,18 @@
       "properties": {
         "total_value_issued": {
           "description": "The total credit issued.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         },
         "total_value_redeemed": {
           "description": "The total value redeemed.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         },
         "outstanding_balance": {
           "description": "The outstanding balance.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -7539,7 +7554,7 @@
         },
         "activation_date": {
           "description": "The date the setting is valid from.",
-          "type": "datetime"
+          "type": "string"
         },
         "status": {
           "description": "The status of the setting.",
@@ -7563,7 +7578,8 @@
       "properties": {
         "amount": {
           "description": "The amount of the transaction.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         },
         "type": {
           "description": "The type of the transaction",
@@ -7598,7 +7614,7 @@
         },
         "created_at": {
           "description": "The date time the transaction was created and/or modified.",
-          "type": "datetime"
+          "type": "string"
         }
       }
     },
@@ -7613,7 +7629,8 @@
         },
         "amount": {
           "description": "The amount of the transaction.",
-          "type": "double"
+          "type": "number",
+          "format": "double"
         },
         "type": {
           "description": "The type of the transaction",
