@@ -1595,7 +1595,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "transaction_id",
+            "name": "transactionId",
             "type": "string",
             "description": "The transaction id of the gift card transaction to find.",
             "required": "true"
@@ -1624,7 +1624,7 @@
         "parameters": [
           {
             "in": "path",
-            "name": "transaction_id",
+            "name": "transactionId",
             "type": "string",
             "description": "The transaction id to be reversed for the gift card.",
             "required": "true"
