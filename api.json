@@ -3731,6 +3731,13 @@
             "schema": {
               "$ref": "#/definitions/StoreCreditCustomer"
             }
+          },
+          "404": {
+            "description": "The given customer not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         }
       }
@@ -3804,6 +3811,20 @@
             "schema": {
               "$ref": "#/definitions/StoreCreditTransaction"
             }
+          },
+          "404": {
+            "description": "The given customer was not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "422": {
+            "description": "There is insufficient balance for this customer to honour the transaction.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         }
       }
@@ -3855,21 +3876,28 @@
         ],
         "operationId": "StoreCreditSettings",
         "parameters": [
-            {
-                "in": "body",
-                "name": "setting",
-                "required": true,
-                "schema": {
-                    "$ref": "#/definitions/RetailerSettingParams"
-                },
-                "description": "The details of the setting to be changed"
-            }
+          {
+            "in": "body",
+            "name": "setting",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RetailerSettingParams"
+            },
+            "description": "The details of the setting to be changed"
+          }
         ],
         "responses": {
           "200": {
             "description": "Returns the store credit settings for the retailer.",
             "schema": {
               "$ref": "#/definitions/StoreCreditSetting"
+            }
+          },
+          "404": {
+            "description": "The given setting was not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
@@ -4635,11 +4663,11 @@
           "type": "integer"
         },
         "criteria": {
-            "description": "An array of criteria to use to filter the results",
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
+          "description": "An array of criteria to use to filter the results",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -7303,7 +7331,13 @@
             "RESET"
           ]
         }
-      }
+      },
+      "required": [
+        "user_id",
+        "expiry_period",
+        "expiry_period_type",
+        "status"
+      ]
     },
     "Sale": {
       "title": "Sale",
@@ -7659,7 +7693,12 @@
           "type": "string",
           "format": "uuid"
         }
-      }
+      },
+      "required": [
+        "store_credit_customer_id",
+        "amount",
+        "type"
+      ]
     },
     "Supplier": {
       "title": "Supplier",
