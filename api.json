@@ -1542,6 +1542,13 @@
               "properties": {}
             }
           },
+          "403": {
+            "description": "A 403 will be returned if the client id idempotency is violated.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
           "404": {
             "description": "The gift card was not found.",
             "schema": {
@@ -1610,6 +1617,13 @@
             "description": "The gift card transaction was successfully reversed",
             "schema": {
               "$ref": "#/definitions/GiftCard"
+            }
+          },
+          "404": {
+            "description": "A 404 is returned if the gift card transaction is not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
@@ -5395,7 +5409,8 @@
             "$ref": "#/definitions/GiftCardTransaction"
           }
         }
-      }
+      },
+      "description": "The gift cards fields."
     },
     "GiftCardActivationParams": {
       "type": "object",
@@ -5410,12 +5425,7 @@
           "type": "string",
           "description": "The number of the gift card."
         },
-        "sale_id": {
-          "type": "string",
-          "description": "The sale id of the sale",
-          "format": "uuid"
-        },
-        "user_Id": {
+        "user_id": {
           "type": "string",
           "description": "The user id of the user creating the gift card.",
           "format": "uuid"
@@ -5431,8 +5441,10 @@
       },
       "required": [
         "amount",
-        "number"
-      ]
+        "number",
+        "user_id"
+      ],
+      "description": "The parameters taken by the create gift card API."
     },
     "GiftCardTransactionParams": {
       "type": "object",
@@ -5472,8 +5484,11 @@
       },
       "required": [
         "amount",
-        "type"
-      ]
+        "type",
+        "user_id",
+        "client_id"
+      ],
+      "description": "The parameters that can be passed to the create giftcard API."
     },
     "GiftCardCollection": {
       "type": "object",
@@ -5489,7 +5504,8 @@
       },
       "required": [
         "data"
-      ]
+      ],
+      "description": "The fields returned by the gift card list API."
     },
     "GiftCardTransaction": {
       "title": "Image",
