@@ -3861,12 +3861,6 @@
       }
     },
     "/promotions/{promotion_id}": {
-      "parameters": {
-        "name": "promotion_id",
-        "in": "path",
-        "required": true,
-        "type": "string"
-      },
       "get": {
         "summary": "Get a promotion by ID",
         "description": "This will retrieve a single promotion using the given ID.",
