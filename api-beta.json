@@ -447,8 +447,7 @@
         },
         "client_id": {
           "type": "string",
-          "format": "uuid",
-          "description": "The client id is a unique transaction identifier, optionally provided by the client."
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system."
         },
         "expires_at": {
           "type": "string",
@@ -520,9 +519,8 @@
           "type": "string"
         },
         "client_id": {
-          "description": "The client id is a unique transaction identifier, optionally provided by the client.",
-          "type": "string",
-          "format": "uuid"
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.",
+          "type": "string"
         }
       }
     }
