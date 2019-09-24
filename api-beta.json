@@ -3,13 +3,13 @@
     "docs": {
       "showModels": false
     },
-    "id": "vend/specs/api-2-0"
+    "id": "vend/specs/api-2-0-beta"
   },
   "swagger": "2.0",
   "info": {
     "version": "2.0",
-    "title": "API 2.0",
-    "description": "Early release of version 2.0 of the Vend API.",
+    "title": "API 2.0 - BETA",
+    "description": "BETA endpoints for version 2.0 of the Vend API.",
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
