@@ -6271,8 +6271,8 @@
       "title": "Map of Promo Codes to booleans",
       "type": "object",
       "additionalProperties": {
-          "description": "A map of promo codes to booleans.",
-          "type": "boolean"
+        "description": "A map of promo codes to booleans.",
+        "type": "boolean"
       }
     },
     "PromotionDeletePromoCodesResponse": {
