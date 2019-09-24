@@ -207,7 +207,7 @@
     },
     "/gift_cards/{number}/transactions": {
       "post": {
-        "description": "Creates a new gift card transaction. The two most important fields for creating a new gift card transaction are the number of the gift card and the type of the transaction. The type determines what sort of transaction it is.\n \n* \"REDEEMING\" - Use this type when you want to redeem a certain amount from the gift card balance. The amount MUST be negative. If you want to add an amount to the balance use the \"RELOADING\" type.  \n* \"RELOADING\" - Use this type when you load a new amount onto a gift card. \n\nIf the gift card does not have enough credit to honour the transaction a 422 HTTP status code will be returned.",
+        "description": "Creates a new gift card transaction. The two most important fields for creating a new gift card transaction are the number of the gift card and the type of the transaction. The type determines what sort of transaction it is.\n \n* \"REDEEMING\" - Use this type when you want to redeem a certain amount from the gift card balance. The amount MUST be negative. If you want to add an amount to the balance use the \"RELOADING\" type.  \n* \"RELOADING\" - Use this type when you load a new amount onto a gift card. \n\nIf the gift card does not have enough credit to honour the transaction a 422 HTTP status code will be returned.\n\n## Idempotency\n\n Please populate the client_id field with a unique transaction identifier, to ensure that the transaction is safe from double-submit problems. See [the tutorial](/tutorials/guides/beta/gift_cards#idempotency) for more information.",
         "summary": "Create a gift card transaction",
         "tags": [
           "Gift Cards"
