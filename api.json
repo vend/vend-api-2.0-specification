@@ -6550,45 +6550,6 @@
         }
       }
     },
-    "RetailerSettingParams": {
-      "type": "object",
-      "title": "Retailer setting parameter",
-      "description": "A retailer setting parameter.",
-      "properties": {
-        "user_id": {
-          "description": "The user id of the user creating/updating the setting.",
-          "type": "string"
-        },
-        "expiry_period": {
-          "description": "The number of days/months/years until the setting expires.",
-          "type": "integer"
-        },
-        "expiry_period_type": {
-          "description": "The duration type of the expiry period.",
-          "type": "string",
-          "enum": [
-            "DAYS",
-            "MONTHS",
-            "YEARS"
-          ]
-        },
-        "status": {
-          "description": "The status of the setting.",
-          "type": "string",
-          "enum": [
-            "ACTIVE",
-            "INACTIVE",
-            "RESET"
-          ]
-        }
-      },
-      "required": [
-        "user_id",
-        "expiry_period",
-        "expiry_period_type",
-        "status"
-      ]
-    },
     "Sale": {
       "title": "Sale",
       "type": "object",
