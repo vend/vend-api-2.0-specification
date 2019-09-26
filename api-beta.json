@@ -428,12 +428,13 @@
     },
     "/store_credits/{customerId}/transactions": {
       "post": {
-        "description": "Post a store credit transaction.",
-        "summary": "Add a transaction to a customer's store credit",
+        "summary": "Create a store credit transaction",
+        "description": "Creates a new store credit transaction. The type determines what sort of transaction it is.\n \n* \"REDEMPTION\" - Use this type when you want to redeem a certain amount from the store credit balance. The amount MUST be negative. If you want to add an amount to the balance use the \"ISSUE\" type.  \n* \"ISSUE\" - Use this type when you issue store credit to a customer. \n\nIf the customer account does not have enough credit to honour a REDEMPTION transaction a 422 HTTP status code will be returned.\n\n## Idempotency\n\n Please populate the client_id field with a unique transaction identifier, to ensure that the transaction is safe from double-submit problems. See [the tutorial](/tutorials/guides/beta/store_credit#idempotency) for more information.",
+        "description": "Create a store credit transaction for a customer. \n\n",
         "tags": [
           "Store Credits"
         ],
-        "operationId": "ApplyStoreCreditTransaction",
+        "operationId": "CreateStoreCreditTransaction",
         "parameters": [
           {
             "name": "customerId",
@@ -441,7 +442,7 @@
             "type": "string",
             "format": "uuid",
             "required": true,
-            "description": "The customer id to apply the store transaction too"
+            "description": "The customer id to apply the store transaction to."
           },
           {
             "name": "StoreCreditTransactionParams",
@@ -498,24 +499,6 @@
     }
   },
   "definitions": {
-    "StoreCreditListParam": {
-      "title": "List Store Credit Criteria",
-      "description": "The API criteria to pass to the api endpoint",
-      "type": "object",
-      "properties": {
-        "page_size": {
-          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
-          "type": "integer"
-        },
-        "criteria": {
-          "description": "An array of criteria to use to filter the results.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "GiftCard": {
       "title": "Gift Card",
       "type": "object",
@@ -763,6 +746,24 @@
         }
       }
     },
+    "StoreCreditListParam": {
+      "title": "List Store Credit Criteria",
+      "description": "The API criteria to pass to the api endpoint",
+      "type": "object",
+      "properties": {
+        "page_size": {
+          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
+          "type": "integer"
+        },
+        "criteria": {
+          "description": "An array of criteria to use to filter the results.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "StoreCreditTransaction": {
       "title": "Store Credit Transaction for Customer",
       "type": "object",
@@ -777,12 +778,8 @@
           "description": "The type of the transaction",
           "type": "string",
           "enum": [
-            "HOLD",
-            "HOLD_REVERSE",
             "ISSUE",
-            "REDEMPTION",
-            "IMPORT",
-            "REVERSE"
+            "REDEMPTION"
           ]
         },
         "notes": {
@@ -828,12 +825,8 @@
           "description": "The type of the transaction",
           "type": "string",
           "enum": [
-            "HOLD",
-            "HOLD_REVERSE",
             "ISSUE",
-            "REDEMPTION",
-            "IMPORT",
-            "REVERSE"
+            "REDEMPTION"
           ]
         },
         "notes": {
