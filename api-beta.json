@@ -339,7 +339,7 @@
             "in": "body",
             "name": "criteria",
             "schema": {
-              "$ref": "#/definitions/ApiCriteria"
+              "$ref": "#/definitions/StoreCreditListParam"
             },
             "description": "The API criteria for the list",
             "required": true
@@ -495,93 +495,11 @@
           }
         }
       }
-    },
-    "/store_credits/retailer/reset": {
-      "delete": {
-        "description": "Resets a retailer setting for store credit.",
-        "summary": "Store credit setting reset",
-        "tags": [
-          "Store Credits"
-        ],
-        "operationId": "ResetStoreCreditSetting",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Resets the retail store credit settings.",
-            "schema": {
-              "$ref": "#/definitions/StoreCreditSetting"
-            }
-          }
-        }
-      }
-    },
-    "/store_credits/settings": {
-      "get": {
-        "description": "Returns the settings for store credits.",
-        "summary": "Store credit settings",
-        "tags": [
-          "Store Credits"
-        ],
-        "operationId": "StoreCreditSettings",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "setting",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/RetailerSettingParams"
-            },
-            "description": "The details of the setting to be changed"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the store credit settings for the retailer.",
-            "schema": {
-              "$ref": "#/definitions/StoreCreditSetting"
-            }
-          },
-          "404": {
-            "description": "The given setting was not found.",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          }
-        }
-      },
-      "put": {
-        "description": "Updates a setting for store credits.",
-        "summary": "Update store credit setting",
-        "tags": [
-          "Store Credits"
-        ],
-        "operationId": "UpdateStoreCreditSetting",
-        "parameters": [
-          {
-            "name": "RetailerSettingParams",
-            "in": "body",
-            "required": true,
-            "description": "Update store credit parameter",
-            "schema": {
-              "$ref": "#/definitions/RetailerSettingParams"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Returns the updated store credit setting.",
-            "schema": {
-              "$ref": "#/definitions/StoreCreditSetting"
-            }
-          }
-        }
-      }
     }
   },
   "definitions": {
-    "ApiCriteria": {
-      "title": "Api Criteria",
+    "StoreCreditListParam": {
+      "title": "List Store Credit Criteria",
       "description": "The API criteria to pass to the api endpoint",
       "type": "object",
       "properties": {
@@ -590,7 +508,7 @@
           "type": "integer"
         },
         "criteria": {
-          "description": "An array of criteria to use to filter the results",
+          "description": "An array of criteria to use to filter the results.",
           "type": "array",
           "items": {
             "type": "string"
@@ -794,45 +712,6 @@
         }
       }
     },
-    "RetailerSettingParams": {
-      "type": "object",
-      "title": "Retailer setting parameter",
-      "description": "A retailer setting parameter.",
-      "properties": {
-        "user_id": {
-          "description": "The user id of the user creating/updating the setting.",
-          "type": "string"
-        },
-        "expiry_period": {
-          "description": "The number of days/months/years until the setting expires.",
-          "type": "integer"
-        },
-        "expiry_period_type": {
-          "description": "The duration type of the expiry period.",
-          "type": "string",
-          "enum": [
-            "DAYS",
-            "MONTHS",
-            "YEARS"
-          ]
-        },
-        "status": {
-          "description": "The status of the setting.",
-          "type": "string",
-          "enum": [
-            "ACTIVE",
-            "INACTIVE",
-            "RESET"
-          ]
-        }
-      },
-      "required": [
-        "user_id",
-        "expiry_period",
-        "expiry_period_type",
-        "status"
-      ]
-    },
     "StoreCreditCustomer": {
       "title": "Store Credit Customer",
       "type": "object",
@@ -881,35 +760,6 @@
           "description": "The outstanding balance.",
           "type": "number",
           "format": "double"
-        }
-      }
-    },
-    "StoreCreditSetting": {
-      "title": "Store Credit Setting",
-      "type": "object",
-      "description": "A store credit setting.",
-      "properties": {
-        "retailer_id": {
-          "description": "The id of the retailer.",
-          "type": "string",
-          "format": "uuid"
-        },
-        "activation_date": {
-          "description": "The date the setting is valid from.",
-          "type": "string"
-        },
-        "status": {
-          "description": "The status of the setting.",
-          "type": "string",
-          "enum": [
-            "ACTIVE",
-            "INACTIVE",
-            "RESET"
-          ]
-        },
-        "updated_at": {
-          "description": "The date time the settings was updated.",
-          "type": "string"
         }
       }
     },
