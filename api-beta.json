@@ -787,23 +787,23 @@
           "type": "string"
         },
         "user_id": {
-          "description": "The user id of the person who handled the transaction.",
-          "type": "string",
-          "format": "uuid"
-        },
-        "sale_id": {
-          "description": "The sale id the transaction is associated with.",
+          "description": "The Vend user id of the person who handled the transaction.",
           "type": "string",
           "format": "uuid"
         },
         "client_id": {
-          "description": "The client id of the person the transaction is associated with.",
           "type": "string",
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n",
           "format": "uuid"
         },
         "created_at": {
           "description": "The date time the transaction was created and/or modified.",
           "type": "string"
+        },
+        "sale_id": {
+          "description": "The sale id the transaction is associated with. This should be null for transactions initiated outside of the Vend system. If it is a Vend sale id it will be in UUID format.",
+          "type": "string",
+          "format": "uuid"
         }
       }
     },
@@ -835,25 +835,20 @@
           "type": "string"
         },
         "user_id": {
-          "description": "The user id of the person who handled the transaction.",
-          "type": "string",
-          "format": "uuid"
-        },
-        "sale_id": {
-          "description": "The sale id the transaction is associated with.",
+          "description": "The Vend user id of the person who handled the transaction.",
           "type": "string",
           "format": "uuid"
         },
         "client_id": {
-          "description": "The client id of the person the transaction is associated with.",
           "type": "string",
-          "format": "uuid"
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
         }
       },
       "required": [
         "store_credit_customer_id",
         "amount",
-        "type"
+        "type",
+        "client_id"
       ]
     }
   },
