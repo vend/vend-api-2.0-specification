@@ -793,8 +793,7 @@
         },
         "client_id": {
           "type": "string",
-          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n",
-          "format": "uuid"
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
         },
         "created_at": {
           "description": "The date time the transaction was created and/or modified.",
