@@ -429,7 +429,7 @@
     "/store_credits/{customerId}/transactions": {
       "post": {
         "summary": "Create a store credit transaction",
-        "description": "Creates a new store credit transaction. The type determines what sort of transaction it is.\n \n* \"REDEMPTION\" - Use this type when you want to redeem a certain amount from the store credit balance. The amount MUST be negative. If you want to add an amount to the balance use the \"ISSUE\" type.  \n* \"ISSUE\" - Use this type when you issue store credit to a customer. \n\nIf the customer account does not have enough credit to honour a REDEMPTION transaction a 422 HTTP status code will be returned.\n\n## Idempotency\n\n Please populate the client_id field with a unique transaction identifier, to ensure that the transaction is safe from double-submit problems. See [the tutorial](/tutorials/guides/beta/store_credit#idempotency) for more information.",
+        "description": "Creates a new store credit transaction. The type determines what sort of transaction it is.\n \n* \"REDEMPTION\" - Use this type when you want to redeem a certain amount from the store credit balance. The amount MUST be negative. If you want to add an amount to the balance use the \"ISSUE\" type.  \n* \"ISSUE\" - Use this type when you issue store credit to a customer. \n* \"REVERSE\" - Use this type when voiding an earlier ISSUE or REDEMPTION transaction.\n\nIf the customer account does not have enough credit to honour a REDEMPTION transaction a 422 HTTP status code will be returned.\n\n## Idempotency\n\n Please populate the client_id field with a unique transaction identifier, to ensure that the transaction is safe from double-submit problems. See [the tutorial](/tutorials/guides/beta/store_credit#idempotency) for more information.",
         "tags": [
           "Store Credits"
         ],
@@ -778,7 +778,8 @@
           "type": "string",
           "enum": [
             "ISSUE",
-            "REDEMPTION"
+            "REDEMPTION",
+            "REVERSE"
           ]
         },
         "notes": {
@@ -825,7 +826,8 @@
           "type": "string",
           "enum": [
             "ISSUE",
-            "REDEMPTION"
+            "REDEMPTION",
+            "REVERSE"
           ]
         },
         "notes": {
