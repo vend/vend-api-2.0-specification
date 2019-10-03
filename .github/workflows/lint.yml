@@ -1,0 +1,11 @@
+name: Lint the specification file
+on: push
+jobs:
+  spec-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Spectral checks
+      uses: docker://stoplight/spectral:latest
+      # env:
+      
