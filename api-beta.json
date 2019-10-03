@@ -325,6 +325,176 @@
           }
         }
       }
+    },
+    "/store_credits": {
+      "get": {
+        "description": "Returns a list of store credit customers.",
+        "summary": "Store credit list",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ListStoreCredit",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "criteria",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditListParam"
+            },
+            "description": "The API criteria for the list",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of store credit customers.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditCustomer"
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/{customerId}": {
+      "get": {
+        "description": "Returns a list of store credits for the given customer id.",
+        "summary": "Store credit list for the given customer id",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "ListStoreCreditForCustomer",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "customerId",
+            "type": "string",
+            "format": "uuid",
+            "description": "Find by customer id.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The store credit details for the given customer.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditCustomer"
+            }
+          },
+          "404": {
+            "description": "The given customer not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/bulk": {
+      "post": {
+        "description": "Returns a list of store credit for multiple customers.",
+        "summary": "Store credit bulk list",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "BulkStoreCreditList",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "The list of customer ids to get related store credit for.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of customers with associated store credit balances.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StoreCreditCustomer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/{customerId}/transactions": {
+      "post": {
+        "summary": "Create a store credit transaction",
+        "description": "Creates a new store credit transaction. The type determines what sort of transaction it is.\n \n* \"REDEMPTION\" - Use this type when you want to redeem a certain amount from the store credit balance. The amount MUST be negative. If you want to add an amount to the balance use the \"ISSUE\" type.  \n* \"ISSUE\" - Use this type when you issue store credit to a customer. \n* \"REVERSE\" - Use this type when voiding an earlier ISSUE or REDEMPTION transaction.\n\nIf the customer account does not have enough credit to honour a REDEMPTION transaction a 422 HTTP status code will be returned.\n\n## Idempotency\n\n Please populate the client_id field with a unique transaction identifier, to ensure that the transaction is safe from double-submit problems. See [the tutorial](/tutorials/guides/beta/store_credit#idempotency) for more information.",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "CreateStoreCreditTransaction",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "type": "string",
+            "format": "uuid",
+            "required": true,
+            "description": "The customer id to apply the store transaction to."
+          },
+          {
+            "name": "StoreCreditTransactionParams",
+            "in": "body",
+            "required": true,
+            "description": "The store credit transaction details",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditTransactionParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transaction successfully added to customer's store credit.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditTransaction"
+            }
+          },
+          "404": {
+            "description": "The given customer was not found.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "422": {
+            "description": "There is insufficient balance for this customer to honour the transaction.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/store_credits/report": {
+      "get": {
+        "description": "Returns a report of store credits.",
+        "summary": "Store credit report",
+        "tags": [
+          "Store Credits"
+        ],
+        "operationId": "StoreCreditReport",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A report of all store credit associated with the retailer.",
+            "schema": {
+              "$ref": "#/definitions/StoreCreditReport"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -392,6 +562,7 @@
     "GiftCardActivationParams": {
       "type": "object",
       "title": "Gift Card Activation Parameters",
+      "description": "The parameters taken by the create gift card API.",
       "properties": {
         "amount": {
           "type": "number",
@@ -404,7 +575,7 @@
         },
         "user_id": {
           "type": "string",
-          "description": "The user id of the user creating the gift card.",
+          "description": "The Vend user id of the user creating the gift card.",
           "format": "uuid"
         },
         "expires_at": {
@@ -418,14 +589,13 @@
       },
       "required": [
         "amount",
-        "number",
-        "user_id"
-      ],
-      "description": "The parameters taken by the create gift card API."
+        "number"
+      ]
     },
     "GiftCardTransactionParams": {
       "type": "object",
       "title": "Gift Card Transaction Parameters",
+      "description": "The parameters that can be passed to the create giftcard API.",
       "properties": {
         "amount": {
           "type": "number",
@@ -442,7 +612,7 @@
         },
         "user_id": {
           "type": "string",
-          "description": "The user id of the user creating the gift card.",
+          "description": "The Vend user id of the user creating the gift card.",
           "format": "uuid"
         },
         "client_id": {
@@ -461,10 +631,8 @@
       "required": [
         "amount",
         "type",
-        "user_id",
         "client_id"
-      ],
-      "description": "The parameters that can be passed to the create giftcard API."
+      ]
     },
     "GiftCardCollection": {
       "type": "object",
@@ -484,7 +652,7 @@
       "description": "The fields returned by the gift card list API."
     },
     "GiftCardTransaction": {
-      "title": "Image",
+      "title": "GiftCardTransaction",
       "type": "object",
       "properties": {
         "id": {
@@ -510,7 +678,7 @@
           ]
         },
         "user_id": {
-          "description": "The User ID associated with the transaction.",
+          "description": "The Vend user id associated with the transaction.",
           "type": "string",
           "format": "uuid"
         },
@@ -522,7 +690,164 @@
           "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.",
           "type": "string"
         }
+      },
+      "description": "The gift card transaction details."
+    },
+    "StoreCreditCustomer": {
+      "title": "Store Credit Customer",
+      "type": "object",
+      "description": "The store credit information for a customer.",
+      "properties": {
+        "customer_id": {
+          "description": "The customer id.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "transactions": {
+          "type": "array",
+          "description": "The transactions associated with this customer.",
+          "items": {
+            "$ref": "#/definitions/StoreCreditTransaction"
+          }
+        },
+        "balance": {
+          "description": "The customers store credit balance.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_credit_issued": {
+          "description": "The total credit issued to this customer.",
+          "type": "number",
+          "format": "double"
+        }
       }
+    },
+    "StoreCreditReport": {
+      "title": "Store Credit Report",
+      "type": "object",
+      "description": "The store credit report for a retailer.",
+      "properties": {
+        "total_value_issued": {
+          "description": "The total credit issued.",
+          "type": "number",
+          "format": "double"
+        },
+        "total_value_redeemed": {
+          "description": "The total value redeemed.",
+          "type": "number",
+          "format": "double"
+        },
+        "outstanding_balance": {
+          "description": "The outstanding balance.",
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "StoreCreditListParam": {
+      "title": "List Store Credit Criteria",
+      "description": "The API criteria to pass to the api endpoint",
+      "type": "object",
+      "properties": {
+        "page_size": {
+          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
+          "type": "integer"
+        },
+        "criteria": {
+          "description": "An array of criteria to use to filter the results.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "StoreCreditTransaction": {
+      "title": "Store Credit Transaction for Customer",
+      "type": "object",
+      "description": "The store credit information for a customer transaction.",
+      "properties": {
+        "amount": {
+          "description": "The amount of the transaction.",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "The type of the transaction",
+          "type": "string",
+          "enum": [
+            "ISSUE",
+            "REDEMPTION",
+            "REVERSE"
+          ]
+        },
+        "notes": {
+          "description": "The notes associated with the transaction.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "The Vend user id of the person who handled the transaction.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "client_id": {
+          "type": "string",
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
+        },
+        "created_at": {
+          "description": "The date time the transaction was created and/or modified.",
+          "type": "string"
+        },
+        "sale_id": {
+          "description": "The sale id the transaction is associated with. This should be null for transactions initiated outside of the Vend system. If it is a Vend sale id it will be in UUID format.",
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "StoreCreditTransactionParams": {
+      "title": "Store Credit Transaction Parameters for Customer",
+      "type": "object",
+      "description": "The store credit transaction parameters for a customer transaction.",
+      "properties": {
+        "store_credit_customer_id": {
+          "description": "The store credit customer id",
+          "type": "string"
+        },
+        "amount": {
+          "description": "The amount of the transaction.",
+          "type": "number",
+          "format": "double"
+        },
+        "type": {
+          "description": "The type of the transaction",
+          "type": "string",
+          "enum": [
+            "ISSUE",
+            "REDEMPTION",
+            "REVERSE"
+          ]
+        },
+        "notes": {
+          "description": "The notes associated with the transaction.",
+          "type": "string"
+        },
+        "user_id": {
+          "description": "The Vend user id of the person who handled the transaction.",
+          "type": "string",
+          "format": "uuid"
+        },
+        "client_id": {
+          "type": "string",
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
+        }
+      },
+      "required": [
+        "store_credit_customer_id",
+        "amount",
+        "type",
+        "client_id"
+      ]
     }
   },
   "parameters": {
