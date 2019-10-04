@@ -571,6 +571,7 @@
     "GiftCardActivationParams": {
       "type": "object",
       "title": "Gift Card Activation Parameters",
+      "description": "The parameters taken by the create gift card API.",
       "properties": {
         "amount": {
           "type": "number",
@@ -583,7 +584,7 @@
         },
         "user_id": {
           "type": "string",
-          "description": "The user id of the user creating the gift card.",
+          "description": "The Vend user id of the user creating the gift card.",
           "format": "uuid"
         },
         "expires_at": {
@@ -597,14 +598,13 @@
       },
       "required": [
         "amount",
-        "number",
-        "user_id"
-      ],
-      "description": "The parameters taken by the create gift card API."
+        "number"
+      ]
     },
     "GiftCardTransactionParams": {
       "type": "object",
       "title": "Gift Card Transaction Parameters",
+      "description": "The parameters that can be passed to the create giftcard API.",
       "properties": {
         "amount": {
           "type": "number",
@@ -621,7 +621,7 @@
         },
         "user_id": {
           "type": "string",
-          "description": "The user id of the user creating the gift card.",
+          "description": "The Vend user id of the user creating the gift card.",
           "format": "uuid"
         },
         "client_id": {
@@ -640,10 +640,8 @@
       "required": [
         "amount",
         "type",
-        "user_id",
         "client_id"
-      ],
-      "description": "The parameters that can be passed to the create giftcard API."
+      ]
     },
     "GiftCardCollection": {
       "type": "object",
@@ -663,7 +661,7 @@
       "description": "The fields returned by the gift card list API."
     },
     "GiftCardTransaction": {
-      "title": "Image",
+      "title": "GiftCardTransaction",
       "type": "object",
       "properties": {
         "id": {
@@ -689,7 +687,7 @@
           ]
         },
         "user_id": {
-          "description": "The User ID associated with the transaction.",
+          "description": "The Vend user id associated with the transaction.",
           "type": "string",
           "format": "uuid"
         },
@@ -701,7 +699,8 @@
           "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.",
           "type": "string"
         }
-      }
+      },
+      "description": "The gift card transaction details."
     },
     "StoreCreditCustomer": {
       "title": "Store Credit Customer",
@@ -778,23 +777,22 @@
           "type": "string"
         },
         "user_id": {
-          "description": "The user id of the person who handled the transaction.",
-          "type": "string",
-          "format": "uuid"
-        },
-        "sale_id": {
-          "description": "The sale id the transaction is associated with.",
+          "description": "The Vend user id of the person who handled the transaction.",
           "type": "string",
           "format": "uuid"
         },
         "client_id": {
-          "description": "The client id of the person the transaction is associated with.",
           "type": "string",
-          "format": "uuid"
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
         },
         "created_at": {
           "description": "The date time the transaction was created and/or modified.",
           "type": "string"
+        },
+        "sale_id": {
+          "description": "The sale id the transaction is associated with. This should be null for transactions initiated outside of the Vend system. If it is a Vend sale id it will be in UUID format.",
+          "type": "string",
+          "format": "uuid"
         }
       }
     },
@@ -826,25 +824,20 @@
           "type": "string"
         },
         "user_id": {
-          "description": "The user id of the person who handled the transaction.",
-          "type": "string",
-          "format": "uuid"
-        },
-        "sale_id": {
-          "description": "The sale id the transaction is associated with.",
+          "description": "The Vend user id of the person who handled the transaction.",
           "type": "string",
           "format": "uuid"
         },
         "client_id": {
-          "description": "The client id of the person the transaction is associated with.",
           "type": "string",
-          "format": "uuid"
+          "description": "The client id is a unique transaction identifier. The client must provide this and is normally the transaction id from the client system.\n"
         }
       },
       "required": [
         "store_credit_customer_id",
         "amount",
-        "type"
+        "type",
+        "client_id"
       ]
     }
   },
