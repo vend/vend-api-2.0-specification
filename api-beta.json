@@ -336,13 +336,16 @@
         "operationId": "ListStoreCredit",
         "parameters": [
           {
-            "in": "body",
-            "name": "criteria",
-            "schema": {
-              "$ref": "#/definitions/StoreCreditListParam"
-            },
-            "description": "The API criteria for the list",
-            "required": true
+            "name": "page_size",
+            "in": "query",
+            "type": "integer",
+            "description": "The maximum number of items to be returned in the response."
+          },
+          {
+            "name": "includes[]",
+            "in": "query",
+            "type": "string",
+            "description": "Include supplementary data. The only valid value for includes[] is 'customer'."
           }
         ],
         "responses": {
@@ -371,6 +374,12 @@
             "format": "uuid",
             "description": "Find by customer id.",
             "required": true
+          },
+          {
+            "name": "includes[]",
+            "in": "query",
+            "type": "string",
+            "description": "Include supplementary data. The only valid value for includes[] is 'customer'."
           }
         ],
         "responses": {
@@ -741,24 +750,6 @@
           "description": "The outstanding balance.",
           "type": "number",
           "format": "double"
-        }
-      }
-    },
-    "StoreCreditListParam": {
-      "title": "List Store Credit Criteria",
-      "description": "The API criteria to pass to the api endpoint",
-      "type": "object",
-      "properties": {
-        "page_size": {
-          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
-          "type": "integer"
-        },
-        "criteria": {
-          "description": "An array of criteria to use to filter the results.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       }
     },
