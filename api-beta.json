@@ -750,7 +750,7 @@
       "type": "object",
       "properties": {
         "page_size": {
-          "description": "The maximum number of items to be returned in the response. NOTE: 200 is the maximum value of the page_size parameter.",
+          "description": "The maximum number of items to be returned in the response. NOTE: The default page size is 1000.",
           "type": "integer"
         },
         "criteria": {
