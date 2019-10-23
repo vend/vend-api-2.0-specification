@@ -6939,6 +6939,13 @@
         "display_name": {
           "description": "The name of the tax rate used for display.",
           "type": "string"
+        },
+        "rules": {
+          "type": "array",
+          "description": "Rules that apply to the rate for tax exclusive outlets.",
+          "items": {
+            "$ref": "#/definitions/RateRule"
+          }
         }
       },
       "required": [
@@ -7169,6 +7176,38 @@
         "value"
       ],
       "description": "An adjustment contains a modification to the sale price. For example, it can be a service fee (fee when the customer pays by credit card) or a discount.\nThe types defined here are the one used so far, but we reserve the right to add others."
+    },
+    "RateRule": {
+      "title": "Rate Rule",
+      "type": "object",
+      "description": "Rule that applies to a rate.\nE.g.: Tax rate that applies for clothing and footwear costing $90 or more.",
+      "properties": {
+        "tax_code": {
+          "type": "string",
+          "description": "Label assigned to a product which indicates the tax obligation.",
+          "enum": [
+            "vend_clothing_footwear"
+          ],
+          "example": "vend_clothing_footwear"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of rule to apply.",
+          "enum": [
+            "threshold"
+          ],
+          "example": "threshold"
+        },
+        "value": {
+          "type": "number",
+          "description": "An optional value that can be used for the rule.",
+          "example": 90
+        }
+      },
+      "required": [
+        "tax_code",
+        "type"
+      ]
     }
   },
   "parameters": {
