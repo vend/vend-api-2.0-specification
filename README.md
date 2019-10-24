@@ -1,4 +1,4 @@
-# DEPRECATED
+# DEPRECATED - see docs.vendhq.com
 
 If you are trying to find Vend's API docs, please use docs.vendhq.com from now on 
 
