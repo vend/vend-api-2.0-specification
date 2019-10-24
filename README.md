@@ -1,9 +1,5 @@
-# vend-api-2.0-specification
+# DEPRECATED
 
-OAS (Swagger) specification for the Vend REST API 2.0
+If you are trying to find Vend's API docs, please use docs.vendhq.com from now on 
 
-The `api.json` file in this repo is used to power the 2.0 section of our reference docs here:
-https://docs.vendhq.com/v0.9/reference
-
-The docs can also be viewed separately here:  
-https://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/vend/vend-api-2.0-specification/master/api.json
+[V2.0 Specification here](https://docs.vendhq.com/reference/2/spec)
